@@ -1,0 +1,44 @@
+<template name="admin">
+  <form class="adminform">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" name="title" placeholder="Project Title">
+    </div>
+    <div class="form-group">
+      <label for="desc">Description</label>
+      <input type="text" class="form-control" id="desc" name="desc" placeholder="Project Description">
+    </div>
+    {{#each categories}}
+      <label class="radio-inline cat-admin-label"><input type="radio" class="cat-admin" name="optcat">{{name}}</label>
+       
+    {{/each}}
+
+    
+    <div class="form-group">
+      <label for="sel1">Select list:</label>
+      <select class="form-control" id="sel1" name="optsubcat">
+      {{#each categories}}
+        {{#each sub}}
+          <option>{{this}}</option>
+        {{/each}}
+      {{/each}}
+      }
+      }
+      </select>
+    </div>
+
+    <div class="checkbox">
+    <label>
+      <input type="checkbox"> Add to home carousel
+    </label>
+    </div>
+    <div>
+      Add Photos
+      <span class="btn btn-default btn-file">
+        <input multiple class="file fileInput" name="photoupload" type="file"/>
+      </span>
+    </div>
+    
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</template>

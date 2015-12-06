@@ -265,3 +265,7 @@ ul{
 .parentCat{
   cursor:pointer;
 }
+
+/*.cat-admin:checked .cat-admin-label{
+	color:white;
+}*/
