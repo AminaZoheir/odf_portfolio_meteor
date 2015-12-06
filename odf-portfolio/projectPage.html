@@ -1,10 +1,42 @@
 <template name="projectPage">
-<!-- {{#each projects}} -->
-  <div class="projComp">
-    <img src="" class="projImage"/>
-    <div class="projInfo">
-      <span>{{name}}</span>
-    </div>
-  </div>
-  <!-- {{/each}} -->
+	<div id="projectpage" class="container-fluid">
+		<div class="row ">
+			<div class="col-md-12">
+				<div class="col-md-2 proj-desc">
+					<h1>
+						<span class="category-proj">{{category}}</span>
+						<span class="sub-proj">{{subcategory}}</span>
+					</h1>
+					<h3 class="name-proj">{{title}}</h3>
+					<div class="carousel-icons">
+						<!-- <span ng-repeat="image in project.images">
+							<img ng-src="{{image.image}}" class="project-icon" ng-click="setActive(image)">
+						</span> -->
+					{{#each photos}}
+				    	<span>
+				    		<img src="{{url}}" class="project-icon" />
+				    	</span>
+				    {{/each}}
+					</div>
+					<p>
+						{{desc}}
+					</p>
+				</div>
+				<div class="col-md-10">
+					{{#each photos}}
+				    	<img src="{{url}}" class="project-page-image"/>
+				    {{/each}}
+<!-- 					<div ng-controller="ProjectCarouselCtrl" id="project-carousel" class="fill-parent">
+					  <div>
+					    <uib-carousel interval="myInterval" class="fill-parent">
+					      <uib-slide ng-repeat="slide in slides" active="slide.active" class="fill-parent">
+					        <img ng-src="{{slide.image}}" class="fill-parent"\>
+					      </uib-slide>
+					    </uib-carousel>
+					  </div>
+					</div> -->
+				</div>
+			</div>
+		</div>
+	</div>
 </template>

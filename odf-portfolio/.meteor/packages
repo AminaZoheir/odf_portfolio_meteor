@@ -12,3 +12,4 @@ iron:router
 cfs:standard-packages
 cfs:filesystem
 jquery
+chipcastle:countries

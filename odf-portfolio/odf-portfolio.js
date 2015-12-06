@@ -35,7 +35,7 @@ if (Meteor.isClient) {
         return Projects.find({category:Session.get("currCat")});
       }
       return Projects.find({});
-    }
+    },
 
   });
 
@@ -71,49 +71,67 @@ if (Meteor.isClient) {
 
   Template.admin.helpers({
     photos: function(){
-      
-      return Session.get("files");
+      return Images.find({project: Session.get("currProj")});
     }
   });
   Template.admin.events({
-    'change .fileInput': function(event, template){
-      Session.set("files", event.target.files);
-    },
-    'submit .adminform':function(event){
+    'submit .adminform':function(event, template){
       event.preventDefault();
-
       var title = event.target.title.value;
       var desc = event.target.desc.value;
-      var cat = event.target.optcat.value;
-      var subcat = event.target.optsubcat.value;
+      var cat = template.find('input:radio[name=optcat]:checked').value;
+      var subcat = template.find('[name=optsubcat]').value;
+      var ishome = template.find('[name=ishome]').checked;
+      var country = template.find('[name=optcountry]').value;
+      var files =  event.target.photoupload.files;
 
-      console.log(title);
-      console.log(desc);
-      // console.log(optcat);
-      // console.log(optsubcat);
-      console.log(Session.get("files"));
+      var project = Projects.insert({
+        title: title,
+        desc: desc,
+        category: cat,
+        subcategory: subcat,
+        ishome: ishome,
+        country: country,
+        createdAt: new Date() // current time
+      });
 
-      // Insert a task into the collection
-
-      // var task = Tasks.insert({
-
-      //   text: text,
-
-      //   createdAt: new Date() // current time
-
-      // });
-
-      // for (var i = 0, ln = files.length; i < ln; i++) {
-      //   var fileObj = Uploads.insert(files[i], function (err, fileObj) {
-      //     // Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
-      //   });
-      //   Uploads.update(fileObj._id,{
-      //     $set: {task: task}
-      //   });
-      // }
+    Session.set("currProj", project);
+    for (var i = 0, ln = files.length; i < ln; i++) {
+        var fileObj = Images.insert(files[i], function (err, fileObj) {
+        });
+        Images.update(fileObj._id,{
+          $set: {project: project}
+        });
+      }
+      
       event.target.title.value = "";
     }
   });
+
+  Template.project.helpers({
+    photo: function(){
+      return Images.findOne({project: this._id}).url();
+    }
+  });
+
+  Template.projectPage.helpers({
+    photos: function(){
+      return Images.find({project: this._id});
+    }
+  });
+
+  Template.home.helpers({
+    projects: function(){
+      return Projects.find({ishome: true});
+    }
+  });
+
+  Template.homeproject.helpers({
+    photo: function(){
+      return Images.findOne({project: this._id}).url();
+    }
+  });
+  
 }
 
 
