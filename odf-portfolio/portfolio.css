@@ -265,3 +265,13 @@ ul{
 .parentCat{
   cursor:pointer;
 }
+
+
+/*salah*/
+.subCat {
+  transition: all 200ms 0ms ease-in;
+  opacity: 0;
+}
+.animating {
+  opacity: 1;
+}

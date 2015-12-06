@@ -11,7 +11,6 @@ Router.route('/portfolio/:_id', {
     template: 'projectPage',
     data: function(){
       var currProj = this.params._id;
-      console.log(currProj);
       return Projects.findOne({_id: currProj});
     }
 });
@@ -29,14 +28,28 @@ if (Meteor.isClient) {
         return Projects.find({category:Session.get("currCat")});
       }
       return Projects.find({});
-    },
-    categories: [
+    }
+
+  });
+
+  Template.registerHelper('isCurrCat', function(category){
+    return Session.get("currCat") == category;
+  });
+
+  Template.registerHelper('categories', function(){
+    return  [
                 {name:"Architecture",sub:["Complexes","Hotels","Residential Buildings","Residential Compounds","Admin","Retail"]},
                 {name:"Urban",sub:[]},
                 {name:"Interior", sub:["Residential Private"]}
-              ]
-
+              ];
   });
+
+  Template.subCategory.rendered = function(){
+    var instance = this;
+    Meteor.defer(function() {
+      $(instance.firstNode).addClass("animating"); //use "instance" instead of "this"
+    });
+  };
 
   Template.portfolio.events({
     "click .parentCat": function(event){
