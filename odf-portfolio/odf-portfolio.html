@@ -1,33 +1,4 @@
-<head>
-
-  <title>Todo List</title>
-
-</head>
-
- 
-
-<body>
-
-  <div class="container">
-
-    <header>
-
-      <h1>Todo List</h1>
-
-    </header>
-
- 
-
-    <ul>
-
-      {{#each projects}}
-
-        {{> project}}
-
-      {{/each}}
-
-    </ul>
-
-  </div>
-
-</body>
+<template name="main-layout">
+    {{> navBar}}
+    {{> yield}}
+</template>

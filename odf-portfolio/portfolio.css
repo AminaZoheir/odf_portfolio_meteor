@@ -1,0 +1,267 @@
+.nav, .pagination, .carousel, .panel-title a {
+ 	cursor: pointer;
+ }
+
+body{
+	background-color: rgb(10, 10, 10);
+}
+
+.logo{
+	width: 80px;
+}
+
+.navbar{
+	background-color: rgba(0, 0, 0, 0);
+	border: none;
+	color: rgb(255, 255, 255);
+	margin-bottom: 0px;
+	font-weight: bold;
+	z-index: 5;
+	border-radius: 0px;
+	/*border-bottom: 0.5px solid rgba(245, 245, 245, 0.5);*/
+}
+
+.navbar-nav{
+	padding: 10px;
+}
+
+.navbar-nav > li{
+	border-left: 0.5px solid rgba(245,245,245, 0.5);
+}
+
+.navbar-default .navbar-nav > li > a{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: rgb(250, 250, 250);
+    text-shadow: 0 0 3px black;
+}
+
+.navbar-default .navbar-nav > li > a:hover{
+    color: rgb(200, 200, 200);
+}
+
+.navbar-default .navbar-nav > li > a:focus{
+    color: rgb(200, 200, 200);
+}
+
+ .fill-parent > .carousel-inner{
+	width: 100%;
+	height: 100%;
+}
+
+#home-carousel{
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.carousel-caption{
+	height: 65%;
+
+}
+
+.carousel-caption > h4{
+	font-size: 70px;
+	color: rgb(250, 250, 250);
+	text-shadow: 0 0 4px black;
+	margin-bottom: 3%;
+}
+
+.carousel-control{
+	z-index: 3;
+}
+
+.fill-parent > .carousel-inner > .item > img{
+	height: 100%;
+	width: 100%;
+}
+
+.fill-parent {
+	height: 100%;
+	width: 100%;
+}
+
+.project-button{
+	padding: 2%;
+	background-color: transparent;
+	border-radius: 5px;
+	border-style: solid;
+	border-width: 2px;
+	padding-left: 5%;
+	padding-right: 5%;
+	font-size: 17px;
+	color: rgb(250, 250, 250);
+	text-shadow: 0 0 4px black;
+	font-weight: bold;
+	box-shadow: 0px 0px 5px black;
+}
+
+.project-button:hover{
+	color: rgb(200, 200, 200);
+	text-decoration: none;
+}
+
+.project-button:focus{
+	color: rgb(200, 200, 200);
+	text-decoration: none;
+}
+
+.proj-desc > h1{
+	font-size: 18px;
+	color: rgb(250, 250, 250);
+	text-shadow: 0 0 3px black;
+	font-weight: bold;
+}
+
+.proj-desc{
+	margin-top: 2%;
+}
+
+.name-proj{
+	font-size: 18px;
+	color: rgb(250, 250, 250);
+	text-shadow: 0 0 3px black;
+}
+
+
+#project-carousel{
+	margin-top: 2%;
+}
+
+.project-icon{
+	width: 50px;
+	height: 50px;
+}
+
+.project-icon:hover{
+	cursor: pointer;
+}
+
+.carousel-icons{
+	padding-top: 1%;
+}
+
+#projectpage{
+	margin-top: 5%;
+}
+
+#project-carousel{
+
+}
+
+.category-proj{
+    color: rgb(255, 218, 0);
+    padding-right: 2%;
+}
+
+
+#home-title > span{
+	font-size: 20px;
+}
+
+
+/*salah*/
+
+.animate-repeat.ng-animate{
+  -webkit-transition:all linear 0.25s;
+  transition:all linear 0.25s;
+}
+
+.animate-repeat.ng-leave.ng-leave-active,
+.animate-repeat.ng-enter {
+  opacity:0;
+  max-height:0;
+}
+
+.animate-repeat.ng-leave,
+.animate-repeat.ng-enter.ng-enter-active {
+  opacity:1;
+  max-height:40px;
+}
+
+.projImage{
+  max-height: 120px;
+  opacity: 1;
+  color:white;
+  /*salah*/
+  width:100px;
+  height:100px;
+}
+
+.proj-animate.ng-animate {
+  -webkit-transition:all linear 0.25s;
+  transition:all linear 0.25s;
+}
+
+.proj-animate.ng-enter.ng-enter-active, .proj-animate.ng-leave {
+  opacity:1;
+}
+
+.proj-animate.ng-leave.ng-leave-active, .proj-animate.ng-enter{
+  opacity:0;
+}
+
+.proj-animate{
+  margin-top: 2%;
+}
+
+.projComp{
+  display: inline-block;
+  background: white;
+  position: relative;
+}
+
+.projInfo{
+  position: absolute;
+  bottom:0%;
+  left:0%;
+  height: 20%;
+  width:100%;
+  color:white;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  font-weight: bold;
+}
+
+.projImage:hover{
+  /*height: 30%;*/
+  /*-webkit-transition:all linear 0.25s;
+  transition:all linear 0.25s;*/
+}
+
+.port-cat{
+	margin-top:35%;
+	font-weight: bold;
+	font-size: 15px;
+	color: rgb(250,250,250);
+}
+
+.port-grid{
+	border-left: 1px solid #FAFAFA;
+	margin-top: 3%;
+}
+
+ul{
+
+	list-style-type: none;
+}
+
+.yellow-hover:hover{
+	color: rgb(255, 218, 0);
+}
+
+.sub-proj{
+	padding-left: 1%;
+	border-left: 2px solid #FAFAFA;
+}
+
+.selected{
+  color: rgb(255, 218, 0);
+}
+
+.yellow-hover,
+.parentCat{
+  cursor:pointer;
+}

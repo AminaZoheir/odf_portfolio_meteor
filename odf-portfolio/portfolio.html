@@ -1,0 +1,22 @@
+<template name="portfolio">
+  <div class="container-fluid">
+  	<div class="row">
+  		<div class="col-md-12">
+  			<div class="col-md-2">
+  				<ul class="nav-stacked port-cat">
+            {{#each categories}}
+    					{{> category}}
+            {{/each}}
+  				</ul>
+  			</div>
+  			<div class="col-md-10 port-grid">
+  				<div class="col-md-3 proj-animate">
+  					{{#each projects}}
+              {{> project}}
+            {{/each}}
+  			  </div>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+</template>

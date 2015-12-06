@@ -1,0 +1,12 @@
+  <template name="category">
+    <li role="presentation">
+      <span class="parentCat yellow-hover">{{name}}</span>
+      <ul class="nav-stacked">
+        {{#each sub}}
+          <li class="animate-repeat" data-value="{{index}}">
+            <span class="childCat yellow-hover" href="">{{this}}</span>
+          </li>
+        {{/each}}
+      </ul>
+    </li>
+  </template>
