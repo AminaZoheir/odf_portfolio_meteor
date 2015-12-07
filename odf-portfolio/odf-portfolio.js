@@ -121,6 +121,12 @@ if (Meteor.isClient) {
   });
 
   Template.home.helpers({
+    title: function(){
+      return Projects.findOne({ishome: true}).title;
+    },
+    photo: function(){
+      return Images.findOne({project: Projects.findOne({ishome: true})._id}).url();
+    },
     projects: function(){
       return Projects.find({ishome: true});
     }

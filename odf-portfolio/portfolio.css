@@ -281,3 +281,17 @@ ul{
 .project-page-image{
 	width:100%;
 }
+
+.home-caption{
+	color: #FAFAFA;
+	position: absolute;
+	left: 0;
+	top: 20%;
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 20%;
+	height: 15%;
+	padding-bottom: 20px;
+	font-weight: bold;
+	font-size: 35px;
+	border-radius: 3px;
+}

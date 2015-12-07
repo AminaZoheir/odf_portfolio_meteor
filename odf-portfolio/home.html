@@ -10,8 +10,11 @@
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner fill-parent" role="listbox">
-    <div class="item active">
-      <!-- {{> homeproject}} -->
+    <div class="item active fill-parent">
+      <img src="{{photo}}" class="fill-parent" alt="...">
+      <div class="carousel-caption home-caption">
+        {{title}}
+      </div>
     </div>
     {{#each projects}}
     	<div class="item fill-parent">
