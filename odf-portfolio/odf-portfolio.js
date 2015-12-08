@@ -4,6 +4,12 @@ Images = new FS.Collection("images", {
   stores: [new FS.Store.FileSystem("images", {path: "~/uploads"})]
 });
 
+categories = [
+            {name:"Architecture",sub:["Complexes","Hotels","Residential Buildings","Residential Compounds","Admin","Retail"]},
+            {name:"Urban",sub:[]},
+            {name:"Interior", sub:["Residential Private"]}
+          ];
+
 Router.route('/',{
   template: 'home'
 });
@@ -44,13 +50,39 @@ if (Meteor.isClient) {
   });
 
   Template.registerHelper('categories', function(){
-    return  [
-                {name:"Architecture",sub:["Complexes","Hotels","Residential Buildings","Residential Compounds","Admin","Retail"]},
-                {name:"Urban",sub:[]},
-                {name:"Interior", sub:["Residential Private"]}
-              ];
+    return categories;
   });
 
+  // var hooks = {
+  //   insertElement: function(node, next) {
+  //     console.log(node);
+  //     $(node)
+  //       .addClass('animating')
+  //       .insertBefore(next);
+  //     Deps.afterFlush(function() {
+  //       // call width to force the browser to draw it
+  //       // $(node).width();
+  //       // $(node).removeClass('animating');
+  //     });
+  //   },
+  //     // we could do better I guess?
+  //   moveElement: function(node, next) {
+  //     hooks.removeElement(node);
+  //     hooks.insertElement(node, next);
+  //     console.log(node);
+  //   },
+  //   removeElement: function(node) {
+  //       $(node).remove();
+  //   }
+  // }
+
+
+  Template.project.rendered = function(){
+    var instance = this;
+    Meteor.defer(function(){
+      $(instance.firstNode).addClass("animating");
+    });
+  };
 
   Template.subCategory.rendered = function(){
     var instance = this;
@@ -63,15 +95,26 @@ if (Meteor.isClient) {
     "click .parentCat": function(event){
       Session.set("currCat",event.target.innerHTML);
       Session.set("currSubCat",null);
+      $('.parentCat').removeClass('selected');
+      $('.childCat').removeClass('selected');
+      $(event.target).addClass('selected');
     },
     "click .childCat": function(event){
       Session.set("currSubCat",event.target.innerHTML);
+      $('.childCat').removeClass('selected');
+      $(event.target).addClass('selected');
     }
   });
 
   Template.admin.helpers({
     photos: function(){
       return Images.find({project: Session.get("currProj")});
+    },
+    subCats: function(){
+      if(Session.get('currCat')){
+       return getSubCategoryList(Session.get('currCat'));
+      }
+      return getSubCategoryList('Interior');
     }
   });
   Template.admin.events({
@@ -103,8 +146,11 @@ if (Meteor.isClient) {
           $set: {project: project}
         });
       }
-      
+
       event.target.title.value = "";
+    },
+    'change .cat-admin': function(event){
+      Session.set('currCat', event.target.value);
     }
   });
 
@@ -137,9 +183,15 @@ if (Meteor.isClient) {
       return Images.findOne({project: this._id}).url();
     }
   });
-  
+
 }
 
+function getSubCategoryList(category){
+  for(var i = 0;i<categories.length;i++){
+    if(categories[i].name == category)
+      return categories[i].sub;
+  }
+}
 
 
 if (Meteor.isServer) {

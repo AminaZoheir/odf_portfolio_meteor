@@ -270,7 +270,7 @@ ul{
 }
 
 /*salah*/
-.subCat {
+.pre-animation {
   transition: all 200ms 0ms ease-in;
   opacity: 0;
 }
