@@ -24,7 +24,14 @@
 				</div>
 				<div class="col-md-10">
 					{{#each photos}}
-				    	<img src="{{url}}" class="project-page-image"/>
+				    	{{#if isImage}}
+				    		<img src="{{url}}" class="project-page-image"/>
+						{{/if}}
+				    	{{#if isVideo}}
+				    		<video autoplay>
+				    			<source src="{{url}}" type="video/mp4" class="project-page-image">
+				    		</video>
+						{{/if}}
 				    {{/each}}
 <!-- 					<div ng-controller="ProjectCarouselCtrl" id="project-carousel" class="fill-parent">
 					  <div>
