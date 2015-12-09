@@ -295,3 +295,8 @@ ul{
 	font-size: 35px;
 	border-radius: 3px;
 }
+
+#map{
+  height:300px;
+  width:300px;
+}
