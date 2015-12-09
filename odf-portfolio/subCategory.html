@@ -2,7 +2,7 @@
   <ul class="pre-animation nav-stacked">
     {{#each sub}}
       <li class="animate-repeat" data-value="{{index}}">
-        <span class="childCat yellow-hover" href="">{{this}}</span>
+        <span class="childCat yellow-hover {{#if isSubCat this}} selected {{/if}}" href="">{{this}}</span>
       </li>
     {{/each}}
   </ul>

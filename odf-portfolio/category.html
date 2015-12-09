@@ -1,6 +1,6 @@
   <template name="category">
     <li role="presentation">
-      <span class="parentCat yellow-hover">{{name}}</span>
+      <span class="parentCat yellow-hover {{#if isCurrCat name}} selected {{/if}}">{{name}}</span>
       {{#if isCurrCat name}}
         {{> subCategory}}
       {{/if}}
