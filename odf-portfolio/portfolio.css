@@ -317,3 +317,8 @@ ul{
         font-size: 20px;
     }
 }
+
+#map{
+  height:300px;
+  width:300px;
+}
