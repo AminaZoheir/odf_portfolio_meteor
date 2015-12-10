@@ -1,5 +1,5 @@
 if (Meteor.isClient) {
-  
+
   Template.portfolio.helpers({
     projects: function(){
       if(Session.get("currCat")){
@@ -8,8 +8,7 @@ if (Meteor.isClient) {
         return Projects.find({category:Session.get("currCat")});
       }
       return Projects.find({});
-    },
-
+    }
   });
 
   Template.portfolio.events({

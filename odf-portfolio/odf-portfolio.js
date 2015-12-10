@@ -4,6 +4,8 @@ Images = new FS.Collection("images", {
   stores: [new FS.Store.FileSystem("images", {path: "~/uploads"})]
 });
 
+News = new Mongo.Collection("news");
+
 categories = [
             {name:"Architecture",sub:["Complexes","Hotels","Residential Buildings","Residential Compounds","Admin","Retail"]},
             {name:"Urban",sub:[]},

@@ -16,3 +16,4 @@ Router.route('/contact');
 Router.route('/about');
 Router.route('/news');
 Router.route('/admin');
+Router.route('/adminNews');

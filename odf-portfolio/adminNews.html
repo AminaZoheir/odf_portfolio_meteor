@@ -1,0 +1,69 @@
+<template name="adminNews">
+  <form class="adminform">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" name="title" placeholder="Project Title">
+    </div>
+    <div class="form-group">
+      <label for="desc">Description</label>
+      <input type="text" class="form-control" id="desc" name="desc" placeholder="Project Description">
+    </div>
+    <div class="form-group">
+      <label for="status">Description</label>
+      <input type="text" class="form-control" id="status" name="status" placeholder="Status">
+    </div>
+    {{#each categories}}
+      <label class="radio-inline cat-admin-label"><input checked="true" type="radio" class="cat-admin" name="optcat" value="{{name}}">{{name}}</label>
+
+    {{/each}}
+
+
+    <div class="form-group">
+      <label for="sel1">Select Sub Category:</label>
+      <select class="form-control" id="sel1" name="optsubcat">
+        {{#each subCats}}
+          <option>{{this}}</option>
+        {{/ each}}
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="sel3">Select Project:</label>
+      <select class="form-control" id="sel3" name="optproj">
+        {{#each projects}}
+          <option projId="{{_id}}">{{name}}</option>
+        {{/ each}}
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="sel2">Select Country:</label>
+      <select class="form-control" id="sel2" name="optcountry">
+      {{#each countries}}
+        <option value="{{name}}">{{name}}</option>
+      {{/each}}
+      </select>
+    </div>
+
+    <div class="checkbox">
+    <label>
+      <input type="checkbox" name="ishome"> Add to home carousel
+    </label>
+    </div>
+    <div>
+      Add Photos
+      <span class="btn btn-default btn-file">
+        <input multiple class="file fileInput" name="photoupload" type="file"/>
+      </span>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+    <div>
+      {{#each photos}}
+                    <a target="_blank" class="thumbnail main-photo" name="main-photo" value="{{_id}}">
+                      <img src="{{url}}" />
+                    </a>
+
+              {{/each}}
+    </div>
+  </form>
+</template>
