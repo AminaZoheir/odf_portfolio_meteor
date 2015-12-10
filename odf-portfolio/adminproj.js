@@ -1,5 +1,5 @@
 if(Meteor.isClient){
-  Template.admin.helpers({
+  Template.adminproj.helpers({
     photos: function(){
       return Images.find({project: Session.get("currProj")});
     },
@@ -10,7 +10,7 @@ if(Meteor.isClient){
       return getSubCategoryList('Interior');
     }
   });
-  Template.admin.events({
+  Template.adminproj.events({
     'submit .adminform':function(event, template){
       event.preventDefault();
       var title = event.target.title.value;

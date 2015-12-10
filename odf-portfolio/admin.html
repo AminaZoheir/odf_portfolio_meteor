@@ -1,56 +1,30 @@
 <template name="admin">
-  <form class="adminform">
-    <div class="form-group">
-      <label for="title">Title</label>
-      <input type="text" class="form-control" id="title" name="title" placeholder="Project Title">
-    </div>
-    <div class="form-group">
-      <label for="desc">Description</label>
-      <input type="text" class="form-control" id="desc" name="desc" placeholder="Project Description">
-    </div>
-    {{#each categories}}
-      <label class="radio-inline cat-admin-label"><input checked="true" type="radio" class="cat-admin" name="optcat" value="{{name}}">{{name}}</label>
+	{{#if currentUser}}
+		<div>
+		  <!-- Nav tabs -->
+		  <ul class="nav nav-tabs" role="tablist">
+		    <li role="presentation" class="active"><a href="#proj" aria-controls="home" role="tab" data-toggle="tab">Add Projects</a></li>
+		    <li role="presentation"><a href="#news" aria-controls="profile" role="tab" data-toggle="tab">Add News</a></li>
+		    <li role="presentation"><a href="#about" aria-controls="messages" role="tab" data-toggle="tab">Update About</a></li>
+		    <li role="presentation"><a href="#contact" aria-controls="settings" role="tab" data-toggle="tab">Update Contact</a></li>
+		  </ul>
 
-    {{/each}}
-
-
-    <div class="form-group">
-      <label for="sel1">Select Sub Category:</label>
-      <select class="form-control" id="sel1" name="optsubcat">
-        {{#each subCats}}
-          <option>{{this}}</option>
-        {{/ each}}
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="sel2">Select Country:</label>
-      <select class="form-control" id="sel2" name="optcountry">
-      {{#each countries}}
-        <option value="{{name}}">{{name}}</option>
-      {{/each}}
-      </select>
-    </div>
-
-    <div class="checkbox">
-    <label>
-      <input type="checkbox" name="ishome"> Add to home carousel
-    </label>
-    </div>
-    <div>
-      Add Photos
-      <span class="btn btn-default btn-file">
-        <input multiple class="file fileInput" name="photoupload" type="file"/>
-      </span>
-    </div>
-    <button type="submit" class="btn btn-default">Submit</button>
-    <div>
-      {{#each photos}}
-                    <a target="_blank" class="thumbnail main-photo" name="main-photo" value="{{_id}}">
-                      <img src="{{url}}" />
-                    </a>
-
-              {{/each}}
-    </div>
-  </form>
+		  <!-- Tab panes -->
+		  <div class="tab-content">
+		    <div role="tabpanel" class="tab-pane active" id="proj">
+		    	{{> adminproj}}
+		    </div>
+		    <div role="tabpanel" class="tab-pane" id="news">
+		    	{{> adminNews}}
+		    </div>
+		    <div role="tabpanel" class="tab-pane" id="about">
+		    </div>
+		    <div role="tabpanel" class="tab-pane" id="contact">
+		    </div>
+		  </div>
+		</div>
+	{{else}}
+		{{> register}}
+	    {{> login}}
+	{{/if}}
 </template>
