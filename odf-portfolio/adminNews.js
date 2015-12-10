@@ -42,14 +42,13 @@ if(Meteor.isClient){
         status: status // current time
       });
 
-    // Session.set("currProj", project);
-    // for (var i = 0, ln = files.length; i < ln; i++) {
-    //     var fileObj = Images.insert(files[i], function (err, fileObj) {
-    //     });
-    //     Images.update(fileObj._id,{
-    //       $set: {project: project}
-    //     });
-    //   }
+    for (var i = 0, ln = files.length; i < ln; i++) {
+        var fileObj = Images.insert(files[i], function (err, fileObj) {
+        });
+        Images.update(fileObj._id,{
+          $set: {news: news}
+        });
+      }
 
       event.target.title.value = "";
     },

@@ -8,6 +8,9 @@ if(Meteor.isClient){
     },
     projects: function(){
       return Projects.find({ishome: true});
+    },
+    notEqual: function(id1, id2){
+      return id1 != id2;
     }
   });
 }

@@ -294,6 +294,7 @@ ul{
 	font-weight: bold;
 	font-size: 35px;
 	border-radius: 1px;
+	z-index: 4;
 }
 
 .home-caption:hover{

@@ -13,3 +13,5 @@ cfs:standard-packages
 cfs:filesystem
 jquery
 chipcastle:countries
+accounts-ui
+accounts-password
