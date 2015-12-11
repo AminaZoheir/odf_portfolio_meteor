@@ -10,9 +10,9 @@ insecure
 twbs:bootstrap
 iron:router
 cfs:standard-packages
-cfs:filesystem
 jquery
 chipcastle:countries
 accounts-ui
 accounts-password
 fortawesome:fontawesome
+cfs:gridfs
