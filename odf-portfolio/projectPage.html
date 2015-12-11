@@ -8,13 +8,13 @@
 				</h1>
 				<h3 class="name-proj">{{title}}</h3>
 				<div class="carousel-icons">
-				{{#each photos}}
+				{{#each indexedArray photos}}
 			    	<span>
 			    		{{#if isImage}}
-			    			<img src="{{url}}" class="project-icon" data-target="#project-carousel" data-slide-to="3"/>
+			    			<img src="{{url}}" class="project-icon" data-target="#project-carousel" data-slide-to="{{_index}}"/>
 			    		{{/if}}
 			    		{{#if isVideo}}
-			    			<video class="project-icon" data-target="#project-carousel" data-slide-to="3">
+			    			<video class="project-icon" data-target="#project-carousel" data-slide-to="{{_index}}">
 					    			<source src="{{url}}" type="video/mp4">
 					    	</video>
 			    		{{/if}}
@@ -28,18 +28,19 @@
 			<div class="col-md-10 proj-photos">
 				<div id="project-carousel" class="carousel slide fill-parent" data-ride="carousel">
 					<div class="carousel-inner fill-parent" role="listbox">
-						<div class="item active fill-parent">
-							{{#if isImage}}
-					    		<img src="{{url}}" class="project-page-image"/>
-							{{/if}}
-					    	{{#if isVideo}}
-					    		<video autoplay>
-					    			<source src="{{url}}" type="video/mp4" class="project-page-image">
-					    		</video>
-							{{/if}}
-						</div>
-						{{#each photos}}
-					      {{#if notEqual _id photo._id}}
+						{{#each indexedArray photos}}
+					      {{#if First _index}}
+					      	<div class="item active fill-parent">
+					      		{{#if isImage}}
+						    		<img src="{{url}}" class="project-page-image"/>
+								{{/if}}
+						    	{{#if isVideo}}
+						    		<video autoplay>
+						    			<source src="{{url}}" type="video/mp4" class="project-page-image">
+						    		</video>
+								{{/if}}
+					  	    </div>
+					      {{else}}
 					      	<div class="item fill-parent">
 					      		{{#if isImage}}
 						    		<img src="{{url}}" class="project-page-image"/>
