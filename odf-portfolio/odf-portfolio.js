@@ -25,6 +25,14 @@ if (Meteor.isClient) {
   Template.registerHelper('categories', function(){
     return categories;
   });
+  UI.registerHelper('indexedArray', function(context, options) {
+  if (context) {
+    return context.map(function(item, index) {
+      item._index = index + 1;
+      return item;
+    });
+  }
+});
 }
 
 if (Meteor.isServer) {

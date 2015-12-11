@@ -10,17 +10,15 @@
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner fill-parent" role="listbox">
-    <div class="item active fill-parent">
-      <img src="{{photo}}" class="fill-parent" alt="...">
-      <a href="/portfolio/{{project._id}}" class="carousel-caption home-caption">
-        {{project.title}}
-      </a>
-    </div>
-    {{#each projects}}
-      {{#if notEqual _id project._id}}
-      	<div class="item fill-parent">
+    {{#each indexedArray projects}}
+      {{#if First _index}}
+      	<div class="item  active fill-parent">
   	      {{> homeproject}}
   	    </div>
+      {{else}}
+        <div class="item fill-parent">
+          {{> homeproject}}
+        </div>
       {{/if}}
     {{/each}}
    
