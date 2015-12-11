@@ -1,5 +1,15 @@
 <template name="news">
-  {{#each news}}
-    {{> newsComponent}}
-  {{/each}}
+<div class="container-fluid news-stream">
+	<div class="row">
+		<div class="col-md-12">
+			{{#each news}}
+				<div class="row news-comp">
+					<div class="col-md-12">
+				    	{{> newsComponent}}
+				    </div>
+				</div>
+			{{/each}}
+		</div>
+	</div>
+</div>
 </template>

@@ -1,7 +1,7 @@
 if(Meteor.isClient){
   Template.news.helpers({
     news: function(){
-      return News.find({});
+      return News.find({}, {sort: {createdAt: -1}});
     }
   });
 }

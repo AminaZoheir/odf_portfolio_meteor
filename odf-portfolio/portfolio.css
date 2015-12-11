@@ -342,6 +342,7 @@ ul{
 	width: 100%;
 	background-color: rgba(0, 0, 0, 0.5);
 	min-height: 20px;
+	position: fixed;
 }
 
 .bottom{
@@ -362,4 +363,20 @@ ul{
 
 #projectpage .col-md-12{
 	padding-right: 0;
+}
+
+.news-stream-photo > img{
+	width:100%;
+}
+
+.news-stream{
+	padding-top: 5%;
+}
+
+.news-comp{
+	padding-bottom: 2%;
+}
+
+.news-stream-desc{
+	border-left: 1px solid #FAFAFA;
 }

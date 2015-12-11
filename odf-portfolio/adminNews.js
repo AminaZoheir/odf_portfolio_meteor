@@ -1,7 +1,7 @@
 if(Meteor.isClient){
   Template.adminNews.helpers({
     photos: function(){
-      return Images.find({project: Session.get("currProj")});
+      return Images.find({news: Session.get("currNews")});
     },
     subCats: function(){
       if(Session.get('currCat')){
@@ -16,6 +16,9 @@ if(Meteor.isClient){
         return Projects.find({category:Session.get("currCat")});
       }
       return Projects.find({category:'Interior', subcategory: getSubCategoryList('Interior')[0]});
+    },
+    choosemain: function(){
+      return Session.get('done');
     }
   });
   Template.adminNews.events({
@@ -42,6 +45,7 @@ if(Meteor.isClient){
         status: status // current time
       });
 
+      Session.set("currNews", news);
     for (var i = 0, ln = files.length; i < ln; i++) {
         var fileObj = Images.insert(files[i], function (err, fileObj) {
         });
@@ -50,6 +54,7 @@ if(Meteor.isClient){
         });
       }
 
+      Session.set('done', true);
       event.target.title.value = "";
     },
     'change .cat-admin': function(event){
@@ -61,6 +66,14 @@ if(Meteor.isClient){
     },
     'change #sel3': function(event){
       console.log(event.target.options[event.target.selectedIndex].getAttribute('projId'));
+    },
+    'click .main-photo': function(event){
+      var selectedphoto = event.target.name;
+      News.update(Session.get('currNews'),{
+        $set: {mainphoto: selectedphoto}
+      });
+      Session.set('done', false);
+      Session.set('currNews', null);
     }
   });
 
