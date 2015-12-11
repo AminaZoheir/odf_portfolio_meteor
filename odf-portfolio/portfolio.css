@@ -375,8 +375,14 @@ ul{
 
 .news-comp{
 	padding-bottom: 2%;
+	height: 205px;
 }
 
 .news-stream-desc{
 	border-left: 1px solid #FAFAFA;
+	height: 100%;
+}
+
+.news-stream-photo{
+	height: 98%;
 }
