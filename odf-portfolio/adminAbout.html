@@ -1,0 +1,38 @@
+<template name="adminAbout">
+  <form class="adminform">
+    <div class="form-group">
+      <label for="biography">Biography</label>
+      <input type="text" class="form-control" id="bio" name="bio" placeholder="{{company.bio}}">
+    </div>
+    <div class="form-group">
+      <label for="mission">Mission</label>
+      <input type="text" class="form-control" id="mission" name="mission" placeholder="{{company.mission}}">
+    </div>
+    <div class="form-group">
+      <label for="background">Background</label>
+      <input type="text" class="form-control" id="bg" name="bg" placeholder="{{company.bg}}">
+    </div>
+    <div class="form-group">
+      <label for="history">History</label>
+      <input type="text" class="form-control" id="history" name="history" placeholder="{{company.history}}">
+    </div>
+    <div class="form-group">
+      {{#each phones}}
+        <div class="input-group">
+          <div class="input-group-btn">
+            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{type}} <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="#">Phone</a></li>
+              <li><a href="#">Mobile</a></li>
+              <li><a href="#">Fax</a></li>
+            </ul>
+          </div><!-- /btn-group -->
+          <input type="text" class="form-control" aria-label="..." placeholder="{{number}}">
+        </div>
+      {{/each}}
+      <a href="#" id="add-button"><i class="fa fa-plus-square fa-3x"></i></a>
+    </div>
+  </form>
+</template>

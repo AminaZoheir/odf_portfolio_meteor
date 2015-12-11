@@ -6,6 +6,8 @@ Images = new FS.Collection("images", {
 
 News = new Mongo.Collection("news");
 
+Company = new Mongo.Collection("company");
+
 categories = [
             {name:"Architecture",sub:["Complexes","Hotels","Residential Buildings","Residential Compounds","Admin","Retail"]},
             {name:"Urban",sub:[]},
