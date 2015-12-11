@@ -50,6 +50,10 @@ if(Meteor.isClient){
       Session.set('currCat', event.target.value);
     },
     'click .main-photo': function(event){
+      var selectedphoto = event.target.name;
+      Projects.update(Session.get('currProj'),{
+        $set: {mainphoto: selectedphoto}
+      });
       Session.set('done', false);
       Session.set('currProj', null);
     }
