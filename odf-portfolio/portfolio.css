@@ -133,6 +133,7 @@ body{
 .project-icon{
 	width: 50px;
 	height: 50px;
+	vertical-align: middle;
 }
 
 .project-icon:hover{
@@ -322,4 +323,13 @@ ul{
 #map{
   height:300px;
   width:300px;
+}
+
+.main-photo{
+	max-height: 120px;
+	cursor: pointer;
+}
+
+.admin-content{
+	color: rgb(250, 250, 250);
 }

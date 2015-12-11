@@ -14,7 +14,14 @@
 						</span> -->
 					{{#each photos}}
 				    	<span>
-				    		<img src="{{url}}" class="project-icon"/>
+				    		{{#if isImage}}
+				    			<img src="{{url}}" class="project-icon" data-target="#project-carousel" data-slide-to="3"/>
+				    		{{/if}}
+				    		{{#if isVideo}}
+				    			<video class="project-icon" data-target="#project-carousel" data-slide-to="3">
+						    			<source src="{{url}}" type="video/mp4">
+						    	</video>
+				    		{{/if}}
 				    	</span>
 				    {{/each}}
 					</div>
@@ -23,16 +30,42 @@
 					</p>
 				</div>
 				<div class="col-md-10">
-					{{#each photos}}
-				    	{{#if isImage}}
-				    		<img src="{{url}}" class="project-page-image"/>
-						{{/if}}
-				    	{{#if isVideo}}
-				    		<video autoplay>
-				    			<source src="{{url}}" type="video/mp4" class="project-page-image">
-				    		</video>
-						{{/if}}
-				    {{/each}}
+					<div id="project-carousel" class="carousel slide" data-ride="carousel">
+						<div class="carousel-inner fill-parent" role="listbox">
+							<div class="item active fill-parent">
+								{{#if isImage}}
+						    		<img src="{{url}}" class="project-page-image"/>
+								{{/if}}
+						    	{{#if isVideo}}
+						    		<video autoplay>
+						    			<source src="{{url}}" type="video/mp4" class="project-page-image">
+						    		</video>
+								{{/if}}
+							</div>
+							{{#each photos}}
+						      {{#if notEqual _id photo._id}}
+						      	<div class="item fill-parent">
+						      		{{#if isImage}}
+							    		<img src="{{url}}" class="project-page-image"/>
+									{{/if}}
+							    	{{#if isVideo}}
+							    		<video autoplay>
+							    			<source src="{{url}}" type="video/mp4" class="project-page-image">
+							    		</video>
+									{{/if}}
+						  	    </div>
+						      {{/if}}
+						    {{/each}}
+						</div>
+						<a class="left carousel-control" href="#project-carousel" role="button" data-slide="prev">
+						    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						    <span class="sr-only">Previous</span>
+						</a>
+						<a class="right carousel-control" href="#project-carousel" role="button" data-slide="next">
+						    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						    <span class="sr-only">Next</span>
+						</a>
+					</div>
 <!-- 					<div ng-controller="ProjectCarouselCtrl" id="project-carousel" class="fill-parent">
 					  <div>
 					    <uib-carousel interval="myInterval" class="fill-parent">

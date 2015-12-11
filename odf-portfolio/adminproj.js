@@ -8,6 +8,9 @@ if(Meteor.isClient){
        return getSubCategoryList(Session.get('currCat'));
       }
       return getSubCategoryList('Interior');
+    },
+    choosemain: function(){
+      return Session.get('done');
     }
   });
   Template.adminproj.events({
@@ -41,9 +44,14 @@ if(Meteor.isClient){
       }
 
       event.target.title.value = "";
+      Session.set('done', true);
     },
     'change .cat-admin': function(event){
       Session.set('currCat', event.target.value);
+    },
+    'click .main-photo': function(event){
+      Session.set('done', false);
+      Session.set('currProj', null);
     }
   });
 
