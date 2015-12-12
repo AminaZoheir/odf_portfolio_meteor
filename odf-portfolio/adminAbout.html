@@ -2,37 +2,63 @@
   <form class="adminform">
     <div class="form-group">
       <label for="biography">Biography</label>
-      <input type="text" class="form-control" id="bio" name="bio" placeholder="{{company.bio}}">
+      <input type="text" class="form-control" id="bio" name="bio" placeholder="Biography" value="{{info.bio}}">
     </div>
     <div class="form-group">
       <label for="mission">Mission</label>
-      <input type="text" class="form-control" id="mission" name="mission" placeholder="{{company.mission}}">
+      <input type="text" class="form-control" id="mission" name="mission" value="{{info.mission}}">
     </div>
     <div class="form-group">
       <label for="background">Background</label>
-      <input type="text" class="form-control" id="bg" name="bg" placeholder="{{company.bg}}">
+      <input type="text" class="form-control" id="bg" name="bg" value="{{info.bg}}">
     </div>
     <div class="form-group">
       <label for="history">History</label>
-      <input type="text" class="form-control" id="history" name="history" placeholder="{{company.history}}">
+      <input type="text" class="form-control" id="history" name="history" value="{{info.history}}">
     </div>
     <div class="form-group">
-      {{#each phones}}
+      <label for="address">Address</label>
+      <input type="text" class="form-control" id="addr" name="addr" value="{{info.address}}">
+    </div>
+    <div class="form-group">
+      <label for="fb">History</label>
+      <input type="text" class="form-control" id="fb" name="fb" value="{{info.fb}}">
+    </div>
+    <div class="form-group">
+      <label for="tw">History</label>
+      <input type="text" class="form-control" id="tw" name="tw" value="{{info.tw}}">
+    </div>
+    <div class="form-group">
+      <label for="history">History</label>
+      <input type="text" class="form-control" id="lin" name="lin" value="{{info.lin}}">
+    </div>
+    <div class="form-group">
+      <label for="history">History</label>
+      <input type="text" class="form-control" id="inst" name="inst" value="{{info.inst}}">
+    </div>
+    <div class="form-group">
+      <label for="history">History</label>
+      <input type="text" class="form-control" id="google" name="google" value="{{info.google}}">
+    </div>
+    <div class="form-group">
+      {{#each indexedArray info.phones}}
         <div class="input-group">
           <div class="input-group-btn">
             <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               {{type}} <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
-              <li><a href="#">Phone</a></li>
-              <li><a href="#">Mobile</a></li>
-              <li><a href="#">Fax</a></li>
+              <li class="choose-type"><a href="#">Phone</a></li>
+              <li class="choose-type"><a href="#">Mobile</a></li>
+              <li class="choose-type"><a href="#">E-mail</a></li>
+              <li class="choose-type"><a href="#">Fax</a></li>
             </ul>
           </div><!-- /btn-group -->
-          <input type="text" class="form-control" aria-label="..." placeholder="{{number}}">
+          <input type="text" class="form-control choose-number" aria-label="..." value="{{number}}">
         </div>
       {{/each}}
       <a href="#" id="add-button"><i class="fa fa-plus-square fa-3x"></i></a>
     </div>
+    <button type="submit" class="btn btn-default">Submit</button>
   </form>
 </template>
