@@ -11,3 +11,16 @@
   width:350px;
   display: inline-block;
 }
+
+.phone-li{
+  color: whitesmoke;
+}
+
+/*.icon-td{
+  padding-right: 5%;
+}*/
+
+.phone-li > td{
+  padding-bottom: 10%;
+  padding-right: 5%;
+}

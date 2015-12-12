@@ -36,12 +36,15 @@ if(Meteor.isClient){
         case 'Mobile':
             return 'mobile-phone';
         case 'Phone':
-            return 'phone-square';
+            return 'phone';
         case 'Fax':
             return 'fax';
         default:
           return 'at';
-    }
+        }
+    },
+    isEmail: function(type){
+      return type == 'E-mail';
     }
   });
 }
