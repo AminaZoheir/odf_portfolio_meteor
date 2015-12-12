@@ -18,7 +18,7 @@ if(Meteor.isClient){
             var marker = new google.maps.Marker({
               map: map,
               position: results[0].geometry.location,
-              width: 300 // zy fl .css file
+              width: 350 // zy fl .css file
             });
           } else {
             alert('Geocode was not successful for the following reason: ' + status);
@@ -36,12 +36,15 @@ if(Meteor.isClient){
         case 'Mobile':
             return 'mobile-phone';
         case 'Phone':
-            return 'phone-square';
+            return 'phone';
         case 'Fax':
             return 'fax';
         default:
           return 'at';
-    }
+        }
+    },
+    isEmail: function(type){
+      return type == 'E-mail';
     }
   });
 }

@@ -34,8 +34,8 @@ if(Meteor.isClient){
     'click .choose-type': function(event, template){
       this.type = event.target.innerHTML;
       var info = Session.get('info');
-      console.log(this._index-1);
-      info.phones[this._index-1] = this;
+      console.log(this._index);
+      info.phones[this._index] = this;
       Session.set('info',info);
       console.log(info);
       console.log(Session.get('info'));
@@ -44,7 +44,7 @@ if(Meteor.isClient){
     'change .choose-number': function(event){
       this.number = event.target.value;
       var info = Session.get('info');
-      info.phones[this._index-1] = this;
+      info.phones[this._index] = this;
       Session.set('info',info);
       // console.log(Session.get('info'));
     },

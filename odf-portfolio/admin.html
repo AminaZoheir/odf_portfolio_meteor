@@ -5,8 +5,7 @@
 		  <ul class="nav nav-tabs" role="tablist">
 		    <li role="presentation" class="active"><a href="#proj" aria-controls="home" role="tab" data-toggle="tab">Add Projects</a></li>
 		    <li role="presentation"><a href="#news" aria-controls="profile" role="tab" data-toggle="tab">Add News</a></li>
-		    <li role="presentation"><a href="#about" aria-controls="messages" role="tab" data-toggle="tab">Update About</a></li>
-		    <li role="presentation"><a href="#contact" aria-controls="settings" role="tab" data-toggle="tab">Update Contact</a></li>
+		    <li role="presentation"><a href="#about" aria-controls="messages" role="tab" data-toggle="tab">Update About & Contact</a></li>
 		  </ul>
 
 		  <!-- Tab panes -->
@@ -18,8 +17,7 @@
 		    	{{> adminNews}}
 		    </div>
 		    <div role="tabpanel" class="tab-pane" id="about">
-		    </div>
-		    <div role="tabpanel" class="tab-pane" id="contact">
+					{{> adminAbout}}
 		    </div>
 		  </div>
 		</div>
