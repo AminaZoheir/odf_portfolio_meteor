@@ -4,7 +4,7 @@ if(Meteor.isClient){
       return Projects.find({ishome: true});
     },
     First: function(index){
-      return index == 1;
+      return index == 0;
     }
   });
 }

@@ -14,7 +14,7 @@ if(Meteor.isClient){
   		// });
     },
     First: function(index){
-      return index == 1;
+      return index == 0;
     }
   });
 }
