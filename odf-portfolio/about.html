@@ -1,21 +1,25 @@
 <template name="about">
-  <div id="photo">
-    <img src="{{info.photo}}" alt="" />
+<div id="aboutpage" class="container">
+  <div class="row text-center">
+    <div id="about-bio" class="about-title">
+      <h2>Biography</h2>
+      <div id="about-photo" class="about-title">
+        <img src="{{info.photo}}" alt="" />
+      </div>
+      <h6>{{info.bio}}</h6>
+    </div>
+    <div id="about-mission" class="about-title">
+      <h2>Mission</h2>
+      <h6>{{info.mission}}</h6>
+    </div>
+    <div id="about-bg" class="about-title">
+      <h2>Background</h2>
+      <h6>{{info.bg}}</h6>
+    </div>
+    <div id="about-history" class="about-title">
+      <h2>History</h2>
+      <h6>{{info.history}}</h6>
+    </div>
   </div>
-  <div id="bio">
-    <h2>Biography</h2>
-    <h6>{{info.bio}}</h6>
-  </div>
-  <div id="mission">
-    <h2>Mission</h2>
-    <h6>{{info.mission}}</h6>
-  </div>
-  <div id="bg">
-    <h2>Background</h2>
-    <h6>{{info.bg}}</h6>
-  </div>
-  <div id="history">
-    <h2>History</h2>
-    <h6>{{info.history}}</h6>
-  </div>
+</div>
 </template>
