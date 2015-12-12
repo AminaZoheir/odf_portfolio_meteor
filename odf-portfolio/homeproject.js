@@ -1,7 +1,7 @@
 if(Meteor.isClient){
   Template.homeproject.helpers({
     photo: function(){
-      return Images.findOne({project: this._id}).url();
+      return Images.findOne({_id: this.mainphoto}).url();
     }
   });
 }
