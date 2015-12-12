@@ -376,6 +376,7 @@ ul{
 .news-comp{
 	padding-bottom: 2%;
 	height: 205px;
+	color: rgb(250, 250, 250);
 }
 
 .news-stream-desc{
@@ -385,4 +386,8 @@ ul{
 
 .news-stream-photo{
 	height: 98%;
+}
+
+.news-cat{
+	color: rgb(255, 218, 0);
 }

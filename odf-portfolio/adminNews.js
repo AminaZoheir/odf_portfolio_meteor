@@ -42,7 +42,7 @@ if(Meteor.isClient){
         country: country,
         createdAt: new Date(),
         projId: proj,
-        status: status // current time
+        status: status
       });
 
       Session.set("currNews", news);

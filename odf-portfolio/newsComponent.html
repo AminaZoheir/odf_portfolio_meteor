@@ -1,26 +1,13 @@
 <template name="newsComponent">
-<!--   <div class="media">
-    <div class="media-left">
-      <a href="#">
-        <img class="media-object" src="{{photo}}" alt="...">
-      </a>
-    </div>
-    <div class="media-body">
-      <h3 class="media-heading">{{title}}</h3>
-      <h5 class="media-heading">{{category}} | {{subcategory}}</h5>
-      <h6 class="media-heading">{{status}}</h6>
-      {{desc}}
-      <a href="/portfolio/{{projId}}">project</a>
-    </div>
-  </div> -->
   <div class="col-md-3 news-stream-photo">
     <img src="{{photo}}" class="fill-parent" alt="...">
   </div>
   <div class="col-md-9 news-stream-desc">
     <h3>{{title}}</h3>
-      <h5>{{category}} | {{subcategory}}</h5>
-      <h6>{{status}}</h6>
+      <h5 class="news-cat">{{category}} | {{subcategory}}</h5>
+      <h6>Project Status: {{status}}</h6>
+      <h6>{{createdAt}}</h6>
       {{desc}}
-      <a href="/portfolio/{{projId}}">project</a>
+      <a href="/portfolio/{{projId}}">view project</a>
   </div>
 </template>
