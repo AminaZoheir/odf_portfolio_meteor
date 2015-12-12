@@ -1,0 +1,13 @@
+#map-wrapper{
+  text-align: center;
+}
+
+#container{
+  margin-top: 5%;
+}
+
+#map{
+  height:300px;
+  width:350px;
+  display: inline-block;
+}

@@ -18,7 +18,7 @@ if(Meteor.isClient){
             var marker = new google.maps.Marker({
               map: map,
               position: results[0].geometry.location,
-              width: 300 // zy fl .css file
+              width: 350 // zy fl .css file
             });
           } else {
             alert('Geocode was not successful for the following reason: ' + status);
