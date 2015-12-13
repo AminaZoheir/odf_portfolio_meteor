@@ -21,7 +21,7 @@ if(Meteor.isClient){
               width: 350 // zy fl .css file
             });
           } else {
-            alert('Geocode was not successful for the following reason: ' + status);
+            console.log('Geocode was not successful for the following reason: ' + status);
           }
         });
       }
