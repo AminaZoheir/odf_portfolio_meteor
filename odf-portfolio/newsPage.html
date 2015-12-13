@@ -1,0 +1,29 @@
+<template name="newsPage">
+  <div class="row" id="news-full">
+    <div class="col-md-2" id="sidebar-news">
+      <h5 class="news-cat">{{category}} | {{subcategory}}</h5>
+      <h5>Project Status: {{status}}</h5>
+      <h5><a href="/portfolio/{{projId}}">View Project</a></h5>
+    </div>
+    <div class="col-md-9">
+      <img src="{{photo}}" alt="" align="left" id="news-photo"/>
+      <h2>{{title}}</h2>
+      <p>Pellentesque habitant morbi tristique senectus et
+        netus et malesuada fames ac turpis egestas.
+        Vestibulum tortor quam, feugiat vitae, ultricies
+        eget, tempor sit amet, ante. Donec eu libero sit
+        amet quam egestas semper. Aenean ultricies mi vitae
+        est. Mauris placerat eleifend leo. Quisque sit amet
+        est et sapien ullamcorper pharetra. Vestibulum erat
+        wisi, condimentum sed, commodo vitae, ornare sit amet,
+        wisi. Aenean fermentum, elit eget tincidunt condimentum,
+        eros ipsum rutrum orci, sagittis tempus lacus enim ac
+        dui. Donec non enim in turpis pulvinar facilisis. Ut
+        felis. Praesent dapibus, neque id cursus faucibus,
+        tortor neque egestas augue, eu vulputate magna eros eu
+        erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis,
+        accumsan porttitor, facilisis luctus, metus</p>
+      <!-- <h6>{{desc}}</h6> -->
+    </div>
+  </div>
+</template>

@@ -21,6 +21,13 @@ if(Meteor.isClient){
   Template.adminAbout.helpers({
     info: function(){
       return Session.get('info');
+    },
+    photo: function(){
+      var info = Session.get('info');
+      // console.log(info);
+      console.log(Images.findOne({info:info._id}));
+      console.log('zft');
+      return Images.findOne({info: info._id}).url();
     }
   });
 
@@ -98,17 +105,37 @@ if(Meteor.isClient){
       info.google = event.target.value;
       Session.set('info',info);
     },
+    'change #add-photo': function(event){
+      console.log(event.target.value);
+    },
     'submit .adminform': function(event, template){
       event.preventDefault();
       var info = Session.get('info');
       console.log(info.phones);
       Info.update(info._id,{
         $set: {
-          photo:info.photo, bio:info.bio, mission:info.mission, bg:info.bg, history:info.history,
+           bio:info.bio, mission:info.mission, bg:info.bg, history:info.history,
            address:info.address, fb:info.fb, tw:info.tw, inst:info.inst, google:info.google,
            lin:info.lin, phones:info.phones
         }
       });
+
+      var files =  event.target.photoupload.files;
+      for (var i = 0, ln = files.length; i < ln; i++) {
+        console.log('nila');
+        var fileObj = Images.insert(files[i], function (err, fileObj) {
+        });
+        Images.update(fileObj._id,{
+          $set: {info: info._id}
+        });
+        console.log(fileObj);
+      }
+      if(Images.find({info: info._id}).count()>1){
+        console.log('da5al');
+        Images.remove({_id: Images.findOne({info: info._id})._id},function(err, res){
+          console.log(err);
+        });
+      }
     }
   });
 }
@@ -119,7 +146,7 @@ if(Meteor.isServer){
       return Info.findOne({});
     },
     addIfNotExists: function(){
-      return Info.insert({ photo:'', bio:'', mission:'', bg:'', history:'', address:'', fb:'',
+      return Info.insert({ bio:'', mission:'', bg:'', history:'', address:'', fb:'',
                   tw:'', inst:'', google:'', lin:'', phones:[{type:'Phone',number:''}]});
     }
   });

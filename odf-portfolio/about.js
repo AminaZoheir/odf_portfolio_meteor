@@ -5,6 +5,9 @@ if(Meteor.isClient){
         Session.set('info',res);
       });
       return Session.get('info');
+    },
+    photo: function(){
+      return Images.findOne({info: Session.get('info')._id}).url();
     }
   });
 }

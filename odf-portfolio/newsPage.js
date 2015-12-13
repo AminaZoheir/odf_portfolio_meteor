@@ -1,5 +1,5 @@
 if(Meteor.isClient){
-  Template.newsComponent.helpers({
+  Template.newsPage.helpers({
     photo: function(){
       return Images.findOne({_id: this.mainphoto}).url();
     }

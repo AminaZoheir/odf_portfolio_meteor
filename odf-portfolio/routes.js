@@ -11,10 +11,13 @@ Router.route('/portfolio/:_id', {
       return Projects.findOne({_id: currProj});
     }
 });
-// var handle;
-// Tracker.autorun(function () {
-//     // handle = Meteor.subscribe('company',{});
-// });
+Router.route('news/:_id',{
+  template: 'newsPage',
+  data: function(){
+    var currNews = this.params._id;
+    return News.findOne({_id: currNews});    
+  }
+});
 Router.route('/adminAbout');
 Router.route('/portfolio');
 Router.route('/contact');

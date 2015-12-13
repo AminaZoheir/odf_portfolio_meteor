@@ -16,11 +16,27 @@
   color: whitesmoke;
 }
 
-/*.icon-td{
-  padding-right: 5%;
-}*/
+figure {
+  float: left;
+  margin: 10px 10px 10px 0;
+}
 
 .phone-li > td{
   padding-bottom: 10%;
   padding-right: 5%;
+}
+
+#news-full{
+  color: whitesmoke;
+}
+
+#news-photo{
+  width: 200px;
+  height: 200px;
+  margin-right: 5%;
+}
+
+#sidebar-news{
+  margin-left: 3%;
+  margin-top: 5%;
 }

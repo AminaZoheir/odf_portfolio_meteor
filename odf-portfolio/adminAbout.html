@@ -59,6 +59,13 @@
       {{/each}}
       <a href="#" id="add-button"><i class="fa fa-plus-square fa-3x"></i></a>
     </div>
+    <div>
+      Add Photos
+      <span class="btn btn-default btn-file">
+        <input id="add-photo" multiple class="file fileInput" name="photoupload" type="file"/>
+        <img src="{{photo}}" alt="" />
+      </span>
+    </div>
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
 </template>
