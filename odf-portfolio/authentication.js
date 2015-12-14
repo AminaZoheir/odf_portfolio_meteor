@@ -20,7 +20,7 @@ if (Meteor.isClient) {
 	        Meteor.loginWithPassword(emailVar, passwordVar);
 	    }
 	});
-	Template.navBar.events({
+	Template.navBar2.events({
     'click .logout': function(event){
         event.preventDefault();
         Meteor.logout();

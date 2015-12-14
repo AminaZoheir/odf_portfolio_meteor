@@ -387,3 +387,10 @@ ul{
 .news-cat{
 	color: rgb(255, 218, 0);
 }
+
+.carousel-control.home-control{
+	background-color: rgba(0, 0, 0, 0);
+	height: 10%;
+	top: 45%;
+	background-image: none;
+}
