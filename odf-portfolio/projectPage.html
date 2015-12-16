@@ -1,7 +1,7 @@
 <template name="projectPage">
 	<div id="projectpage">
-		<div class="col-md-12 fill-parent">
-			<div class="col-md-2 proj-desc">
+		<div class="fill-parent">
+			<div class="proj-desc">
 				<h1>
 					<span class="category-proj">{{category}}</span>
 					<span class="sub-proj">{{subcategory}}</span>
@@ -25,7 +25,7 @@
 					{{desc}}
 				</p>
 			</div>
-			<div class="col-md-10 proj-photos">
+			<div class="proj-photos">
 				<div id="project-carousel" class="carousel slide fill-parent" data-ride="carousel">
 					<div class="carousel-inner fill-parent" role="listbox">
 						{{#each indexedArray photos}}
