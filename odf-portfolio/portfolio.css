@@ -37,11 +37,11 @@ body{
 }
 
 .navbar-default .navbar-nav > li > a:hover{
-    color: rgb(200, 200, 200);
+    color: rgb(255, 218, 0);
 }
 
 .navbar-default .navbar-nav > li > a:focus{
-    color: rgb(200, 200, 200);
+    color: rgb(255, 218, 0);
 }
 
  .fill-parent > .carousel-inner{
@@ -98,18 +98,17 @@ body{
 	box-shadow: 0px 0px 5px black;
 }
 
-.project-button:hover{
+/*.project-button:hover{
 	color: rgb(200, 200, 200);
 	text-decoration: none;
-}
+}*/
 
-.project-button:focus{
+/*.project-button:focus{
 	color: rgb(200, 200, 200);
 	text-decoration: none;
-}
+}*/
 
 .proj-desc > h1{
-	font-size: 18px;
 	color: rgb(250, 250, 250);
 	text-shadow: 0 0 3px black;
 	font-weight: bold;
@@ -144,6 +143,7 @@ body{
 .project-icon:hover{
 	cursor: pointer;
 }
+
 
 .carousel-icons{
 	padding-top: 1%;
@@ -237,6 +237,7 @@ body{
 	height: 50%;
 	-webkit-transition:all linear 0.25s;
   transition:all linear 0.25s;
+  color: rgb(255, 218, 0);
 }
 
 .projImage:hover{
@@ -308,11 +309,11 @@ ul{
 	z-index: 4;
 }
 
-.home-caption:hover{
+/*.home-caption:hover{
 	color: rgb(200, 200, 200);
 	text-decoration: none;
 }
-
+*/
 .home-caption:focus{
 	color: rgb(200, 200, 200);
 	text-decoration: none;
@@ -409,4 +410,23 @@ ul{
 
 .proj-desc > p{
 	padding-top: 2%;
+	text-align: justify;
+}
+
+h1{
+	font-size: 18px;
+}
+
+a:hover{
+	color: rgb(255, 218, 0);
+	text-decoration: none;
+}
+
+a:focus{
+	color: rgb(255, 218, 0);
+	text-decoration: none;
+}
+
+.navbar-brand{
+	cursor: default;
 }
