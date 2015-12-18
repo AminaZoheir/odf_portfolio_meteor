@@ -433,3 +433,11 @@ a:focus{
 .navbar-brand{
 	cursor: default;
 }
+
+.admin-panels{
+	padding-bottom: 5%;
+}
+
+textarea {
+   resize: none;
+}

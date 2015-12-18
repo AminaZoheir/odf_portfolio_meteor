@@ -18,7 +18,8 @@
       </div>
       <div class="form-group">
         <label for="desc">Description</label>
-        <input type="text" class="form-control" id="desc" name="desc" placeholder="Project Description">
+        <textarea rows="4" cols="50" class="form-control" id="desc" name="desc">
+        </textarea>
       </div>
       {{#each categories}}
         <label class="radio-inline cat-admin-label"><input checked="true" type="radio" class="cat-admin" name="optcat" value="{{name}}">{{name}}</label>

@@ -18,10 +18,11 @@
       </div>
       <div class="form-group">
         <label for="desc">Description</label>
-        <input type="text" class="form-control" id="desc" name="desc" placeholder="Project Description">
+        <textarea rows="4" cols="50" class="form-control" id="desc" name="desc">
+        </textarea>
       </div>
       <div class="form-group">
-        <label for="status">Description</label>
+        <label for="status">Status</label>
         <input type="text" class="form-control" id="status" name="status" placeholder="Status">
       </div>
       {{#each categories}}
@@ -55,12 +56,6 @@
           <option value="{{name}}">{{name}}</option>
         {{/each}}
         </select>
-      </div>
-
-      <div class="checkbox">
-      <label>
-        <input type="checkbox" name="ishome"> Add to home carousel
-      </label>
       </div>
       <div>
         Add Photos
