@@ -136,6 +136,16 @@ if(Meteor.isClient){
           console.log(err);
         });
       }
+
+      var files2 = event.target.sketchupload.files;
+      for (var i = 0, ln = files2.length; i < ln; i++) {
+        var fileObj = Images.insert(files2[i], function (err, fileObj) {
+        });
+        Images.update(fileObj._id,{
+          $set: {about: true}
+        });
+        console.log(fileObj);
+      }
     }
   });
 }

@@ -37,11 +37,11 @@ body{
 }
 
 .navbar-default .navbar-nav > li > a:hover{
-    color: rgb(255, 218, 0);
+    color: rgb(255, 190, 0);
 }
 
 .navbar-default .navbar-nav > li > a:focus{
-    color: rgb(255, 218, 0);
+    color: rgb(255, 190, 0);
 }
 
  .fill-parent > .carousel-inner{
@@ -163,7 +163,7 @@ body{
 }
 
 .category-proj{
-    color: rgb(255, 218, 0);
+    color: rgb(255, 190, 0);
     padding-right: 2%;
 }
 
@@ -237,7 +237,7 @@ body{
 	height: 50%;
 	-webkit-transition:all linear 0.25s;
   transition:all linear 0.25s;
-  color: rgb(255, 218, 0);
+  color: rgb(255, 190, 0);
 }
 
 .projImage:hover{
@@ -264,7 +264,7 @@ ul{
 }
 
 .yellow-hover:hover{
-	color: rgb(255, 218, 0);
+	color: rgb(255, 190, 0);
 }
 
 .sub-proj{
@@ -273,7 +273,7 @@ ul{
 }
 
 .selected{
-  color: rgb(255, 218, 0);
+  color: rgb(255, 190, 0);
 }
 
 .yellow-hover,
@@ -401,7 +401,7 @@ ul{
 }
 
 .news-cat{
-	color: rgb(255, 218, 0);
+	color: rgb(255, 190, 0);
 }
 
 .carousel-control.home-control{
@@ -421,12 +421,12 @@ h1{
 }
 
 a:hover{
-	color: rgb(255, 218, 0);
+	color: rgb(255, 190, 0);
 	text-decoration: none;
 }
 
 a:focus{
-	color: rgb(255, 218, 0);
+	color: rgb(255, 190, 0);
 	text-decoration: none;
 }
 

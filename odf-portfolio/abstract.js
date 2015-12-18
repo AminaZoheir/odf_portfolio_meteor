@@ -9,7 +9,7 @@ News = new Mongo.Collection("news");
 Info = new Mongo.Collection('info');
 
 categories = [
-            {name:"Architecture",sub:["Complexes","Hotels","Residential Buildings","Residential Compounds","Admin","Retail"]},
+            {name:"Architecture",sub:["Complexes","Hotels","Residential","Compounds","Admin","Retail"]},
             {name:"Urban",sub:[]},
             {name:"Interior", sub:["Residential Private"]}
           ];

@@ -33,7 +33,7 @@ figure {
 #news-photo{
   width: 200px;
   height: 200px;
-  margin-right: 5%;
+  padding: 0% 2% 1% 0%;
 }
 
 #sidebar-news{
