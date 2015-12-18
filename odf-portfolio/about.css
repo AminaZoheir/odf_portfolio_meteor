@@ -23,3 +23,15 @@
 	padding: 2%;
 	padding-top:0% 
 }
+
+.sketches{
+	position: absolute;
+    top: 0;
+    left: 34%;
+    height: 100%;
+    width: 66%;
+}
+
+.img-responsive, .thumbnail > img, .thumbnail a > img, .carousel-inner > .item > img, .carousel-inner > .item > a > img.about-sketch{
+	height: 100%;
+}

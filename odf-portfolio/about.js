@@ -8,6 +8,12 @@ if(Meteor.isClient){
     },
     photo: function(){
       return Images.findOne({info: Session.get('info')._id}).url();
+    },
+    sketches: function(){
+      return Images.find({about: true});
+    },
+    First: function(index){
+      return index == 0;
     }
   });
 }

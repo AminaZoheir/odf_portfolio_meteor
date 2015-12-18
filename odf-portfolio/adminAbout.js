@@ -128,7 +128,7 @@ if(Meteor.isClient){
         Images.update(fileObj._id,{
           $set: {info: info._id}
         });
-        console.log(fileObj);
+        // console.log(fileObj);
       }
       if(Images.find({info: info._id}).count()>1){
         console.log('da5al');
@@ -137,14 +137,15 @@ if(Meteor.isClient){
         });
       }
 
-      var files2 = event.target.sketchupload.files;
-      for (var i = 0, ln = files2.length; i < ln; i++) {
-        var fileObj = Images.insert(files2[i], function (err, fileObj) {
+      files = event.target.sketchupload.files;
+      console.log(files);
+      for (var i = 0, ln = files.length; i < ln; i++) {
+        console.log(files[i]);
+        var fileObj = Images.insert(files[i], function (err, fileObj) {
         });
         Images.update(fileObj._id,{
           $set: {about: true}
         });
-        console.log(fileObj);
       }
     }
   });

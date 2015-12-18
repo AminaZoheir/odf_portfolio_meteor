@@ -4,35 +4,7 @@
     <div id="about-bio" class="about-title">
       <h2>Biography</h2>
         <img src="{{photo}}" alt="" align="left" class="about-photo"/>
-          <p>Pellentesque habitant morbi tristique senectus et
-            netus et malesuada fames ac turpis egestas.
-            Vestibulum tortor quam, feugiat vitae, ultricies
-            eget, tempor sit amet, ante. Donec eu libero sit
-            amet quam egestas semper. Aenean ultricies mi vitae
-            est. Mauris placerat eleifend leo. Quisque sit amet
-            est et sapien ullamcorper pharetra. Vestibulum erat
-            wisi, condimentum sed, commodo vitae, ornare sit amet,
-            wisi. Aenean fermentum, elit eget tincidunt condimentum,
-            eros ipsum rutrum orci, sagittis tempus lacus enim ac
-            dui. Donec non enim in turpis pulvinar facilisis. Ut
-            felis. Praesent dapibus, neque id cursus faucibus,
-            tortor neque egestas augue, eu vulputate magna eros eu
-            erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis,
-            accumsan porttitor, facilisis luctus, metus Pellentesque habitant morbi tristique senectus et
-            netus et malesuada fames ac turpis egestas.
-            Vestibulum tortor quam, feugiat vitae, ultricies
-            eget, tempor sit amet, ante. Donec eu libero sit
-            amet quam egestas semper. Aenean ultricies mi vitae
-            est. Mauris placerat eleifend leo. Quisque sit amet
-            est et sapien ullamcorper pharetra. Vestibulum erat
-            wisi, condimentum sed, commodo vitae, ornare sit amet,
-            wisi. Aenean fermentum, elit eget tincidunt condimentum,
-            eros ipsum rutrum orci, sagittis tempus lacus enim ac
-            dui. Donec non enim in turpis pulvinar facilisis. Ut
-            felis. Praesent dapibus, neque id cursus faucibus,
-            tortor neque egestas augue, eu vulputate magna eros eu
-            erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis,
-            accumsan porttitor, facilisis luctus, metus</p>
+          <p>{{info.bio}}</p>
     </div>
     <div id="about-mission" class="about-title">
       <h2>Mission</h2>
@@ -48,7 +20,46 @@
     </div>
   </div>
   <div class="sketches">
-    
+    <div id="about-carousel" class="carousel slide fill-parent" data-ride="carousel">
+          <div class="carousel-inner fill-parent" role="listbox">
+            {{#each indexedArray sketches}}
+                {{#if First _index}}
+                  <div class="item active fill-parent">
+                    {{#if isImage}}
+                    <img src="{{url}}" class="about-sketch fill-parent"/>
+                {{/if}}
+                  {{#if isVideo}}
+                    <video autoplay>
+                      <source src="{{url}}" type="video/mp4" class="about-sketch fill-parent">
+                    </video>
+                {{/if}}
+                  </div>
+                {{else}}
+                  <div class="item fill-parent">
+                    {{#if isImage}}
+                    <img src="{{url}}" class="about-sketch fill-parent"/>
+                {{/if}}
+                  {{#if isVideo}}
+                    <video autoplay>
+                      <source src="{{url}}" type="video/mp4" class="about-sketch fill-parent">
+                    </video>
+                {{/if}}
+                  </div>
+                {{/if}}
+              {{/each}}
+          </div>
+          <a class="left carousel-control" href="#project-carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#project-carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+          </a>
+        </div>
+    <!-- {{#each sketches}}
+      <img src="{{url}}"/>
+    {{/each}} -->
   </div>
 </div>
 </template>
