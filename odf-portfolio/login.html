@@ -1,7 +1,14 @@
 <template name="login">
     <form>
-        <input type="email" name="loginEmail">
-        <input type="password" name="loginPassword">
-        <input type="submit" value="Login">
+    	<div class="form-group">
+    		<label for="loginEmail">Email</label>
+	        <input type="email" class="form-control" name="loginEmail">
+	    </div>
+	    <div class="form-group">
+	    	<label for="loginPassword">Password</label>
+	    	<input type="password" class="form-control" name="loginPassword">
+	    </div>
+	    
+	    <input type="submit" class="btn btn-default" value="Login">
     </form>
 </template>
