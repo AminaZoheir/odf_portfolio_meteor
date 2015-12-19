@@ -4,8 +4,8 @@ if(Meteor.isClient){
       return Images.find({project: Session.get("currProj")});
     },
     subCats: function(){
-      if(Session.get('currCat')){
-       return getSubCategoryList(Session.get('currCat'));
+      if(Session.get('cat')){
+       return getSubCategoryList(Session.get('cat'));
       }
       return getSubCategoryList('Interior');
     },
@@ -23,6 +23,7 @@ if(Meteor.isClient){
       var ishome = template.find('[name=ishome]').checked;
       var country = template.find('[name=optcountry]').value;
       var files =  event.target.photoupload.files;
+      var index = Projects.find({}).count();
 
       var project = Projects.insert({
         title: title,
@@ -31,7 +32,8 @@ if(Meteor.isClient){
         subcategory: subcat,
         ishome: ishome,
         country: country,
-        createdAt: new Date() // current time
+        createdAt: new Date(), // current time
+        index: index
       });
 
     Session.set("currProj", project);
@@ -47,7 +49,7 @@ if(Meteor.isClient){
       Session.set('done', true);
     },
     'change .cat-admin': function(event){
-      Session.set('currCat', event.target.value);
+      Session.set('cat', event.target.value);
     },
     'click .main-photo': function(event){
       var selectedphoto = event.target.name;

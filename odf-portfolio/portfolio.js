@@ -4,10 +4,10 @@ if (Meteor.isClient) {
     projects: function(){
       if(Session.get("currCat")){
         if(Session.get("currSubCat"))
-          return Projects.find({category:Session.get("currCat"), subcategory:Session.get("currSubCat")});
-        return Projects.find({category:Session.get("currCat")});
+          return Projects.find({category:Session.get("currCat"), subcategory:Session.get("currSubCat")},{sort: {index: 1}});
+        return Projects.find({category:Session.get("currCat")},{sort: {index: 1}});
       }
-      return Projects.find({});
+      return Projects.find({},{sort: {index: 1}});
     }
   });
 

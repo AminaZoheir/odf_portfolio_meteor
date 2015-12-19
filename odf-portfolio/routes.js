@@ -15,13 +15,11 @@ Router.route('news/:_id',{
   template: 'newsPage',
   data: function(){
     var currNews = this.params._id;
-    return News.findOne({_id: currNews});    
+    return News.findOne({_id: currNews});
   }
 });
-Router.route('/adminAbout');
 Router.route('/portfolio');
 Router.route('/contact');
 Router.route('/about');
 Router.route('/news');
 Router.route('/admin');
-Router.route('/adminNews');

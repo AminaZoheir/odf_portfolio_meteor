@@ -1,17 +1,11 @@
 // var info = null;
 if(Meteor.isClient){
-  Template.adminAbout.onCreated(function(){
-    console.log(this);
-  });
   Template.adminAbout.rendered = function(){
-    console.log('salah'+this.data);
     Meteor.call('getInfo',function(err, res){
       if(res){
         Session.set('info',res);
-        console.log('a7a'+Session.get('info'));
         return;
       }
-      console.log('l2a');
       Meteor.call('addIfNotExists', function(err, res){
         if(res)
           Session.set('info',res);
@@ -36,16 +30,12 @@ if(Meteor.isClient){
       var info = Session.get('info');
       info.phones.push({type:'Phone', number:''});
       Session.set('info',info);
-      console.log(Session.get('info'));
     },
     'click .choose-type': function(event, template){
       this.type = event.target.innerHTML;
       var info = Session.get('info');
-      console.log(this._index);
       info.phones[this._index] = this;
       Session.set('info',info);
-      console.log(info);
-      console.log(Session.get('info'));
       // console.log(Session.get('info'));
     },
     'change .choose-number': function(event){
@@ -111,7 +101,6 @@ if(Meteor.isClient){
     'submit .adminform': function(event, template){
       event.preventDefault();
       var info = Session.get('info');
-      console.log(info.phones);
       Info.update(info._id,{
         $set: {
            bio:info.bio, mission:info.mission, bg:info.bg, history:info.history,
