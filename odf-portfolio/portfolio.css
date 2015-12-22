@@ -388,21 +388,26 @@ ul{
 
 .news-comp{
 	padding-bottom: 2%;
-	height: 205px;
+	/*height: 205px;*/
 	color: rgb(250, 250, 250);
 }
 
 .news-stream-desc{
 	border-left: 1px solid #FAFAFA;
 	height: 100%;
+	overflow:auto;
 }
 
 .news-stream-photo{
-	height: 98%;
+	height: 100%;
 }
 
 .news-cat{
 	color: rgb(255, 190, 0);
+}
+
+.news-title{
+	margin-top:1px;
 }
 
 .carousel-control.home-control{
