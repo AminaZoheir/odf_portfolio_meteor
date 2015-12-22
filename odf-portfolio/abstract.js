@@ -70,3 +70,25 @@ if (Meteor.isServer) {
     // code to run on server at startup
   });
 }
+
+Meteor.methods({
+  addProject: function (title, desc, cat, subcat, ishome, country, index, files) {
+    // Make sure the user is logged in before inserting a task
+    if (! Meteor.userId()) {
+      throw new Meteor.Error("not-authorized");
+    }
+    Projects.insert({
+      title: title,
+      desc: desc,
+      category: cat,
+      subcategory: subcat,
+      ishome: ishome,
+      country: country,
+      createdAt: new Date(), // current time
+      index: index
+    });
+  },
+  deleteProject: function (projId) {
+    Projects.remove(projId);
+  }
+});
