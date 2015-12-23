@@ -1,5 +1,5 @@
 if(Meteor.isClient){
-  function tempAlert(msg,duration)
+  var tempAlert = function (msg,duration)
     {
      var el = document.createElement("div");
      el.className="alertmessage";
@@ -9,7 +9,6 @@ if(Meteor.isClient){
      },duration);
      document.body.appendChild(el);
     }
-
   Template.adminproj.helpers({
     subCats: function(){
       if(Session.get('cat')){
@@ -76,7 +75,7 @@ if(Meteor.isClient){
       for (var i = oldImgs.length - 1; i >= 0; i--) {
         oldImgs[i].parentNode.removeChild(oldImgs[i]);
       };
-      tempAlert("Project Added Successfully",3000);
+      tempAlert("Project Added Successfully",2000);
     },
     'change .projfile': function(event){
        var files =  event.target.files;

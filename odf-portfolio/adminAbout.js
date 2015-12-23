@@ -1,5 +1,15 @@
 // var info = null;
 if(Meteor.isClient){
+  var tempAlert = function (msg,duration)
+    {
+     var el = document.createElement("div");
+     el.className="alertmessage";
+     el.innerHTML = msg;
+     setTimeout(function(){
+      el.parentNode.removeChild(el);
+     },duration);
+     document.body.appendChild(el);
+    }
   Template.adminAbout.rendered = function(){
     Meteor.call('getInfo',function(err, res){
       if(res){
@@ -136,6 +146,8 @@ if(Meteor.isClient){
           $set: {about: true}
         });
       }
+      window.scrollTo(0, 0);
+      tempAlert("Information Updated Successfully",2000);
     }
   });
 }

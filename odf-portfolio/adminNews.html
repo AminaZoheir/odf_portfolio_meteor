@@ -1,16 +1,4 @@
 <template name="adminNews">
-  {{#if choosemain}}
-    <div class="row">
-      Choose main photo:
-      <div class="col-md-12">
-      {{#each photos}}
-        <div class="col-md-3">
-          <img class="main-photo" src="{{url}}" name="{{_id}}"/>
-        </div>
-      {{/each}}
-      </div>
-    </div>
-  {{else}}
     <form class="adminform">
       <div class="form-group">
         <label for="title">Title</label>
@@ -60,10 +48,16 @@
       <div>
         Add Photos
         <span class="btn btn-default btn-file">
-          <input multiple class="file fileInput" name="photoupload" type="file"/>
+          <input multiple class="file fileInput newsfile" name="photoupload" type="file"/>
         </span>
       </div>
+      <div class="form-group">
+      <label>Choose main photo:</label>
+      <div class="col-md-12">
+        <div id="choosephotonews">
+        </div>
+      </div>
+    </div>
       <button type="submit" class="btn btn-default">Submit</button>
     </form>
-  {{/if}}
 </template>

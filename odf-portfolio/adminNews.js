@@ -1,8 +1,15 @@
 if(Meteor.isClient){
+  var tempAlert = function (msg,duration)
+    {
+     var el = document.createElement("div");
+     el.className="alertmessage";
+     el.innerHTML = msg;
+     setTimeout(function(){
+      el.parentNode.removeChild(el);
+     },duration);
+     document.body.appendChild(el);
+    }
   Template.adminNews.helpers({
-    photos: function(){
-      return Images.find({news: Session.get("currNews")});
-    },
     subCats: function(){
       if(Session.get('currCat')){
        return getSubCategoryList(Session.get('currCat'));
@@ -16,9 +23,6 @@ if(Meteor.isClient){
         return Projects.find({category:Session.get("currCat")});
       }
       return Projects.find({category:'Interior', subcategory: getSubCategoryList('Interior')[0]});
-    },
-    choosemain: function(){
-      return Session.get('done');
     }
   });
   Template.adminNews.events({
@@ -43,18 +47,57 @@ if(Meteor.isClient){
         projId: proj,
         status: status
       });
-
-      Session.set("currNews", news);
+      var mainphoto;
+      var imgs = document.getElementsByClassName('main-photo');
+      for (var i = imgs.length - 1; i >= 0; i--) {
+        if(imgs[i].getAttribute('selected')=="true"){
+          mainphoto = imgs[i].src;
+        }
+      };
     for (var i = 0, ln = files.length; i < ln; i++) {
+
         var fileObj = Images.insert(files[i], function (err, fileObj) {
         });
         Images.update(fileObj._id,{
           $set: {news: news}
         });
-      }
+        files[i].obj=fileObj._id;
+        var reader = new FileReader();
+          reader.onload = (function(theFile) {
+            return function(e) {
+              if(e.target.result == mainphoto){
+                News.update(news,{
+                  $set: {mainphoto: theFile.obj}
+                });
+              }
+        };
+      })(files[i]);
+           reader.readAsDataURL(files[i]);
+    }
 
-      Session.set('done', true);
+      event.target.desc.value="";
       event.target.title.value = "";
+      var oldImgs = document.getElementsByClassName('mainphoto-wrapper');
+      for (var i = oldImgs.length - 1; i >= 0; i--) {
+        oldImgs[i].parentNode.removeChild(oldImgs[i]);
+      };
+      tempAlert("News Added Successfully",2000);
+    },
+    'change .newsfile': function(event){
+       var files =  event.target.files;
+       for (var i = 0, ln = files.length; i < ln; i++) {
+          var reader = new FileReader();
+          reader.onload = (function(theFile) {
+            return function(e) {
+              var span = document.createElement('a');
+          span.innerHTML = ['<img class="main-photo" src="', e.target.result,
+                            '" name="', i, '"/>'].join('');
+                            span.className = span.className + " col-md-3 mainphoto-wrapper";
+          document.getElementById('choosephotonews').insertBefore(span, null);
+        };
+      })(files[i]);
+           reader.readAsDataURL(files[i]);
+       }
     },
     'change .cat-admin': function(event){
       Session.set('currCat', event.target.value);
@@ -67,12 +110,14 @@ if(Meteor.isClient){
       console.log(event.target.options[event.target.selectedIndex].getAttribute('projId'));
     },
     'click .main-photo': function(event){
-      var selectedphoto = event.target.name;
-      News.update(Session.get('currNews'),{
-        $set: {mainphoto: selectedphoto}
-      });
-      Session.set('done', false);
-      Session.set('currNews', null);
+      var img = event.target;
+      img.setAttribute('selected', true);
+      var imgs = document.getElementsByClassName('main-photo');
+      for (var i = imgs.length - 1; i >= 0; i--) {
+        if(imgs[i] != img){
+          imgs[i].setAttribute('selected', false);
+        }
+      };
     }
   });
 
