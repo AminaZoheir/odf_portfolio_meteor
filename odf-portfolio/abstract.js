@@ -90,5 +90,25 @@ Meteor.methods({
   },
   deleteProject: function (projId) {
     Projects.remove(projId);
+    var imgs = Images.find({project: projId}).fetch();
+    var news = News.find({proj:projId}).fetch();
+    for (var i = imgs.length - 1; i >= 0; i--) {
+      Images.remove(imgs[i]._id);
+    };
+    for (var i = news.length - 1; i >= 0; i--) {
+      News.remove(news[i]._id);
+    };
+    // var news = News.find({proj:projId});
+    // for (var i = news.length - 1; i >= 0; i--) {
+    //   Meteor.call("deleteNews", news[i]._id);
+    // };
+  },
+  deleteNews: function(newsId){
+    News.remove(newsId);
+    // Images.remove({news: newsId});
+    var imgs = Images.find({project: projId}).fetch();
+    for (var i = imgs.length - 1; i >= 0; i--) {
+      Images.remove(imgs[i]._id);
+    };
   }
 });

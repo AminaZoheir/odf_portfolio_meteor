@@ -75,6 +75,7 @@ if(Meteor.isClient){
       for (var i = oldImgs.length - 1; i >= 0; i--) {
         oldImgs[i].parentNode.removeChild(oldImgs[i]);
       };
+      window.scrollTo(0, 0);
       tempAlert("Project Added Successfully",2000);
     },
     'change .projfile': function(event){
