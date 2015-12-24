@@ -396,6 +396,7 @@ ul{
 	border-left: 1px solid #FAFAFA;
 	height: 100%;
 	overflow:auto;
+	padding-bottom: 2%;
 }
 
 .news-stream-photo{
@@ -407,7 +408,7 @@ ul{
 }
 
 .news-title{
-	margin-top:1px;
+	margin-top:0px;
 }
 
 .carousel-control.home-control{
@@ -472,4 +473,12 @@ textarea {
 	text-align: center;
 	padding-top: 15%;
 	font-size: 70px;
+}
+
+a {
+	color: whitesmoke;
+}
+
+.edit-del-news{
+	text-align: right;
 }

@@ -3,6 +3,12 @@
     <img src="{{photo}}" class="fill-parent" alt="...">
   </div>
   <div class="col-md-9 news-stream-desc">
+      {{#if currentUser}}
+        <div class="edit-del-news">
+          <a class="edit-news"><i class="fa fa-pencil-square-o fa-lg"></i></a>
+          <a class="delete-news"><i class="fa fa-times fa-lg"></i></a>
+        </div>
+      {{/if}}
     <a href="/news/{{_id}}">
       <h3 class="news-title">{{title}}</h3>
     </a>
@@ -12,7 +18,4 @@
     {{desc}}
     <a href="/portfolio/{{projId}}">view project</a>
   </div>
-  {{#if currentUser}}
-    <a class="delete-news">x</a>
-  {{/if}}
 </template>

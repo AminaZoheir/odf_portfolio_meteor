@@ -1,11 +1,15 @@
 <template name="project">
   <a href="/portfolio/{{_id}}" class="pre-animation projComp">
-      <img src="{{photo}}" class="projImage"/>
-      <div class="projInfo">
-        <span>{{title}}</span>
-      </div>
+		<img src="{{photo}}" class="projImage"/>
+		<div class="projInfo">
+			<span>{{title}}</span>
+		</div>
   </a>
-  {{#if currentUser}}
-  	<a class="delete-proj">x</a>
-  {{/if}}
+	{{#if currentUser}}
+		<div class="edit-del-news">
+			<a class="edit-proj"><i class="fa fa-pencil-square-o fa-lg"></i></a>
+			<a class="delete-proj"><i class="fa fa-times fa-lg"></i></a>
+		</div>
+	{{/if}}
+  
 </template>
