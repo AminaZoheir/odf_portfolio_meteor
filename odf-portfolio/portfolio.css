@@ -482,3 +482,6 @@ a {
 .edit-del-news{
 	text-align: right;
 }
+
+/*-webkit-transition:all linear 0.25s;
+  transition:all linear 0.25s;*/

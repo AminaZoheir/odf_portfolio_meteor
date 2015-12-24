@@ -8,6 +8,15 @@ if(Meteor.isClient){
   Template.project.helpers({
     photo: function(){
       return Images.findOne({_id: this.mainphoto}).url();
+    },
+    edit: function(){
+      return Session.get('edit');
+    },
+    subCats: function(){
+      if(Session.get('cat')){
+       return getSubCategoryList(Session.get('cat'));
+      }
+      return getSubCategoryList('Interior');
     }
   }); 
   Template.project.events({
@@ -28,9 +37,20 @@ if(Meteor.isClient){
       };
 
       Projects.remove(projId);
-       // Projects.remove({_id: this._id},function(err, res){
-       //    console.log(err);
-       //  });
+    },
+    'click .edit-proj': function(event){
+      Session.set('edit', true);
+    },
+    'change .cat-admin': function(event){
+      console.log("amina");
+      Session.set('cat', event.target.value);
     }
   }); 
+
+  function getSubCategoryList(category){
+    for(var i = 0;i<categories.length;i++){
+      if(categories[i].name == category)
+        return categories[i].sub;
+    }
+  }
 }
