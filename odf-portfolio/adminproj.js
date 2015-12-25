@@ -4,8 +4,13 @@ if(Meteor.isClient){
      var el = document.createElement("div");
      el.className="alertmessage";
      el.innerHTML = msg;
-     setTimeout(function(){
+     el.onclick = function() {
       el.parentNode.removeChild(el);
+     };
+     setTimeout(function(){
+      if('null' != el){
+        el.parentNode.removeChild(el);
+      }
      },duration);
      document.body.appendChild(el);
     }
