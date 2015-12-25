@@ -1,29 +1,125 @@
-<template name="newsPage">
-  <div class="row" id="news-full">
-    <div class="col-md-2" id="sidebar-news">
-      <h5 class="news-cat">{{category}} | {{subcategory}}</h5>
-      <h5>Project Status: {{status}}</h5>
-      <h5><a href="/portfolio/{{projId}}">View Project</a></h5>
+<!-- <template name="newsPage">
+  <div class="container-fluid" id="news-full">
+      <div class="row">
+      <div class="col-md-12">
+        <div id="news-carousel" class="carousel slide fill-parent">
+          <div class="carousel-inner fill-parent" role="listbox">
+            {{#each indexedArray photos}}
+                {{#if First _index}}
+                  <div class="item active fill-parent">
+                    {{#if isImage}}
+                    <img src="{{url}}" class="project-page-image fill-parent"/>
+                {{/if}}
+                  {{#if isVideo}}
+                    <video autoplay>
+                      <source src="{{url}}" type="video/mp4" class="project-page-image fill-parent">
+                    </video>
+                {{/if}}
+                  </div>
+                {{else}}
+                  <div class="item fill-parent">
+                    {{#if isImage}}
+                    <img src="{{url}}" class="project-page-image fill-parent"/>
+                {{/if}}
+                  {{#if isVideo}}
+                    <video autoplay>
+                      <source src="{{url}}" type="video/mp4" class="project-page-image fill-parent">
+                    </video>
+                {{/if}}
+                  </div>
+                {{/if}}
+              {{/each}}
+          </div>
+          <div id="sidebar-news">
+            <h2>{{title}}</h2>
+            <h5 class="news-cat">{{category}} | {{subcategory}}</h5>
+            <h5>Project Status: {{status}}</h5>
+
+            <h5><a href="/portfolio/{{projId}}">view Project</a></h5>
+          </div>
+        </div>
+        <div class="carousel-icons">
+          {{#each indexedArray photos}}
+            <span>
+              {{#if isImage}}
+                <img src="{{url}}" class="news-icon" data-target="#news-carousel" data-slide-to="{{_index}}"/>
+              {{/if}}
+              {{#if isVideo}}
+                <video class="news-icon" data-target="#news-carousel" data-slide-to="{{_index}}">
+                    <source src="{{url}}" type="video/mp4">
+                </video>
+              {{/if}}
+            </span>
+          {{/each}}
+        </div>
+      </div>
     </div>
-    <div class="col-md-9">
-      <img src="{{photo}}" alt="" align="left" id="news-photo"/>
-      <h2>{{title}}</h2>
-      <p>Pellentesque habitant morbi tristique senectus et
-        netus et malesuada fames ac turpis egestas.
-        Vestibulum tortor quam, feugiat vitae, ultricies
-        eget, tempor sit amet, ante. Donec eu libero sit
-        amet quam egestas semper. Aenean ultricies mi vitae
-        est. Mauris placerat eleifend leo. Quisque sit amet
-        est et sapien ullamcorper pharetra. Vestibulum erat
-        wisi, condimentum sed, commodo vitae, ornare sit amet,
-        wisi. Aenean fermentum, elit eget tincidunt condimentum,
-        eros ipsum rutrum orci, sagittis tempus lacus enim ac
-        dui. Donec non enim in turpis pulvinar facilisis. Ut
-        felis. Praesent dapibus, neque id cursus faucibus,
-        tortor neque egestas augue, eu vulputate magna eros eu
-        erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis,
-        accumsan porttitor, facilisis luctus, metus</p>
-      <!-- <h6>{{desc}}</h6> -->
+    <div class="row">
+      <div class="col-md-12">
+        <p class="newspage-desc">{{desc}}</p>
+      </div>
+    </div>
+  </div>
+</template> -->
+
+ <template name="newsPage">
+  <div id="newspage">
+    <div class="news-fill-parent">
+      <div class="proj-photos">
+        <div id="news-carousel" class="carousel slide news-fill-parent">
+          <div class="carousel-inner news-fill-parent" role="listbox">
+            {{#each indexedArray photos}}
+                {{#if First _index}}
+                  <div class="item active fill-parent">
+                    {{#if isImage}}
+                    <img src="{{url}}" class="project-page-image fill-parent"/>
+                {{/if}}
+                  {{#if isVideo}}
+                    <video autoplay>
+                      <source src="{{url}}" type="video/mp4" class="project-page-image fill-parent">
+                    </video>
+                {{/if}}
+                  </div>
+                {{else}}
+                  <div class="item fill-parent">
+                    {{#if isImage}}
+                    <img src="{{url}}" class="project-page-image fill-parent"/>
+                {{/if}}
+                  {{#if isVideo}}
+                    <video autoplay>
+                      <source src="{{url}}" type="video/mp4" class="project-page-image fill-parent">
+                    </video>
+                {{/if}}
+                  </div>
+                {{/if}}
+              {{/each}}
+          </div>
+        </div>
+        <div class="news-carousel-icons">
+          {{#each indexedArray photos}}
+            <span>
+              {{#if isImage}}
+                <img src="{{url}}" class="news-icon" data-target="#news-carousel" data-slide-to="{{_index}}"/>
+              {{/if}}
+              {{#if isVideo}}
+                <video class="news-icon" data-target="#news-carousel" data-slide-to="{{_index}}">
+                    <source src="{{url}}" type="video/mp4">
+                </video>
+              {{/if}}
+            </span>
+          {{/each}}
+        </div>
+      </div>
+      <div id="sidebar-news">
+        <h2>{{title}}</h2>
+        <h5 class="news-cat">{{category}} | {{subcategory}}</h5>
+        <h5>Project Status: {{status}}</h5>
+
+        <h5><a href="/portfolio/{{projId}}">view Project</a></h5>
+      </div>
+      <div class="newspage-bot">
+        <p class="newspage-desc">{{desc}}</p>
+      </div>
     </div>
   </div>
 </template>

@@ -37,6 +37,37 @@ figure {
 }
 
 #sidebar-news{
-  margin-left: 3%;
-  margin-top: 5%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.news-icon{
+  height: 30px;
+  cursor: pointer;
+}
+
+.newspage-desc{
+  padding-bottom: 3%;
+  padding-top: 1%;
+}
+
+.newspage-bot{
+  position: absolute;
+  top:90%;
+}
+
+.news-fill-parent{
+  height: 93%;
+  width: 100%;
+}
+
+.news-carousel-icons{
+  padding-top: 1%;
+  position: absolute;
+  top: 86%;
+  text-align: center;
+  width: 100%;
 }
