@@ -12,6 +12,9 @@ if(Meteor.isClient){
     edit: function(){
       return Session.get('edit');
     },
+    currproj: function(){
+      return (this._id == Session.get('currproj'));
+    },
     subCats: function(){
       if(Session.get('cat')){
        return getSubCategoryList(Session.get('cat'));
@@ -40,6 +43,7 @@ if(Meteor.isClient){
     },
     'click .edit-proj': function(event){
       Session.set('edit', true);
+      Session.set('currproj', this._id);
     },
     'change .cat-admin': function(event){
       console.log("amina");

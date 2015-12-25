@@ -16,4 +16,7 @@ if(Meteor.isClient){
       return index == 0;
     }
   });
+  Template.about.rendered = function () {
+    this.$('#about-carousel').carousel();
+  };
 }

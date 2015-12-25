@@ -13,6 +13,7 @@
 	{{/if}}
 
 	{{#if edit}}
+		{{#if currproj}}
 		<div class="edit-form">
 			<form class="adminform">
 		      <div class="form-group">
@@ -88,5 +89,6 @@
 		      <button type="submit" class="btn btn-default">Submit</button>
 		    </form>
 		</div>
+		{{/if}}
   	{{/if}}
 </template>

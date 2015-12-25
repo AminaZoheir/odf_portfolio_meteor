@@ -1,3 +1,8 @@
-.selected-proj-edit {
-    border: 1px solid green;
+.proj-edit-comp > a.selected-proj-edit{
+    border-color: green;
+}
+
+.proj-edit-comp > a{
+	border: 1px solid black;
+	border-color: rgb(10,10,10);
 }
