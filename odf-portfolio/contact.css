@@ -71,3 +71,21 @@ figure {
   text-align: center;
   width: 100%;
 }
+
+#cont-photo-right{
+  width: 100%;
+  height: 500px;
+}
+
+#fb-icon{
+  color: #3B5998;
+}
+
+#info-left{
+  text-align:center;
+}
+
+#phones-div{
+  display:inline-block;
+  vertical-align:top;
+}

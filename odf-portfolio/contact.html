@@ -6,90 +6,34 @@
   	<div id="container" class="row">
   		<div class="col-md-12">
         <div id="map-wrapper" class="col-md-6">
-          <div id="map">
+          <div id="left-div-wrapper">
+            <div id="map"></div>
+            <div id="info-left">
+              <div id="address">
+                {{info.address}}
+              </div>
+              <div id="phones-div">
+                <table>
+                  {{#each info.phones}}
+                    <tr>
+                      <td><i class="fa fa-{{getPhoneType type}} fa-lg"></i></td>
+                      <td>{{number}}</td>
+                    </tr>
+                  {{/each}}
+                </table>
+              </div>
+              <div id="social-media">
+                <div class="">
+                  <!-- <a href="{{info.facebook}}"> -->
+                    <i class="fa fa-facebook-official fa-3x" id="fb-icon"></i>
+                  <!-- </a> -->
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="col-md-6">
-          <div class="info-wrapper">
-            <div id="phone-wrapper">
-              <table id="phones">
-                {{#each info.phones}}
-                  <tr class="phone-li">
-                    <td class="icon-td">
-                      <i class="fa fa-{{getPhoneType type}} fa-lg"></i>
-                    </td>
-                    <td class="type-td">
-                      {{type}}
-                    </td>
-                    <td class="number-td">
-                      {{#if isEmail type}}
-                        <a href="mailto:{{number}}">
-                          {{number}}
-                        </a>
-                      {{else}}
-                        {{number}}
-                      {{/if}}
-                    </td>
-                  </tr>
-                {{/each}}
-                <tr class="phone-li">
-                  <td class="icon-td">
-                    <i class="fa fa-facebook-square fa-lg"></i>
-                  </td>
-                  <td class="type-td">
-                    Facebook
-                  </td>
-                  <td class="number-td">
-                    <a href="{{info.fb}}">{{info.fb}}</a>
-                  </td>
-                </tr>
-                <tr class="phone-li">
-                  <td class="icon-td">
-                    <i class="fa fa-twitter-square fa-lg"></i>
-                  </td>
-                  <td class="type-td">
-                    Twitter
-                  </td>
-                  <td class="number-td">
-                    <a href="{{info.tw}}">{{info.tw}}</a>
-                  </td>
-                </tr>
-                <tr class="phone-li">
-                  <td class="icon-td">
-                    <i class="fa fa-instagram fa-lg"></i>
-                  </td>
-                  <td class="type-td">
-                    Instagram
-                  </td>
-                  <td class="number-td">
-                    <a href="{{info.inst}}">{{info.inst}}</a>
-                  </td>
-                </tr>
-                <tr class="phone-li">
-                  <td class="icon-td">
-                    <i class="fa fa-linkedin-square fa-lg"></i>
-                  </td>
-                  <td class="type-td">
-                    LinkedIn
-                  </td>
-                  <td class="number-td">
-                    <a href="{{info.lin}}">{{info.lin}}</a>
-                  </td>
-                </tr>
-                <tr class="phone-li">
-                  <td class="icon-td">
-                    <i class="fa fa-google-plus-square fa-lg"></i>
-                  </td>
-                  <td class="type-td">
-                    Google+
-                  </td>
-                  <td class="number-td">
-                    <a href="{{info.google}}">{{info.google}}</a>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
+          <img src="{{photo}}" alt="" id="cont-photo-right"/>
         </div>
       </div>
   	</div>

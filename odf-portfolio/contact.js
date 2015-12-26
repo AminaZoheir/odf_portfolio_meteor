@@ -45,6 +45,9 @@ if(Meteor.isClient){
     },
     isEmail: function(type){
       return type == 'E-mail';
+    },
+    photo: function(){
+      return Images.findOne({contact: true}).url();
     }
   });
 }
