@@ -136,7 +136,8 @@ if(Meteor.isClient){
       }
       if(Images.find({info: info._id}).count()>1){
         console.log('da5al');
-        Images.remove({_id: Images.findOne({info: info._id})._id},function(err, res){
+        var image = Images.findOne({info: info._id});
+        Images.remove(image._id,function(err, res){
           console.log(err);
         });
       }
@@ -149,6 +150,25 @@ if(Meteor.isClient){
         });
         Images.update(fileObj._id,{
           $set: {about: true}
+        });
+      }
+
+      files = event.target.contactphotoupload.files;
+      console.log(files);
+      for (var i = 0, ln = files.length; i < ln; i++) {
+        console.log(files[i]);
+        var fileObj = Images.insert(files[i], function (err, fileObj) {
+        });
+        Images.update(fileObj._id,{
+          $set: {contact: true}
+        });
+      }
+      
+      if(Images.find({contact: true}).count()>1){
+        console.log('da5al');
+        var image = Images.findOne({contact: true});
+        Images.remove(image._id,function(err, res){
+          console.log(err);
         });
       }
       window.scrollTo(0, 0);
