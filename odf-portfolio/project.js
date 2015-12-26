@@ -85,7 +85,7 @@ if(Meteor.isClient){
           var fileObj = Images.insert(files[i], function (err, fileObj) {
           });
           Images.update(fileObj._id,{
-            $set: {project: project}
+            $set: {project: Session.get('currproj')}
           });
       }
       Session.set('edit', false);
