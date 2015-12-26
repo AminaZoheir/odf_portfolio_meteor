@@ -501,5 +501,9 @@ a {
 .proj-link{
 	display:block;
 }
+
+.icon-edit :hover{
+	cursor: pointer;
+}
 /*-webkit-transition:all linear 0.25s;
   transition:all linear 0.25s;*/

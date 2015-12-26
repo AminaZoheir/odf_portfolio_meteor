@@ -93,6 +93,8 @@ if(Meteor.isClient){
       Session.set('cat', null);
       Session.set('subcat', null);
       Session.set('country', null);
+      // var el =  document.getElementById('#editprojModal');
+      // el.parentNode.removeChild(el);
         // window.scrollTo(0, 0);
         // tempAlert("Project Added Successfully",2000);
       }
@@ -104,4 +106,9 @@ if(Meteor.isClient){
         return categories[i].sub;
     }
   }
+
+
+  // Template.portfolio.rendered = function () {
+    
+  // };
 }
