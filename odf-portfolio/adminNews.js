@@ -52,13 +52,20 @@ if(Meteor.isClient){
         projId: proj,
         status: status
       });
-      var mainphoto;
+      var mainphoto = null;
       var imgs = document.getElementsByClassName('main-photo');
       for (var i = imgs.length - 1; i >= 0; i--) {
         if(imgs[i].getAttribute('selected')=="true"){
           mainphoto = imgs[i].src;
         }
       };
+
+      if(mainphoto == null){
+        if(imgs.length > 0){
+          mainphoto = imgs[0].src;
+        }
+      }
+
     for (var i = 0, ln = files.length; i < ln; i++) {
 
         var fileObj = Images.insert(files[i], function (err, fileObj) {
@@ -133,4 +140,7 @@ if(Meteor.isClient){
         return categories[i].sub;
     }
   }
+  Template.adminNews.onRendered(function(){
+    $('.adminform').validate();
+});
 }

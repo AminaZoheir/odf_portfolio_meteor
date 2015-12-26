@@ -4,11 +4,11 @@
     <form class="adminform">
       <div class="form-group">
         <label for="title">Title</label>
-        <input type="text" class="form-control" id="title" name="title" placeholder="Project Title">
+        <input type="text" class="form-control" id="title" name="title" placeholder="Project Title" required>
       </div>
       <div class="form-group">
         <label for="desc">Description</label>
-        <textarea rows="4" cols="50" class="form-control" id="desc" name="desc">
+        <textarea rows="4" cols="50" class="form-control" id="desc" name="desc" required>
         </textarea>
       </div>
       {{#each categories}}
