@@ -20,6 +20,15 @@ if(Meteor.isClient){
        return getSubCategoryList(Session.get('cat'));
       }
       return getSubCategoryList('Interior');
+    },
+    sameCat: function(name){
+      return(name == Session.get('cat'));
+    },
+    sameSub: function(name){
+      return(name == Session.get('subcat'));
+    },
+    sameCountry: function(name){
+      return(name == Session.get('country'));
     }
   }); 
   Template.project.events({
@@ -44,11 +53,49 @@ if(Meteor.isClient){
     'click .edit-proj': function(event){
       Session.set('edit', true);
       Session.set('currproj', this._id);
+      Session.set('cat', this.category);
+      Session.set('subcat', this.subcategory);
+      Session.set('country', this.country);
     },
     'change .cat-admin': function(event){
       console.log("amina");
       Session.set('cat', event.target.value);
-    }
+    },
+      'submit .adminform':function(event, template){
+        event.preventDefault();
+        var title = event.target.title.value;
+        var desc = event.target.desc.value;
+        var cat = template.find('input:radio[name=optcat]:checked').value;
+        var subcat = template.find('[name=optsubcat]').value;
+        var ishome = template.find('[name=ishome]').checked;
+        var country = template.find('[name=optcountry]').value;
+        var files =  event.target.photoupload.files;
+        var index = Projects.find({}).count();
+
+        var project = Projects.update(Session.get('currproj'), {
+          $set: {title: title,
+          desc: desc,
+          category: cat,
+          subcategory: subcat,
+          ishome: ishome,
+          country: country}
+        });
+      for (var i = 0, ln = files.length; i < ln; i++) {
+
+          var fileObj = Images.insert(files[i], function (err, fileObj) {
+          });
+          Images.update(fileObj._id,{
+            $set: {project: project}
+          });
+      }
+      Session.set('edit', false);
+      Session.set('currproj', null);
+      Session.set('cat', null);
+      Session.set('subcat', null);
+      Session.set('country', null);
+        // window.scrollTo(0, 0);
+        // tempAlert("Project Added Successfully",2000);
+      }
   }); 
 
   function getSubCategoryList(category){

@@ -22,11 +22,11 @@
 		      </div>
 		      <div class="form-group">
 		        <label for="desc">Description</label>
-		        <textarea rows="4" cols="50" class="form-control" id="desc" name="desc" value="{{desc}}">
+		        <textarea rows="4" cols="50" class="form-control" id="desc" name="desc">{{desc}}
 		        </textarea>
 		      </div>
 		      {{#each categories}}
-		      	{{#if name = project.category}}
+		      	{{#if sameCat name}}
 		        	<label class="radio-inline cat-admin-label"><input checked="true" type="radio" class="cat-admin" name="optcat" value="{{name}}">{{name}}</label>
 		        {{else}}
 		        	<label class="radio-inline cat-admin-label"><input type="radio" class="cat-admin" name="optcat" value="{{name}}">{{name}}</label>
@@ -38,7 +38,7 @@
 		        <label for="sel1">Select Sub Category:</label>
 		        <select class="form-control" id="sel1" name="optsubcat">
 		          {{#each subCats}}
-		          	{{#if this = project.subcategory}}
+		          	{{#if sameSub this}}
 		            	<option selected="true">{{this}}</option>
 		            {{else}}
 		            	<option>{{this}}</option>
@@ -51,7 +51,7 @@
 		        <label for="sel2">Select Country:</label>
 		        <select class="form-control" id="sel2" name="optcountry">
 		        {{#each countries}}
-		        	{{#if name = project.country}}
+		        	{{#if sameCountry name}}
 		            	<option selected="true" value="{{name}}">{{name}}</option>
 		            {{else}}
 		            	<option value="{{name}}">{{name}}</option>
@@ -77,15 +77,6 @@
 		          <input multiple class="file fileInput projfile" name="photoupload" type="file"/>
 		        </span>
 		      </div>
-		      <div class="form-group">
-		      <div class="col-md-12">
-		        {{#each photos}}
-		        	<div class="col-md-3">
-		        		<img src="{{url}}"/>
-		        	</div>
-		        {{/each}}
-		      </div>
-		    </div>
 		      <button type="submit" class="btn btn-default">Submit</button>
 		    </form>
 		</div>
