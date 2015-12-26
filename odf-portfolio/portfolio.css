@@ -505,5 +505,18 @@ a {
 .icon-edit :hover{
 	cursor: pointer;
 }
+
+.custom-modal{
+	position: absolute;
+    top: 0;
+    /*height: 100%;*/
+    width: 99%;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 1;
+}
+
+.edit-form{
+	/*width:30%;*/
+}
 /*-webkit-transition:all linear 0.25s;
   transition:all linear 0.25s;*/

@@ -7,87 +7,81 @@
   </a>
 	{{#if currentUser}}
 		<div class="edit-del-news">
-			<a class="edit-proj icon-edit" data-toggle="modal" data-target="#editprojModal"><i class="fa fa-pencil-square-o fa-lg"></i></a>
+			<a class="edit-proj icon-edit"><i class="fa fa-pencil-square-o fa-lg"></i></a>
 			<a class="delete-proj icon-edit"><i class="fa fa-times fa-lg"></i></a>
 		</div>
 	{{/if}}
 
 	{{#if edit}}
 		{{#if currproj}}
-		<!-- <div class="modal fade" id="editprojModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> -->
-			<!-- <div class="modal-dialog" role="document"> -->
-		    	<!-- <div class="modal-content"> -->
-		    		<div class="custom-modal">
-						<div class="edit-form">
-							<form class="adminform">
-						      <div class="form-group">
-						        <label for="title">Title</label>
-						        <input type="text" class="form-control" id="title" name="title" value="{{title}}">
-						      </div>
-						      <div class="form-group">
-						        <label for="desc">Description</label>
-						        <textarea rows="4" cols="50" class="form-control" id="desc" name="desc">{{desc}}
-						        </textarea>
-						      </div>
-						      {{#each categories}}
-						      	{{#if sameCat name}}
-						        	<label class="radio-inline cat-admin-label"><input checked="true" type="radio" class="cat-admin" name="optcat" value="{{name}}">{{name}}</label>
-						        {{else}}
-						        	<label class="radio-inline cat-admin-label"><input type="radio" class="cat-admin" name="optcat" value="{{name}}">{{name}}</label>
-						        {{/if}}
-						      {{/each}}
+    		<div class="custom-modal">
+				<div class="edit-form">
+					<form class="adminform">
+				      <div class="form-group">
+				        <label for="title">Title</label>
+				        <input type="text" class="form-control" id="title" name="title" value="{{title}}">
+				      </div>
+				      <div class="form-group">
+				        <label for="desc">Description</label>
+				        <textarea rows="4" cols="50" class="form-control" id="desc" name="desc">{{desc}}
+				        </textarea>
+				      </div>
+				      {{#each categories}}
+				      	{{#if sameCat name}}
+				        	<label class="radio-inline cat-admin-label"><input checked="true" type="radio" class="cat-admin" name="optcat" value="{{name}}">{{name}}</label>
+				        {{else}}
+				        	<label class="radio-inline cat-admin-label"><input type="radio" class="cat-admin" name="optcat" value="{{name}}">{{name}}</label>
+				        {{/if}}
+				      {{/each}}
 
 
-						      <div class="form-group">
-						        <label for="sel1">Select Sub Category:</label>
-						        <select class="form-control" id="sel1" name="optsubcat">
-						          {{#each subCats}}
-						          	{{#if sameSub this}}
-						            	<option selected="true">{{this}}</option>
-						            {{else}}
-						            	<option>{{this}}</option>
-						            {{/if}}
-						          {{/ each}}
-						        </select>
-						      </div>
+				      <div class="form-group">
+				        <label for="sel1">Select Sub Category:</label>
+				        <select class="form-control" id="sel1" name="optsubcat">
+				          {{#each subCats}}
+				          	{{#if sameSub this}}
+				            	<option selected="true">{{this}}</option>
+				            {{else}}
+				            	<option>{{this}}</option>
+				            {{/if}}
+				          {{/ each}}
+				        </select>
+				      </div>
 
-						      <div class="form-group">
-						        <label for="sel2">Select Country:</label>
-						        <select class="form-control" id="sel2" name="optcountry">
-						        {{#each countries}}
-						        	{{#if sameCountry name}}
-						            	<option selected="true" value="{{name}}">{{name}}</option>
-						            {{else}}
-						            	<option value="{{name}}">{{name}}</option>
-						            {{/if}}
-						          <option value="{{name}}">{{name}}</option>
-						        {{/each}}
-						        </select>
-						      </div>
+				      <div class="form-group">
+				        <label for="sel2">Select Country:</label>
+				        <select class="form-control" id="sel2" name="optcountry">
+				        {{#each countries}}
+				        	{{#if sameCountry name}}
+				            	<option selected="true" value="{{name}}">{{name}}</option>
+				            {{else}}
+				            	<option value="{{name}}">{{name}}</option>
+				            {{/if}}
+				          <option value="{{name}}">{{name}}</option>
+				        {{/each}}
+				        </select>
+				      </div>
 
-						      <div class="checkbox">
-						      <label>
-						      {{#if ishome}}
-						        <input type="checkbox" name="ishome" checked="true"> 
-						       {{else}}
-						       	<input type="checkbox" name="ishome"> 
-						       {{/if}}
-						       Add to home carousel
-						      </label>
-						      </div>
-						      <div>
-						        Add Photos
-						        <span class="btn btn-default btn-file">
-						          <input multiple class="file fileInput projfile" name="photoupload" type="file"/>
-						        </span>
-						      </div>
-						      <button type="submit" class="btn btn-default">Submit</button>
-						    </form>
-						</div>
-					</div>
-				<!-- </div> -->
-			<!-- </div> -->
-		<!-- </div> -->
+				      <div class="checkbox">
+				      <label>
+				      {{#if ishome}}
+				        <input type="checkbox" name="ishome" checked="true"> 
+				       {{else}}
+				       	<input type="checkbox" name="ishome"> 
+				       {{/if}}
+				       Add to home carousel
+				      </label>
+				      </div>
+				      <div>
+				        Add Photos
+				        <span class="btn btn-default btn-file">
+				          <input multiple class="file fileInput projfile" name="photoupload" type="file"/>
+				        </span>
+				      </div>
+				      <button type="submit" class="btn btn-default">Submit</button>
+				    </form>
+				</div>
+			</div>
 		{{/if}}
   	{{/if}}
 </template>
