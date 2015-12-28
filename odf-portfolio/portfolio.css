@@ -509,14 +509,34 @@ a {
 .custom-modal{
 	position: absolute;
     top: 0;
-    /*height: 100%;*/
-    width: 99%;
+    height: 100%;
+    width: 100%;
     background-color: rgba(0,0,0,0.7);
     z-index: 1;
+    padding: 5%;
+}
+
+.close-edit{
+	position: relative;
+    top: 2%;
+    left: 98%;
+    z-index:2;
+    color:black;
 }
 
 .edit-form{
-	/*width:30%;*/
+	padding-left: 15%;
+	padding-right: 15%;
+	height: 100%;
 }
+
+.adminform-edit{
+	padding: 2%;
+	background-color:whitesmoke;
+	color: black;
+	max-height: 100%;
+	overflow: auto;
+}
+
 /*-webkit-transition:all linear 0.25s;
   transition:all linear 0.25s;*/
