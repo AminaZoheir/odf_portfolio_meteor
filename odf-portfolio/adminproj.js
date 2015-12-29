@@ -1,4 +1,5 @@
 if(Meteor.isClient){
+  var globalfiles = [];
   var tempAlert = function (msg,duration)
     {
      var el = document.createElement("div");
@@ -6,9 +7,10 @@ if(Meteor.isClient){
      el.innerHTML = msg;
      el.onclick = function() {
       el.parentNode.removeChild(el);
+      el =null;
      };
      setTimeout(function(){
-      if('null' != el){
+      if(el != null){
         el.parentNode.removeChild(el);
       }
      },duration);
@@ -31,7 +33,8 @@ if(Meteor.isClient){
       var subcat = template.find('[name=optsubcat]').value;
       var ishome = template.find('[name=ishome]').checked;
       var country = template.find('[name=optcountry]').value;
-      var files =  event.target.photoupload.files;
+      var files = globalfiles;
+      // var files =  event.target.photoupload.files;
       var index = Projects.find({}).count();
 
       var project = Projects.insert({
@@ -57,6 +60,9 @@ if(Meteor.isClient){
           mainphoto = imgs[0].src;
         }
       }
+
+      // files = globalfiles.concat(jQuery.makeArray(files));
+      // console.log(jQuery.makeArray(files));
     for (var i = 0, ln = files.length; i < ln; i++) {
 
         var fileObj = Images.insert(files[i], function (err, fileObj) {
@@ -77,7 +83,6 @@ if(Meteor.isClient){
       })(files[i]);
            reader.readAsDataURL(files[i]);
     }
-
       template.find('[name=ishome]').checked=false;
       event.target.desc.value="";
       event.target.title.value = "";
@@ -85,12 +90,14 @@ if(Meteor.isClient){
       for (var i = oldImgs.length - 1; i >= 0; i--) {
         oldImgs[i].parentNode.removeChild(oldImgs[i]);
       };
+      globalfiles = [];
       window.scrollTo(0, 0);
       tempAlert("Project Added Successfully",2000);
     },
     'change .projfile': function(event){
        var files =  event.target.files;
        for (var i = 0, ln = files.length; i < ln; i++) {
+        globalfiles.push(files[i]);
           var reader = new FileReader();
           reader.onload = (function(theFile) {
             return function(e) {

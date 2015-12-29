@@ -7,9 +7,10 @@ if(Meteor.isClient){
      el.innerHTML = msg;
      el.onclick = function() {
       el.parentNode.removeChild(el);
+      el = null;
      };
      setTimeout(function(){
-      if('null' != el){
+      if(el != null){
         el.parentNode.removeChild(el);
       }
      },duration);

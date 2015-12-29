@@ -1,4 +1,5 @@
 if(Meteor.isClient){
+  var globalnewsfiles = [];
   var tempAlert = function (msg,duration)
     {
      var el = document.createElement("div");
@@ -6,9 +7,10 @@ if(Meteor.isClient){
      el.innerHTML = msg;
      el.onclick = function() {
       el.parentNode.removeChild(el);
+      el = null;
      };
      setTimeout(function(){
-      if('null' != el){
+      if(el != null){
         el.parentNode.removeChild(el);
       }
      },duration);
@@ -39,7 +41,8 @@ if(Meteor.isClient){
       var cat = template.find('input:radio[name=optcat]:checked').value;
       var subcat = template.find('[name=optsubcat]').value;
       var country = template.find('[name=optcountry]').value;
-      var files =  event.target.photoupload.files;
+      var files = globalnewsfiles;
+      // var files =  event.target.photoupload.files;
       var proj = template.find('[name=optproj]').options[template.find('[name=optproj]').selectedIndex].getAttribute('projId');
 
       var news = News.insert({
@@ -93,12 +96,14 @@ if(Meteor.isClient){
       for (var i = oldImgs.length - 1; i >= 0; i--) {
         oldImgs[i].parentNode.removeChild(oldImgs[i]);
       };
+      globalnewsfiles = [];
       window.scrollTo(0, 0);
       tempAlert("News Added Successfully",2000);
     },
     'change .newsfile': function(event){
        var files =  event.target.files;
        for (var i = 0, ln = files.length; i < ln; i++) {
+        globalnewsfiles.push(files[i]);
           var reader = new FileReader();
           reader.onload = (function(theFile) {
             return function(e) {
@@ -106,7 +111,9 @@ if(Meteor.isClient){
           span.innerHTML = ['<img class="main-photo" src="', e.target.result,
                             '" name="', i, '"/>'].join('');
                             span.className = span.className + " col-md-3 mainphoto-wrapper";
+                            span.setAttribute('file', theFile);
           document.getElementById('choosephotonews').insertBefore(span, null);
+          console.log(span);
         };
       })(files[i]);
            reader.readAsDataURL(files[i]);
