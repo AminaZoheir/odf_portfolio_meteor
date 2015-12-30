@@ -29,6 +29,9 @@ if (Meteor.isClient) {
     },
     sameCountry: function(name){
       return(name == Session.get('country'));
+    },
+    phots: function(){
+      return Images.find({project: this._id});
     }
   });
 

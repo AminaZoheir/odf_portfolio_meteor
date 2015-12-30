@@ -110,5 +110,13 @@ Meteor.methods({
     for (var i = imgs.length - 1; i >= 0; i--) {
       Images.remove(imgs[i]._id);
     };
+  },
+  addFirstUser: function(){
+    if(Meteor.users.find().fetch().length <= 0){
+      Accounts.createUser({
+        email: 'amina.zoheir@gmail.com',
+        password: '123123123'
+      });
+    }
   }
 });

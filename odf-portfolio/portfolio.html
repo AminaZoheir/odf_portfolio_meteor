@@ -67,6 +67,18 @@
                       <input multiple class="file fileInput projfile" name="photoupload" type="file"/>
                     </span>
                   </div>
+<!--                   <div class="removephotos">
+                    {{#each photos}}
+                      {{#if isImage}}
+                        <img src="{{url}}" class="delete-photo"/>
+                      {{/if}}
+                      {{#if isVideo}}
+                        <video class="delete-photo">
+                            <source src="{{url}}" type="video/mp4">
+                        </video>
+                      {{/if}}
+                    {{/each}}
+                  </div> -->
                   <button type="submit" class="btn btn-default">Submit</button>
                 </form>
             </div>

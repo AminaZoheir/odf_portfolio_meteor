@@ -11,6 +11,9 @@ if (Meteor.isClient) {
 			});
 	    }
 	});
+	Template.login.onRendered(function(){
+    	Meteor.call('addFirstUser');
+	});
 	Template.login.events({
 	    'submit form': function(event) {
 	        event.preventDefault();
