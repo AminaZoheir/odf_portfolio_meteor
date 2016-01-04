@@ -10,3 +10,14 @@
 input.error{
     background-color:rgb(255, 255, 185);
 }
+
+.login-form{
+	padding: 2%;
+    background-color: whitesmoke;
+    border-radius: 2px;
+    color: black;
+}
+
+.login-page{
+	padding:10%;
+}

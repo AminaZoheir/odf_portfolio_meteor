@@ -1,4 +1,11 @@
 <template name="editProj">
+  {{#each projects}}
+    {{#if edit}}
+      {{#if currproj}}
+        {{> editform}}
+      {{/if}}
+    {{/if}}
+  {{/each}}
   <div class="col-md-12 port-grid">
     {{#each projects}}
       <div class="col-md-3 proj-edit-comp">

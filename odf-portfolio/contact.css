@@ -39,7 +39,9 @@ figure {
 #sidebar-news{
   position: absolute;
   top: 0;
-  width: 100%;
+  width: 15%;
+  height: 86.5%;
+  padding-top: 15%;
   text-align: center;
   background-color: rgba(0,0,0,0.7);
 }

@@ -35,9 +35,11 @@
 						    		<img src="{{url}}" class="project-page-image fill-parent"/>
 								{{/if}}
 						    	{{#if isVideo}}
-						    		<video autoplay>
+						    		<video class="proj-video fill-parent">
 						    			<source src="{{url}}" type="video/mp4" class="project-page-image fill-parent">
 						    		</video>
+						    		<i class="fa fa-play fa-5x proj-play" visible="false"></i>
+						    		<i class="fa fa-pause fa-5x proj-pause" visible="true"></i>
 								{{/if}}
 					  	    </div>
 					      {{else}}
@@ -46,9 +48,11 @@
 						    		<img src="{{url}}" class="project-page-image fill-parent"/>
 								{{/if}}
 						    	{{#if isVideo}}
-						    		<video autoplay>
+						    		<video class="proj-video fill-parent">
 						    			<source src="{{url}}" type="video/mp4" class="project-page-image fill-parent">
 						    		</video>
+						    		<i class="fa fa-play fa-5x proj-play"></i>
+						    		<i class="fa fa-pause fa-5x proj-pause"></i>
 								{{/if}}
 					  	    </div>
 					      {{/if}}

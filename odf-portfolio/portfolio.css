@@ -538,5 +538,28 @@ a {
 	overflow: auto;
 }
 
+.proj-play{
+	position: absolute;
+    top: 40%;
+    left: 50%;
+    color:rgba(255,255,255,0.7);
+    cursor:pointer;
+    pointer-events:none;
+}
+
+.proj-pause{
+	position: absolute;
+    top: 40%;
+    left: 50%;
+    color:rgba(255,255,255,0.7);
+    cursor:pointer;
+    display: none;
+    pointer-events:none;
+}
+/*
+[visible = "false"]{
+	display: none;
+}*/
+
 /*-webkit-transition:all linear 0.25s;
   transition:all linear 0.25s;*/
