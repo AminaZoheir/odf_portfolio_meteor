@@ -556,6 +556,33 @@ a {
     display: none;
     pointer-events:none;
 }
+
+.news-play{
+	position: absolute;
+    top: 40%;
+    left: 50%;
+    color:rgba(255,255,255,0.7);
+    cursor:pointer;
+    pointer-events:none;
+}
+
+.news-pause{
+	position: absolute;
+    top: 40%;
+    left: 50%;
+    color:rgba(255,255,255,0.7);
+    cursor:pointer;
+    display: none;
+    pointer-events:none;
+}
+
+i.news-icon{
+	width:3.5%;
+}
+i.project-icon{
+	width: 21%;
+    text-align: center;
+}
 /*
 [visible = "false"]{
 	display: none;

@@ -15,6 +15,10 @@ if(Meteor.isClient){
     },
     First: function(index){
       return index == 0;
+    },
+    ishome: function(){
+      var project = Projects.findOne({_id: this.project});
+      return(project.mainphoto == this._id);
     }
   });
 
@@ -53,6 +57,20 @@ if(Meteor.isClient){
       var video = event.target;
         var play = $(video).siblings('.proj-play');
         $(play).fadeIn("slow");
+    },
+    'click .delete-img': function(event){
+      if (confirm('Are you sure?')) {
+        Images.remove(this._id);
+       } else {
+           return false;
+       }
+    },
+    'change .change-main': function(event, template){
+      var selectedPhoto = template.find('input:radio[name=ismain]:checked').value;
+      var project = Projects.findOne({_id: this.project});
+      Projects.update(project._id,{
+        $set: {mainphoto: selectedPhoto}
+      });
     }
   });
 }

@@ -14,9 +14,18 @@
 			    			<img src="{{url}}" class="project-icon" data-target="#project-carousel" data-slide-to="{{_index}}"/>
 			    		{{/if}}
 			    		{{#if isVideo}}
-			    			<video class="project-icon" data-target="#project-carousel" data-slide-to="{{_index}}">
+			    			<i class="project-icon fa fa-play-circle-o fa-lg" data-target="#project-carousel" data-slide-to="{{_index}}"></i>
+			    			<!-- <video class="project-icon" data-target="#project-carousel" data-slide-to="{{_index}}">
 					    			<source src="{{url}}" type="video/mp4">
-					    	</video>
+					    	</video> -->
+			    		{{/if}}
+			    		{{#if currentUser}}
+			    			{{# if ishome}}
+			    				<input class="change-main" type="radio" name="ismain" checked="true" value="{{_id}}">
+			    			{{else}}
+			    				<input class="change-main" type="radio" name="ismain" value="{{_id}}">
+			    			{{/if}}
+			    			<a class="delete-img"><i class="fa fa-times fa-lg"></i></a>
 			    		{{/if}}
 			    	</span>
 			    {{/each}}

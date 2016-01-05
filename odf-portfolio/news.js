@@ -49,18 +49,15 @@ if(Meteor.isClient){
         var status = event.target.status.value;
         var cat = template.find('input:radio[name=optcat]:checked').value;
         var subcat = template.find('[name=optsubcat]').value;
-        var ishome = template.find('[name=ishome]').checked;
         var country = template.find('[name=optcountry]').value;
         var files =  event.target.photoupload.files;
-        var index = Projects.find({}).count();
         var proj = template.find('[name=optproj]').options[template.find('[name=optproj]').selectedIndex].getAttribute('projId');
 
-        var news = News.update(Session.get('currproj'), {
+        var news = News.update(Session.get('currnews'), {
           $set: {title: title,
           desc: desc,
           category: cat,
           subcategory: subcat,
-          ishome: ishome,
           country: country,
           projId: proj,
           status: status}
@@ -70,7 +67,7 @@ if(Meteor.isClient){
           var fileObj = Images.insert(files[i], function (err, fileObj) {
           });
           Images.update(fileObj._id,{
-            $set: {project: Session.get('currnews')}
+            $set: {news: Session.get('currnews')}
           });
       }
       Session.set('edit-news', false);
