@@ -52,53 +52,53 @@ if (Meteor.isServer) {
   //  }
   //  });
   Images.allow({
-   insert: function(){
-   return true;
+   insert: function(userId){
+   return userId;
    },
-   update: function(){
-   return true;
+   update: function(userId){
+   return userId;
    },
-   remove: function(){
-   return true;
+   remove: function(userId){
+   return userId;
    },
-   download: function(){
-   return true;
+   download: function(userId){
+   return userId;
    }
   });
 
   Projects.allow({
-   insert: function(){
-   return true;
+   insert: function(userId){
+   return userId;
    },
-   update: function(){
-   return true;
+   update: function(userId){
+   return userId;
    },
-   remove: function(){
-   return true;
+   remove: function(userId){
+   return userId;
    }
   });
 
   News.allow({
-   insert: function(){
-   return true;
+   insert: function(userId){
+   return userId;
    },
-   update: function(){
-   return true;
+   update: function(userId){
+   return userId;
    },
-   remove: function(){
-   return true;
+   remove: function(userId){
+   return userId;
    }
   });
 
   Info.allow({
-   insert: function(){
-   return true;
+   insert: function(userId){
+   return userId;
    },
-   update: function(){
-   return true;
+   update: function(userId){
+   return userId;
    },
-   remove: function(){
-   return true;
+   remove: function(userId){
+   return userId;
    }
   });
   // Meteor.publish(“images”, function(){ return Images.find(); });
