@@ -80,7 +80,7 @@ figure {
 
 #cont-photo-right{
   width: 100%;
-  height: 500px;
+  height: 470px;
 }
 
 #fb-icon{
@@ -92,6 +92,17 @@ figure {
 }
 
 #phones-div{
-  display:inline-block;
+  /*display:inline-block;*/
   vertical-align:top;
+}
+
+.phone-type{
+  display: inline-block;
+  color: rgb(255, 190, 0);
+}
+.phone-number{
+  display: inline-block;
+  width: 50%;
+  text-align: left;
+  padding-left: 3%;
 }
