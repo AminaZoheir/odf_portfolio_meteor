@@ -1,5 +1,6 @@
 // var info = null;
 if(Meteor.isClient){
+  var globalaboutfiles = [];
   var tempAlert = function (msg,duration)
     {
      var el = document.createElement("div");
@@ -144,6 +145,7 @@ if(Meteor.isClient){
       }
 
       files = event.target.sketchupload.files;
+      files = globalaboutfiles;
       console.log(files);
       for (var i = 0, ln = files.length; i < ln; i++) {
         console.log(files[i]);
@@ -172,8 +174,26 @@ if(Meteor.isClient){
           console.log(err);
         });
       }
+      globalaboutfiles = [];
       window.scrollTo(0, 0);
       tempAlert("Information Updated Successfully",2000);
+    },
+    'change .sketchfile': function(event){
+       var files =  event.target.files;
+       for (var i = 0, ln = files.length; i < ln; i++) {
+        globalaboutfiles.push(files[i]);
+          var reader = new FileReader();
+          reader.onload = (function(theFile) {
+            return function(e) {
+              var span = document.createElement('a');
+          span.innerHTML = ['<img class="sketch" src="', e.target.result,
+                            '" name="', i, '"/>'].join('');
+          span.className = span.className + " col-md-3";
+          document.getElementById('aboutSketches').insertBefore(span, null);
+        };
+      })(files[i]);
+           reader.readAsDataURL(files[i]);
+       }
     }
   });
 }
