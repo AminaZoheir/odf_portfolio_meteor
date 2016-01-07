@@ -35,10 +35,6 @@ if(Meteor.isClient){
     },
     sameProj: function(name){
       return(name == Session.get('project-news'));
-    },
-    prettifyDate: function (date){
-      var str = date.getDate()+" - "+date.getMonth()+" - "+date.getFullYear();
-      return str;
     }
   });
 

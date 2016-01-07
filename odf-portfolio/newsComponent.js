@@ -10,7 +10,10 @@ if(Meteor.isClient){
       }
       return desc;
     },
-    
+    prettifyDate: function (date){
+      var str = date.getDate()+"-"+date.getMonth()+"-"+date.getFullYear();
+      return str;
+    }
   });
 
   Template.newsComponent.events({
