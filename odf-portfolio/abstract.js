@@ -26,6 +26,7 @@ if (Meteor.isClient) {
   Template.registerHelper('categories', function(){
     return categories;
   });
+
   UI.registerHelper('indexedArray', function(context, options) {
     if (context) {
       return context.map(function(item, index) {

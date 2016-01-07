@@ -6,6 +6,9 @@ if(Meteor.isClient){
     ishome: function(){
       var project = Projects.findOne({_id: this.project});
       return(project.mainphoto == this._id);
+    },
+    isAlign: function(align){
+      return(this.desc.align == align);
     }
   });
 
@@ -19,12 +22,6 @@ if(Meteor.isClient){
         $(play).fadeIn("slow", function(){
           $(play).fadeOut("slow");
         });
-       //  setTimeout(function(){
-       //    var play = $(video).siblings('.proj-play');
-       //  play.attr('visible', false);
-       // },1000);
-        // var pause = $(video).siblings('.proj-pause');
-        // pause.attr('visible', false);
       }else{
         video.pause();
         var play = $(video).siblings('.proj-play');
@@ -34,10 +31,6 @@ if(Meteor.isClient){
           $(pause).fadeOut("slow");
           $(play).fadeIn("slow");
         });
-        // var pause = $(video).siblings('.proj-pause');
-        // pause.attr('visible', true);
-        // var play = $(video).siblings('.proj-play');
-        // play.attr('visible', false);
       }
     },
     'ended .proj-video':function(event){

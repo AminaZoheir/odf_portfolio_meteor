@@ -1,10 +1,13 @@
 if(Meteor.isClient){
   Template.about.helpers({
     info: function(){
-      Meteor.call('getInfo',function(err, res){
-        Session.set('info',res);
-      });
-      return Session.get('info');
+      // Meteor.call('getInfo',function(err, res){
+      //   Session.set('info',res);
+      // });
+      // return Session.get('info');
+      var res = Info.findOne(); 
+      Session.set('info',res);
+      return res;
     },
     photo: function(){
       return Images.findOne({info: Session.get('info')._id}).url();
@@ -14,6 +17,9 @@ if(Meteor.isClient){
     },
     First: function(index){
       return index == 0;
+    },
+    isAlign: function(align1, align2){
+      return(align1 == align2);
     }
   });
   Template.about.rendered = function () {
@@ -39,9 +45,7 @@ if(Meteor.isClient){
     },
     'change .bg-align': function(event, template){
       var info = Session.get('info');
-      console.log(info);
       var align = template.find('input:radio[name=bg-align]:checked').value;
-      console.log(align);
       var bg = info.bg.text;
       Info.update(info._id,{
         $set: {bg:{text: bg, align: align}}
@@ -49,9 +53,7 @@ if(Meteor.isClient){
     },
     'change .history-align': function(event, template){
       var info = Session.get('info');
-      console.log(info);
       var align = template.find('input:radio[name=history-align]:checked').value;
-      console.log(align);
       var history = info.history.text;
       Info.update(info._id,{
         $set: {history:{text: history, align: align}}

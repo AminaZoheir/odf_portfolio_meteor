@@ -31,10 +31,10 @@
 			    {{/each}}
 				</div>
 				{{#if currentUser}}
-					<input class="proj-align" type="radio" name="proj-align" checked="true" value="justify"> jusitfy
-					<input class="proj-align" type="radio" name="proj-align" checked="true" value="align-left"> left
-					<input class="proj-align" type="radio" name="proj-align" checked="true" value="align-right"> right
-					<input class="proj-align" type="radio" name="proj-align" checked="true" value="align-center"> center
+					<input class="proj-align" type="radio" name="proj-align" checked="{{isAlign 'justify'}}" value="justify"> jusitfy
+					<input class="proj-align" type="radio" name="proj-align" checked="{{isAlign 'align-left'}}" value="align-left"> left
+					<input class="proj-align" type="radio" name="proj-align" checked="{{isAlign 'align-right'}}" value="align-right"> right
+					<input class="proj-align" type="radio" name="proj-align" checked="{{isAlign 'align-center'}}" value="align-center"> center
 				{{/if}}
 				<p class="{{desc.align}}">
 					{{desc.text}}
@@ -82,15 +82,6 @@
 					    <span class="sr-only">Next</span>
 					</a> -->
 				</div>
-<!-- 					<div ng-controller="ProjectCarouselCtrl" id="project-carousel" class="fill-parent">
-				  <div>
-				    <uib-carousel interval="myInterval" class="fill-parent">
-				      <uib-slide ng-repeat="slide in slides" active="slide.active" class="fill-parent">
-				        <img ng-src="{{slide.image}}" class="fill-parent"\>
-				      </uib-slide>
-				    </uib-carousel>
-				  </div>
-				</div> -->
 			</div>
 		</div>
 	</div>

@@ -6,6 +6,9 @@ if(Meteor.isClient){
     ishome: function(){
       var news = News.findOne({_id: this.news});
       return(news.mainphoto == this._id);
+    },
+    isAlign: function(align){
+      return(this.desc.align == align);
     }
   });
 
