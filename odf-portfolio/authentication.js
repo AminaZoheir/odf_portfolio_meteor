@@ -21,6 +21,11 @@ if (Meteor.isClient) {
 	        var passwordVar = event.target.loginPassword.value;
 	        console.log("Form submitted.");
 	        Meteor.loginWithPassword(emailVar, passwordVar);
+	    },
+	    'click .forgot-pass': function(event, template){
+	    	var email = template.find('[name=loginEmail]').value;
+	    	Accounts.forgotPassword({email: email});
+	    	console.log("done");
 	    }
 	});
 	Template.navBar2.events({

@@ -54,9 +54,11 @@ if(Meteor.isClient){
         var files =  event.target.photoupload.files;
         var proj = template.find('[name=optproj]').options[template.find('[name=optproj]').selectedIndex].getAttribute('projId');
 
+        var align = News.findOne(Session.get('currnews')).desc.align;
+
         var news = News.update(Session.get('currnews'), {
           $set: {title: title,
-          desc: desc,
+          desc: {text: desc, align: align},
           category: cat,
           subcategory: subcat,
           country: country,

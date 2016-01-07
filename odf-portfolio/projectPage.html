@@ -30,8 +30,14 @@
 			    	</span>
 			    {{/each}}
 				</div>
-				<p>
-					{{desc}}
+				{{#if currentUser}}
+					<input class="proj-align" type="radio" name="proj-align" checked="true" value="justify"> jusitfy
+					<input class="proj-align" type="radio" name="proj-align" checked="true" value="align-left"> left
+					<input class="proj-align" type="radio" name="proj-align" checked="true" value="align-right"> right
+					<input class="proj-align" type="radio" name="proj-align" checked="true" value="align-center"> center
+				{{/if}}
+				<p class="{{desc.align}}">
+					{{desc.text}}
 				</p>
 			</div>
 			<div class="proj-photos">

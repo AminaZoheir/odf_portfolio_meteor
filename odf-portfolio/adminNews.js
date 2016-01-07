@@ -47,7 +47,7 @@ if(Meteor.isClient){
 
       var news = News.insert({
         title: title,
-        desc: desc,
+        desc: {text: desc, align: "justify"},
         category: cat,
         subcategory: subcat,
         country: country,

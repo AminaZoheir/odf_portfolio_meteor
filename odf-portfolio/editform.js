@@ -58,10 +58,11 @@ if (Meteor.isClient) {
         // var files =  event.target.photoupload.files;
         var index = Projects.find({}).count();
         var files = globalfiles;
+        var align = Projects.findOne(Session.get('currproj')).desc.align;
 
         var project = Projects.update(Session.get('currproj'), {
           $set: {title: title,
-          desc: desc,
+          desc: {text: desc, align: align},
           category: cat,
           subcategory: subcat,
           ishome: ishome,

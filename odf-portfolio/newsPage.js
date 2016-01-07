@@ -58,6 +58,14 @@ if(Meteor.isClient){
       News.update(news._id,{
         $set: {mainphoto: selectedPhoto}
       });
+    },
+    'change .news-align': function(event, template){
+      var align = template.find('input:radio[name=news-align]:checked').value;
+      // var project = Projects.findOne({_id: this.project});
+      var desc = this.desc.text;
+      News.update(this._id,{
+        $set: {desc:{text: desc, align: align}}
+      });
     }
   });
 }

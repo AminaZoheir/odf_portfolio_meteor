@@ -58,6 +58,14 @@ if(Meteor.isClient){
       Projects.update(project._id,{
         $set: {mainphoto: selectedPhoto}
       });
+    },
+    'change .proj-align': function(event, template){
+      var align = template.find('input:radio[name=proj-align]:checked').value;
+      // var project = Projects.findOne({_id: this.project});
+      var desc = this.desc.text;
+      Projects.update(this._id,{
+        $set: {desc:{text: desc, align: align}}
+      });
     }
   });
 }

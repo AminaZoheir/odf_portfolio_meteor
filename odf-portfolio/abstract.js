@@ -37,20 +37,6 @@ if (Meteor.isClient) {
 }
 
 if (Meteor.isServer) {
-  // Images.deny({
-  //  insert: function(){
-  //  return false;
-  //  },
-  //  update: function(){
-  //  return false;
-  //  },
-  //  remove: function(){
-  //  return false;
-  //  },
-  //  download: function(){
-  //  return false;
-  //  }
-  //  });
   Images.allow({
    insert: function(userId){
    return userId;
@@ -103,6 +89,7 @@ if (Meteor.isServer) {
   });
   // Meteor.publish(“images”, function(){ return Images.find(); });
   Meteor.startup(function () {
+    // process.env.MAIL_URL = 'smtp://AminaZoheir:Abc123..@smtp.sendgrid.net:587';
     // code to run on server at startup
   });
 }

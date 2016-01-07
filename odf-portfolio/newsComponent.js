@@ -4,7 +4,7 @@ if(Meteor.isClient){
       return Images.findOne({_id: this.mainphoto});
     },
     shortdesc: function(){
-      var desc = this.desc;
+      var desc = this.desc.text;
       if(desc.length > 200){
         return desc.substring(0, 200) + "..";
       }

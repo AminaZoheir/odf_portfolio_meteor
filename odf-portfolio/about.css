@@ -9,9 +9,9 @@
     padding-top: 1%;
 }
 
-p{
+/*p{
 	text-align: justify;
-}
+}*/
 
 .about-strip{
 	/*padding-top: 5%;*/
@@ -81,3 +81,20 @@ body{
 	  min-width: 15px !important;
 	}
 }
+
+.justify{
+	text-align: justify;
+}
+
+.align-left{
+	text-align: left;
+}
+
+.align-right{
+	text-align: right;
+}
+
+.align-center{
+	text-align: center;
+}
+
