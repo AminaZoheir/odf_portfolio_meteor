@@ -1,7 +1,7 @@
 if(Meteor.isClient){
   Template.newsComponent.helpers({
     photo: function(){
-      return Images.findOne({_id: this.mainphoto}).url();
+      return Images.findOne({_id: this.mainphoto});
     },
     shortdesc: function(){
       var desc = this.desc;

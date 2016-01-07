@@ -1,6 +1,10 @@
 <template name="newsComponent">
   <div class="col-md-3 news-stream-photo">
-    <img src="{{photo}}" class="fill-parent" alt="...">
+  {{#if photo}}
+    <img src="{{photo.url}}" class="fill-parent" alt=""/>
+  {{else}}
+    <img src="/images/missing-photo2.png" class="fill-parent" alt=""/>
+  {{/if}}
   </div>
   <div class="col-md-9 news-stream-desc">
       {{#if currentUser}}
