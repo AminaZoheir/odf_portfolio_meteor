@@ -1,4 +1,5 @@
 if(Meteor.isClient){
+  var globalfiles = [];
   Template.news.helpers({
     news: function(){
       return News.find({}, {sort: {createdAt: -1}});
@@ -82,7 +83,24 @@ if(Meteor.isClient){
 	    Session.set('cat-news', null);
 	    Session.set('subcat-news', null);
 	    Session.set('country-news', null);
-      }
+      },
+      'change .projfile': function(event){
+       var files =  event.target.files;
+       for (var i = 0, ln = files.length; i < ln; i++) {
+        globalfiles.push(files[i]);
+          var reader = new FileReader();
+          reader.onload = (function(theFile) {
+            return function(e) {
+              var span = document.createElement('a');
+          span.innerHTML = ['<img class="new-photo" src="', e.target.result,
+                            '" name="', i, '"/>'].join('');
+          span.className = span.className + " col-md-2";
+          document.getElementById('newphotonews').insertBefore(span, null);
+        };
+      })(files[i]);
+           reader.readAsDataURL(files[i]);
+       }
+    }
 	});
 
 	function getSubCategoryList(category){

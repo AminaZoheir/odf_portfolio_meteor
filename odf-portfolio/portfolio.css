@@ -583,6 +583,10 @@ i.project-icon{
 	width: 21%;
     text-align: center;
 }
+
+.new-photo{
+	max-height: 70px;
+}
 /*
 [visible = "false"]{
 	display: none;

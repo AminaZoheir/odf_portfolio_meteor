@@ -1,5 +1,5 @@
 if (Meteor.isClient) {
-
+  var globalfiles = [];
   Template.editform.helpers({
     // projects: function(){
     //   if(Session.get("currCat")){
@@ -55,8 +55,9 @@ if (Meteor.isClient) {
         var subcat = template.find('[name=optsubcat]').value;
         var ishome = template.find('[name=ishome]').checked;
         var country = template.find('[name=optcountry]').value;
-        var files =  event.target.photoupload.files;
+        // var files =  event.target.photoupload.files;
         var index = Projects.find({}).count();
+        var files = globalfiles;
 
         var project = Projects.update(Session.get('currproj'), {
           $set: {title: title,
@@ -90,7 +91,24 @@ if (Meteor.isClient) {
         Session.set('cat', null);
         Session.set('subcat', null);
         Session.set('country', null);
-      }
+      },
+      'change .projfile': function(event){
+       var files =  event.target.files;
+       for (var i = 0, ln = files.length; i < ln; i++) {
+        globalfiles.push(files[i]);
+          var reader = new FileReader();
+          reader.onload = (function(theFile) {
+            return function(e) {
+              var span = document.createElement('a');
+          span.innerHTML = ['<img class="new-photo" src="', e.target.result,
+                            '" name="', i, '"/>'].join('');
+          span.className = span.className + " col-md-2";
+          document.getElementById('newphoto').insertBefore(span, null);
+        };
+      })(files[i]);
+           reader.readAsDataURL(files[i]);
+       }
+    }
   });
   function getSubCategoryList(category){
     for(var i = 0;i<categories.length;i++){
