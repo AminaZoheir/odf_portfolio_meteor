@@ -59,10 +59,10 @@
           {{/each}}
           <div class="newspage-bot">
           {{#if currentUser}}
-            <input class="news-align" type="radio" name="news-align" checked="true" value="justify"> jusitfy
-            <input class="news-align" type="radio" name="news-align" checked="true" value="align-left"> left
-            <input class="news-align" type="radio" name="news-align" checked="true" value="align-right"> right
-            <input class="news-align" type="radio" name="news-align" checked="true" value="align-center"> center
+            <input class="news-align" type="radio" name="news-align" checked="{{isAlign 'justify'}}" value="justify"> jusitfy
+            <input class="news-align" type="radio" name="news-align" checked="{{isAlign 'align-left'}}" value="align-left"> left
+            <input class="news-align" type="radio" name="news-align" checked="{{isAlign 'align-right'}}" value="align-right"> right
+            <input class="news-align" type="radio" name="news-align" checked="{{isAlign 'align-center'}}" value="align-center"> center
           {{/if}}
             <p class="newspage-desc {{desc.align}}">{{desc.text}}</p>
           </div>

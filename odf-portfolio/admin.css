@@ -44,3 +44,7 @@ a.adminlink{
     color:black;
     font-weight: normal;
 }
+
+.admin-forms .custom-modal{
+    width: 96%;
+}
