@@ -63,22 +63,22 @@ if(Meteor.isClient){
     },
     'change #bio':function(event){
       var info = Session.get('info');
-      info.bio = event.target.value;
+      info.bio = {text: event.target.value, align: "justify"};
       Session.set('info',info);
     },
     'change #mission': function(event){
       var info = Session.get('info');
-      info.mission = event.target.value;
+      info.mission = {text: event.target.value, align: "justify"};
       Session.set('info',info);
     },
     'change #bg': function(event){
       var info = Session.get('info');
-      info.bg = event.target.value;
+      info.bg = {text: event.target.value, align: "justify"};
       Session.set('info',info);
     },
     'change #history': function(event){
       var info = Session.get('info');
-      info.history = event.target.value;
+      info.history = {text: event.target.value, align: "justify"};
       Session.set('info',info);
     },
     'change #addr': function(event){
@@ -119,7 +119,7 @@ if(Meteor.isClient){
       var info = Session.get('info');
       Info.update(info._id,{
         $set: {
-           bio:{text: info.bio, align: "justify"}, mission:{text: info.mission, align: "justify"}, bg:{text: info.bg, align: "justify"}, history:{text: info.history, align: "justify"},
+           bio: info.bio, mission: info.mission, bg: info.bg, history: info.history,
            address:info.address, fb:info.fb, tw:info.tw, inst:info.inst, google:info.google,
            lin:info.lin, phones:info.phones
         }
