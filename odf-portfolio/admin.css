@@ -1,5 +1,6 @@
 .proj-edit-comp > a.selected-proj-edit{
-    border-color: green;
+    /*border-color: green;*/
+    border-color: yellow;
 }
 
 .proj-edit-comp > a{
@@ -20,4 +21,22 @@ input.error{
 
 .login-page{
 	padding:10%;
+}
+
+.admin-forms{
+	color: black;
+    padding: 2%;
+    background-color: whitesmoke;
+    border-radius: 2px;
+    margin-bottom: 1%;
+    margin: 2%;
+}
+
+a.adminlink{
+	color:black;
+}
+
+.admin-pane{
+    max-height: 700px;
+    overflow: auto;
 }
