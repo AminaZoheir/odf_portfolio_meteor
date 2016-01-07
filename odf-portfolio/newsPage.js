@@ -3,9 +3,6 @@ if(Meteor.isClient){
     photos: function(){
       return Images.find({news: this._id});
     },
-    First: function(index){
-      return index == 0;
-    },
     ishome: function(){
       var news = News.findOne({_id: this.news});
       return(news.mainphoto == this._id);

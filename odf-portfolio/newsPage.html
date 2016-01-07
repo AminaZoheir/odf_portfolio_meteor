@@ -5,7 +5,7 @@
         <div id="news-carousel" class="carousel slide news-fill-parent">
           <div class="carousel-inner news-fill-parent" role="listbox">
             {{#each indexedArray photos}}
-                {{#if First _index}}
+                {{#if ishome}}
                   <div class="item active fill-parent">
                     {{#if isImage}}
                     <img src="{{url}}" class="project-page-image fill-parent"/>
