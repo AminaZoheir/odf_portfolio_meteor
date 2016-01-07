@@ -3,20 +3,44 @@
   <div class="about-strip">
     <div id="about-bio" class="about-title">
       <h2>Biography</h2>
+      {{#if currentUser}}
+        <input class="bio-align" type="radio" name="bio-align" checked="true" value="justify"> jusitfy
+        <input class="bio-align" type="radio" name="bio-align" checked="true" value="align-left"> left
+        <input class="bio-align" type="radio" name="bio-align" checked="true" value="align-right"> right
+        <input class="bio-align" type="radio" name="bio-align" checked="true" value="align-center"> center
+      {{/if}}
         <img src="{{photo}}" alt="" align="left" class="about-photo"/>
-          <p>{{info.bio}}</p>
+          <p class="{{info.bio.align}}">{{info.bio.text}}</p>
     </div>
     <div id="about-mission" class="about-title">
       <h2>Mission</h2>
-      <p>{{info.mission}}</p>
+      {{#if currentUser}}
+        <input class="mission-align" type="radio" name="mission-align" checked="true" value="justify"> jusitfy
+        <input class="mission-align" type="radio" name="mission-align" checked="true" value="align-left"> left
+        <input class="mission-align" type="radio" name="mission-align" checked="true" value="align-right"> right
+        <input class="mission-align" type="radio" name="mission-align" checked="true" value="align-center"> center
+      {{/if}}
+      <p class="{{info.mission.align}}">{{info.mission.text}}</p>
     </div>
     <div id="about-bg" class="about-title">
       <h2>Background</h2>
-      <p>{{info.bg}}</p>
+      {{#if currentUser}}
+        <input class="bg-align" type="radio" name="bg-align" checked="true" value="justify"> jusitfy
+        <input class="bg-align" type="radio" name="bg-align" checked="true" value="align-left"> left
+        <input class="bg-align" type="radio" name="bg-align" checked="true" value="align-right"> right
+        <input class="bg-align" type="radio" name="bg-align" checked="true" value="align-center"> center
+      {{/if}}
+      <p class="{{info.bg.align}}">{{info.bg.text}}</p>
     </div>
     <div id="about-history" class="about-title">
       <h2>History</h2>
-      <p>{{info.history}}</p>
+      {{#if currentUser}}
+        <input class="history-align" type="radio" name="history-align" checked="true" value="justify"> jusitfy
+        <input class="history-align" type="radio" name="history-align" checked="true" value="align-left"> left
+        <input class="history-align" type="radio" name="history-align" checked="true" value="align-right"> right
+        <input class="history-align" type="radio" name="history-align" checked="true" value="align-center"> center
+      {{/if}}
+      <p class="{{info.history.align}}">{{info.history.text}}</p>
     </div>
   </div>
   <div class="sketches">

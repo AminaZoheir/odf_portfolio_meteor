@@ -63,22 +63,22 @@ if(Meteor.isClient){
     },
     'change #bio':function(event){
       var info = Session.get('info');
-      info.bio = event.target.value;
+      info.bio = {text: event.target.value, align: "justify"};
       Session.set('info',info);
     },
     'change #mission': function(event){
       var info = Session.get('info');
-      info.mission = event.target.value;
+      info.mission = {text: event.target.value, align: "justify"};
       Session.set('info',info);
     },
     'change #bg': function(event){
       var info = Session.get('info');
-      info.bg = event.target.value;
+      info.bg = {text: event.target.value, align: "justify"};
       Session.set('info',info);
     },
     'change #history': function(event){
       var info = Session.get('info');
-      info.history = event.target.value;
+      info.history = {text: event.target.value, align: "justify"};
       Session.set('info',info);
     },
     'change #addr': function(event){
@@ -119,7 +119,7 @@ if(Meteor.isClient){
       var info = Session.get('info');
       Info.update(info._id,{
         $set: {
-           bio:info.bio, mission:info.mission, bg:info.bg, history:info.history,
+           bio: info.bio, mission: info.mission, bg: info.bg, history: info.history,
            address:info.address, fb:info.fb, tw:info.tw, inst:info.inst, google:info.google,
            lin:info.lin, phones:info.phones
         }
@@ -127,7 +127,7 @@ if(Meteor.isClient){
 
       var files =  event.target.photoupload.files;
       for (var i = 0, ln = files.length; i < ln; i++) {
-        console.log('nila');
+        // console.log('nila');
         var fileObj = Images.insert(files[i], function (err, fileObj) {
         });
         Images.update(fileObj._id,{
@@ -184,7 +184,7 @@ if(Meteor.isServer){
       return Info.findOne({});
     },
     addIfNotExists: function(){
-      return Info.insert({ bio:'', mission:'', bg:'', history:'', address:'', fb:'',
+      return Info.insert({ bio:{text:'', align:"justify"}, mission:{text:'', align:"justify"}, bg:{text:'', align:"justify"}, history:{text:'', align:"justify"}, address:'', fb:'',
                   tw:'', inst:'', google:'', lin:'', phones:[{type:'Phone',number:''}]});
     }
   });

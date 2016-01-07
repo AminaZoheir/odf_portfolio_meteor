@@ -1,4 +1,5 @@
 if(Meteor.isClient){
+  var globalfiles = [];
   Template.news.helpers({
     news: function(){
       return News.find({}, {sort: {createdAt: -1}});
@@ -34,6 +35,10 @@ if(Meteor.isClient){
     },
     sameProj: function(name){
       return(name == Session.get('project-news'));
+    },
+    prettifyDate: function (date){
+      var str = date.getDate()+" - "+date.getMonth()+" - "+date.getFullYear();
+      return str;
     }
   });
 
@@ -49,18 +54,17 @@ if(Meteor.isClient){
         var status = event.target.status.value;
         var cat = template.find('input:radio[name=optcat]:checked').value;
         var subcat = template.find('[name=optsubcat]').value;
-        var ishome = template.find('[name=ishome]').checked;
         var country = template.find('[name=optcountry]').value;
         var files =  event.target.photoupload.files;
-        var index = Projects.find({}).count();
         var proj = template.find('[name=optproj]').options[template.find('[name=optproj]').selectedIndex].getAttribute('projId');
 
-        var news = News.update(Session.get('currproj'), {
+        var align = News.findOne(Session.get('currnews')).desc.align;
+
+        var news = News.update(Session.get('currnews'), {
           $set: {title: title,
-          desc: desc,
+          desc: {text: desc, align: align},
           category: cat,
           subcategory: subcat,
-          ishome: ishome,
           country: country,
           projId: proj,
           status: status}
@@ -70,7 +74,7 @@ if(Meteor.isClient){
           var fileObj = Images.insert(files[i], function (err, fileObj) {
           });
           Images.update(fileObj._id,{
-            $set: {project: Session.get('currnews')}
+            $set: {news: Session.get('currnews')}
           });
       }
       Session.set('edit-news', false);
@@ -85,7 +89,24 @@ if(Meteor.isClient){
 	    Session.set('cat-news', null);
 	    Session.set('subcat-news', null);
 	    Session.set('country-news', null);
-      }
+      },
+      'change .projfile': function(event){
+       var files =  event.target.files;
+       for (var i = 0, ln = files.length; i < ln; i++) {
+        globalfiles.push(files[i]);
+          var reader = new FileReader();
+          reader.onload = (function(theFile) {
+            return function(e) {
+              var span = document.createElement('a');
+          span.innerHTML = ['<img class="new-photo" src="', e.target.result,
+                            '" name="', i, '"/>'].join('');
+          span.className = span.className + " col-md-2";
+          document.getElementById('newphotonews').insertBefore(span, null);
+        };
+      })(files[i]);
+           reader.readAsDataURL(files[i]);
+       }
+    }
 	});
 
 	function getSubCategoryList(category){

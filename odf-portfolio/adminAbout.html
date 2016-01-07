@@ -2,21 +2,21 @@
   <form class="adminform">
     <div class="form-group">
       <label for="biography">Biography</label>
-      <textarea rows="4" cols="50" class="form-control" id="bio" name="bio" placeholder="Biography">{{info.bio}}
+      <textarea rows="4" cols="50" class="form-control" id="bio" name="bio" placeholder="Biography">{{info.bio.text}}
       </textarea>
     </div>
     <div class="form-group">
       <label for="mission">Mission</label>
-      <input type="text" class="form-control" id="mission" name="mission" value="{{info.mission}}">
+      <input type="text" class="form-control" id="mission" name="mission" value="{{info.mission.text}}">
     </div>
     <div class="form-group">
       <label for="background">Background</label>
-      <textarea rows="4" cols="50" class="form-control" id="bg" name="bg">{{info.bg}}
+      <textarea rows="4" cols="50" class="form-control" id="bg" name="bg">{{info.bg.text}}
       </textarea>
     </div>
     <div class="form-group">
       <label for="history">History</label>
-      <textarea rows="4" cols="50" class="form-control" id="history" name="history">{{info.history}}
+      <textarea rows="4" cols="50" class="form-control" id="history" name="history">{{info.history.text}}
       </textarea>
     </div>
     <div class="form-group">
@@ -66,13 +66,13 @@
       <a href="#" id="add-button"><i class="fa fa-plus-square fa-3x"></i></a>
     </div>
     <div>
-      Update Personal Photo
+      Update Personal Photo (square)
       <span class="btn btn-default btn-file">
         <input id="add-photo" class="file fileInput" name="photoupload" type="file"/>
       </span>
     </div>
     <div>
-      Add About us Sketches
+      Add About us Sketches (1013x460)
       <span class="btn btn-default btn-file">
         <input multiple class="file fileInput" name="sketchupload" type="file"/>
       </span>

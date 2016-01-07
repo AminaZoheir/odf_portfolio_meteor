@@ -1,10 +1,10 @@
 if(Meteor.isClient){
   Template.newsComponent.helpers({
     photo: function(){
-      return Images.findOne({_id: this.mainphoto}).url();
+      return Images.findOne({_id: this.mainphoto});
     },
     shortdesc: function(){
-      var desc = this.desc;
+      var desc = this.desc.text;
       if(desc.length > 200){
         return desc.substring(0, 200) + "..";
       }
@@ -29,13 +29,11 @@ if(Meteor.isClient){
        }
     },
     'click .edit-news': function(event){
-      console.log("Amina");
       Session.set('edit-news', true);
       Session.set('currnews', this._id);
       Session.set('cat-news', this.category);
       Session.set('subcat-news', this.subcategory);
       Session.set('country-news', this.country);
-      console.log(this.projId);
       Session.set('project-news', this.projId);
     }
   });

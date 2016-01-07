@@ -1,34 +1,52 @@
 <template name="admin">
 	{{#if currentUser}}
 		<div class="container">
-		  <!-- Nav tabs -->
-		  <ul class="nav nav-tabs" role="tablist">
-		    <li role="presentation" class="active"><a href="#proj" aria-controls="home" role="tab" data-toggle="tab">Add Projects</a></li>
-		    <li role="presentation"><a href="#news" aria-controls="profile" role="tab" data-toggle="tab">Add News</a></li>
-		    <li role="presentation"><a href="#about" aria-controls="messages" role="tab" data-toggle="tab">Update About & Contact</a></li>
-				<li role="presentation"><a href="#arrange" aria-controls="messages" role="tab" data-toggle="tab">Edit Projects</a></li>
-		  </ul>
+			<div class="row">
+				<!-- <div class="col-md-12"> -->
+					<!-- <div class="col-md-1"></div> -->
+					<div class="col-md-12 admin-forms">
+				  	<!-- Nav tabs -->
+					  <ul class="nav nav-tabs" role="tablist">
+					    <li role="presentation" class="active"><a href="#proj" aria-controls="home" role="tab" data-toggle="tab" class="adminlink">Add Projects</a></li>
+					    <li role="presentation"><a href="#news" aria-controls="profile" role="tab" data-toggle="tab" class="adminlink">Add News</a></li>
+					    <li role="presentation"><a href="#about" aria-controls="messages" role="tab" data-toggle="tab" class="adminlink">Update About & Contact</a></li>
+						<li role="presentation"><a href="#arrange" aria-controls="messages" role="tab" data-toggle="tab" class="adminlink">Edit Projects</a></li>
+						<li role="presentation"><a href="#account" aria-controls="messages" role="tab" data-toggle="tab" class="adminlink">Update Account</a></li>
+					  </ul>
 
-		  <!-- Tab panes -->
-		  <div class="tab-content admin-content">
-		    <div role="tabpanel" class="tab-pane active" id="proj">
-		    	{{> adminproj}}
-		    </div>
-		    <div role="tabpanel" class="tab-pane" id="news">
-		    	{{> adminNews}}
-		    </div>
-		    <div role="tabpanel" class="tab-pane" id="about">
-					{{> adminAbout}}
-		    </div>
-			<div role="tabpanel" class="tab-pane" id="arrange">
-		    	{{> editProj}}
-		    </div>
-		  </div>
+					  <!-- Tab panes -->
+					  <div class="tab-content admin-content">
+					    <div role="tabpanel" class="tab-pane active" id="proj">
+					    	{{> adminproj}}
+					    </div>
+					    <div role="tabpanel" class="tab-pane" id="news">
+					    	{{> adminNews}}
+					    </div>
+					    <div role="tabpanel" class="tab-pane" id="about">
+								{{> adminAbout}}
+					    </div>
+						<div role="tabpanel" class="tab-pane" id="arrange">
+					    	{{> editProj}}
+					    </div>
+					    <div role="tabpanel" class="tab-pane" id="account">
+					    	{{> editAccount}}
+					    </div>
+					  </div>
+				  </div>
+				  <!-- <div class="col-md-1"></div> -->
+			  	<!-- </div> -->
+		  	</div>
 		</div>
 	{{else}}
 	<div class="container">
-		{{> register}}
-	    {{> login}}
+		<div class="col-md-12 login-page">
+		<div class="col-md-3"></div>
+		<div class="col-md-6 login-form">
+			<!-- {{> register}} -->
+		    {{> login}}
+		</div>
+		<div class="col-md-3"></div>
+	    </div>
 	</div>
 	{{/if}}
 </template>

@@ -39,7 +39,7 @@ if(Meteor.isClient){
 
       var project = Projects.insert({
         title: title,
-        desc: desc,
+        desc: {text: desc, align: "justify"},
         category: cat,
         subcategory: subcat,
         ishome: ishome,

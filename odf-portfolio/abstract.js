@@ -37,36 +37,59 @@ if (Meteor.isClient) {
 }
 
 if (Meteor.isServer) {
-  Images.deny({
-   insert: function(){
-   return false;
-   },
-   update: function(){
-   return false;
-   },
-   remove: function(){
-   return false;
-   },
-   download: function(){
-   return false;
-   }
-   });
   Images.allow({
-   insert: function(){
-   return true;
+   insert: function(userId){
+   return userId;
    },
-   update: function(){
-   return true;
+   update: function(userId){
+   return userId;
    },
-   remove: function(){
-   return true;
+   remove: function(userId){
+   return userId;
    },
-   download: function(){
+   download: function(userId){
    return true;
+   }
+  });
+
+  Projects.allow({
+   insert: function(userId){
+   return userId;
+   },
+   update: function(userId){
+   return userId;
+   },
+   remove: function(userId){
+   return userId;
+   }
+  });
+
+  News.allow({
+   insert: function(userId){
+   return userId;
+   },
+   update: function(userId){
+   return userId;
+   },
+   remove: function(userId){
+   return userId;
+   }
+  });
+
+  Info.allow({
+   insert: function(userId){
+   return userId;
+   },
+   update: function(userId){
+   return userId;
+   },
+   remove: function(userId){
+   return userId;
    }
   });
   // Meteor.publish(“images”, function(){ return Images.find(); });
   Meteor.startup(function () {
+    // process.env.MAIL_URL = 'smtp://AminaZoheir:Abc123..@smtp.sendgrid.net:587';
     // code to run on server at startup
   });
 }
@@ -110,5 +133,13 @@ Meteor.methods({
     for (var i = imgs.length - 1; i >= 0; i--) {
       Images.remove(imgs[i]._id);
     };
+  },
+  addFirstUser: function(){
+    if(Meteor.users.find().fetch().length <= 0){
+      Accounts.createUser({
+        email: 'amina.zoheir@gmail.com',
+        password: '123123123'
+      });
+    }
   }
 });
