@@ -98,3 +98,10 @@ body{
 	text-align: center;
 }
 
+.about-strip h2{
+	color:rgb(255, 190, 0);;
+}
+
+.sketch{
+	max-height: 120px;
+}
