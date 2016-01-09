@@ -33,6 +33,9 @@ if(Meteor.isClient){
     },
     currCountry: function(){
       return Session.get('country');
+    },
+    isCurrCountry: function(country){
+      return (country == Session.get('country').country);
     }
   });
   Template.contact.events({
@@ -40,6 +43,9 @@ if(Meteor.isClient){
       var found = Session.get('info').contacts.filter(function(item) { return item.country === event.target.innerHTML; });
       Session.set('country',found[0]);
       createMap(found[0].address);
+      $('#left-div-wrapper').hide();
+      // $('#map-wrapper').show("slide", { direction: "left" }, 1000);
+      $('#left-div-wrapper').slideDown("slow");
     }
   });
   function createMap(address){

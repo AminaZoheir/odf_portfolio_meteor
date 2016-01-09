@@ -2,16 +2,20 @@
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 </head>
 <template name="contact">
-  <div class="container-fluid">
-  	<div id="container" class="row">
-  		<div class="col-md-12">
-        <div id="map-wrapper" class="col-md-6">
-          <div class="col-md-2" id="country-div">
+  <!-- <div class="container-fluid"> -->
+  	<div id="container">
+  		<div>
+        <div id="map-wrapper">
+          <div id="country-div">
             {{#each info.contacts}}
-              <h6 class="country-tab">{{country}}</h6>
+              {{#if isCurrCountry country}}
+                <a class="country-tab contact-country">{{country}}</a>
+              {{else}}
+                <a class="country-tab">{{country}}</a>
+              {{/if}}
             {{/each}}
           </div>
-          <div id="left-div-wrapper" class="col-md-4">
+          <div id="left-div-wrapper">
             <div id="map"></div>
             <div id="info-left">
               <div id="address">
@@ -48,21 +52,44 @@
               </div> -->
               <div id="social-media">
                 <div class="social">
-                  <a target="_blank" title="find us on Facebook" href="{{info.fb}}">
-                    <img alt="follow me on facebook" src="//login.create.net/images/icons/user/facebook_30x30.png" border=0>
-                  </a>
-                  <!-- <a href="{{info.facebook}}">
-                    <i class="fa fa-facebook-official fa-3x" id="fb-icon"></i>
-                  </a> -->
+                  {{#if info.fb}}
+                    <a href="{{info.fb}}" class="fb-wrapper">
+                      <i class="fa fa-facebook fa-lg" id="fb-icon"></i>
+                    </a>
+                    <!-- <a target="_blank" title="find us on Facebook" href="{{info.fb}}">
+                      <img alt="follow me on facebook" src="//login.create.net/images/icons/user/facebook_30x30.png" border=0>
+                    </a> -->
+                  {{/if}}
+                  {{#if info.tw}}
+                    <a href="{{info.tw}}" class="tw-wrapper">
+                      <i class="fa fa-twitter fa-lg" id="tw-icon"></i>
+                    </a>
+                  {{/if}}
+                  {{#if info.inst}}
+                    <a href="{{info.inst}}" class="inst-wrapper">
+                      <i class="fa fa-instagram fa-lg" id="inst-icon"></i>
+                    </a>
+                  {{/if}}
+                  {{#if info.google}}
+                    <a href="{{info.google}}" class="google-wrapper">
+                      <i class="fa fa-google-plus" id="google-icon"></i>
+                    </a>
+                  {{/if}}
+                  {{#if info.lin}}
+                    <a href="{{info.lin}}" class="lin-wrapper">
+                      <i class="fa fa-linkedin fa-lg" id="lin-icon"></i>
+                    </a>
+                  {{/if}}
+                  
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="cont-photo-wrapper">
           <img src="{{photo}}" alt="" id="cont-photo-right"/>
         </div>
       </div>
   	</div>
-  </div>
+  <!-- </div> -->
 </template>
