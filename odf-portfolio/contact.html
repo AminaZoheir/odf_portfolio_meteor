@@ -9,9 +9,12 @@
           <div id="country-div">
             {{#each info.contacts}}
               {{#if isCurrCountry country}}
-                <a class="country-tab contact-country">{{country}}</a>
+                <a class="country-tab contact-country">{{country}}</a> 
               {{else}}
                 <a class="country-tab">{{country}}</a>
+              {{/if}}
+              {{#if currentUser}}
+                <a class="delete-country icon-edit"><i class="fa fa-times fa-lg"></i></a>
               {{/if}}
             {{/each}}
           </div>
@@ -22,16 +25,22 @@
                 <h6>{{currCountry.address}}</h6>
               </div>
               <div id="phones-div">
-                <div class="phone-type">
+                <!-- <div class="phone-type">
                     {{#each currCountry.phones}}
                       <h5>{{type}}:</h5>
                     {{/each}}
-                </div>
-                <div class="phone-number">
-                  {{#each currCountry.phones}}
-                    <h5>{{number}}</h5>
-                  {{/each}}
-                </div>
+                </div> -->
+                <!-- <div> -->
+                {{#each currCountry.phones}}
+                  <div class="phones">
+                    <h5 class="phone-type">{{type}}:</h5><h5 class="phone-number" >{{number}} 
+                      {{#if currentUser}}
+                        <a class="delete-phone icon-edit"><i class="fa fa-times fa-lg"></i></a>
+                      {{/if}}
+                    </h5> 
+                  </div>
+                {{/each}}
+                <!-- </div> -->
               </div>
               <!-- <div id="phones-div" class="container-fluid">
                 <div class="row">
