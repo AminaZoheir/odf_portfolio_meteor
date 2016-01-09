@@ -23,30 +23,12 @@ if(Meteor.isClient){
           var newIndex = this.index;
           var oldIndex = template.selectedProj.get().index;
           var oldId = template.selectedProj.get()._id;
-          Projects.update(oldId,{
+          var newId = this._id;
+          Projects.update(newId,{
             $set: {
-              index: -1
+              index: oldIndex
             }
           });
-          if(newIndex < oldIndex){
-            for(var i = oldIndex - 1; i >= newIndex; i--){
-               var proj = Projects.findOne({index: i});
-               Projects.update(proj._id,{
-                 $set: {
-                   index: i+1
-                 }
-               });
-            }
-          }else{
-            for(var i = oldIndex + 1; i <= newIndex; i++){
-               var proj = Projects.findOne({index: i});
-               Projects.update(proj._id,{
-                 $set: {
-                   index: i-1
-                 }
-               });
-            }
-          }
           Projects.update(oldId,{
             $set: {
               index: newIndex

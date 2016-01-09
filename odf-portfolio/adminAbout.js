@@ -19,6 +19,7 @@ if(Meteor.isClient){
   Template.adminAbout.rendered = function(){
     Meteor.call('getInfo',function(err, res){
       if(res){
+        // console.log();
         Session.set('info',res);
         return;
       }
@@ -30,13 +31,11 @@ if(Meteor.isClient){
 };
   Template.adminAbout.helpers({
     info: function(){
+      console.log(Session.get('info'));
       return Session.get('info');
     },
     photo: function(){
       var info = Session.get('info');
-      // console.log(info);
-      console.log(Images.findOne({info:info._id}));
-      console.log('zft');
       return Images.findOne({info: info._id}).url();
     }
   });
@@ -44,22 +43,42 @@ if(Meteor.isClient){
   Template.adminAbout.events({
     'click #add-button': function(event){
       var info = Session.get('info');
-      info.phones.push({type:'Phone', number:''});
+      info.contacts[this._index].phones.push({type:'Phone', number:''});
+      Session.set('info',info);
+    },
+    'click #add-country': function(event){
+      var info = Session.get('info');
+      info.contacts.push({country:'',address:'',phones:[{type:'Phone', number:''}]});
       Session.set('info',info);
     },
     'click .choose-type': function(event, template){
+      // console.log(template);
+      var conIndex = event.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute('con-index');
       this.type = event.target.innerHTML;
       var info = Session.get('info');
-      info.phones[this._index] = this;
+      info.contacts[conIndex].phones[this._index] = this;
       Session.set('info',info);
       // console.log(Session.get('info'));
     },
     'change .choose-number': function(event){
+      var conIndex = event.target.parentNode.parentNode.parentNode.getAttribute('con-index');
       this.number = event.target.value;
       var info = Session.get('info');
-      info.phones[this._index] = this;
+      info.contacts[conIndex].phones[this._index] = this;
       Session.set('info',info);
-      // console.log(Session.get('info'));
+    },
+    'change .choose-address': function(event){
+      this.address = event.target.value;
+      var info = Session.get('info');
+      info.contacts[this._index].address = this.address;
+      console.log(info.contacts);
+      Session.set('info',info);
+    },
+    'change .choose-country': function(event){
+      this.country = event.target.value;
+      var info = Session.get('info');
+      info.contacts[this._index].country = this.country;
+      Session.set('info',info);
     },
     'change #bio':function(event){
       var info = Session.get('info');
@@ -117,11 +136,12 @@ if(Meteor.isClient){
     'submit .adminform': function(event, template){
       event.preventDefault();
       var info = Session.get('info');
+      console.log(info.contacts);
       Info.update(info._id,{
         $set: {
            bio: info.bio, mission: info.mission, bg: info.bg, history: info.history,
            address:info.address, fb:info.fb, tw:info.tw, inst:info.inst, google:info.google,
-           lin:info.lin, phones:info.phones
+           lin:info.lin, contacts:info.contacts
         }
       });
 
@@ -164,7 +184,7 @@ if(Meteor.isClient){
           $set: {contact: true}
         });
       }
-      
+
       if(Images.find({contact: true}).count()>1){
         console.log('da5al');
         var image = Images.findOne({contact: true});
@@ -184,8 +204,10 @@ if(Meteor.isServer){
       return Info.findOne({});
     },
     addIfNotExists: function(){
-      return Info.insert({ bio:{text:'', align:"justify"}, mission:{text:'', align:"justify"}, bg:{text:'', align:"justify"}, history:{text:'', align:"justify"}, address:'', fb:'',
-                  tw:'', inst:'', google:'', lin:'', phones:[{type:'Phone',number:''}]});
+      var info = { bio:{text:'', align:"justify"}, mission:{text:'', align:"justify"}, bg:{text:'', align:"justify"}, history:{text:'', align:"justify"}, address:'', fb:'',
+                  tw:'', inst:'', google:'', lin:'', contacts:[{country:"Egypt",address:"",phones:[{type:'Phone',number:''}]}]}
+      Info.insert(info);
+      return Info.findOne({});
     }
   });
 }
