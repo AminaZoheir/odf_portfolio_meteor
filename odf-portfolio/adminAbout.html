@@ -1,104 +1,110 @@
 <template name="adminAbout">
   <form class="adminform">
-    <div class="form-group">
-      <label for="biography">Biography</label>
-      <textarea rows="4" cols="50" class="form-control" id="bio" name="bio" placeholder="Biography">{{info.bio.text}}
-      </textarea>
-    </div>
-    <div class="form-group">
-      <label for="mission">Mission</label>
-      <input type="text" class="form-control" id="mission" name="mission" value="{{info.mission.text}}">
-    </div>
-    <div class="form-group">
-      <label for="background">Background</label>
-      <textarea rows="4" cols="50" class="form-control" id="bg" name="bg">{{info.bg.text}}
-      </textarea>
-    </div>
-    <div class="form-group">
-      <label for="history">History</label>
-      <textarea rows="4" cols="50" class="form-control" id="history" name="history">{{info.history.text}}
-      </textarea>
-    </div>
-    <div class="form-group">
-      <label for="address">Address</label>
-      <input type="text" class="form-control" id="addr" name="addr" value="{{info.address}}">
-    </div>
-    <div class="form-group">
-      <label for="fb">Facebook</label>
-      <input type="text" class="form-control" id="fb" name="fb" value="{{info.fb}}">
-    </div>
-    <div class="form-group">
-      <label for="tw">Twitter</label>
-      <input type="text" class="form-control" id="tw" name="tw" value="{{info.tw}}">
-    </div>
-    <div class="form-group">
-      <label for="history">LinkedIn</label>
-      <input type="text" class="form-control" id="lin" name="lin" value="{{info.lin}}">
-    </div>
-    <div class="form-group">
-      <label for="history">Instagram</label>
-      <input type="text" class="form-control" id="inst" name="inst" value="{{info.inst}}">
-    </div>
-    <div class="form-group">
-      <label for="history">Google+</label>
-      <input type="text" class="form-control" id="google" name="google" value="{{info.google}}">
-    </div>
-    {{#each indexedArray info.contacts}}
-      <div class="form-group">
-        <label for="country">Country Name</label>
-        <input type="text" class="form-control choose-country" name="country-name" value="{{country}}">
-      </div>
-      <div class="form-group">
-        <label for="country">Address</label>
-        <input type="text" class="form-control choose-address" name="address" value="{{address}}">
-      </div>
-      <div class="form-group" con-index="{{_index}}">
-          {{#each indexedArray phones}}
-            <div class="for-group">
-              <div class="input-group">
-                <div class="input-group-btn">
-                  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{type}} <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li class="choose-type"><a href="#">Phone</a></li>
-                    <li class="choose-type"><a href="#">Mobile</a></li>
-                    <li class="choose-type"><a href="#">E-mail</a></li>
-                    <li class="choose-type"><a href="#">Fax</a></li>
-                  </ul>
-                </div><!-- /btn-group -->
-                <input type="text" class="form-control choose-number" aria-label="..." value="{{number}}">
-                <!-- <div class="delete-row">
-                  X
-                </div> -->
-              </div>
-            </div>
-          {{/each}}
-        <a href="#" id="add-button"><i class="fa fa-plus-square fa-3x"></i></a>
-      </div>
-    {{/each}}
-    <a href="#" id="add-country"><i class="fa fa-plus-square fa-3x"></i></a>
-    <div>
-      Update Personal Photo (square)
-      <span class="btn btn-default btn-file">
-        <input id="add-photo" class="file fileInput" name="photoupload" type="file"/>
-      </span>
-    </div>
-    <div>
-      Add About us Sketches (1013x460)
-      <span class="btn btn-default btn-file">
-        <input multiple class="file fileInput sketchfile" name="sketchupload" type="file"/>
-      </span>
-    </div>
     <div class="col-md-12">
-        <div id="aboutSketches">
+      <div class="col-md-5">
+        <div class="form-group">
+          <label for="biography">Biography</label>
+          <textarea rows="4" cols="50" class="form-control" id="bio" name="bio" placeholder="Biography">{{info.bio.text}}
+          </textarea>
         </div>
-    </div>
-    <div>
-      Add Contact us Photo
-      <span class="btn btn-default btn-file">
-        <input class="file fileInput" name="contactphotoupload" type="file"/>
-      </span>
+        <div class="form-group">
+          <label for="mission">Mission</label>
+          <input type="text" class="form-control" id="mission" name="mission" value="{{info.mission.text}}">
+        </div>
+        <div class="form-group">
+          <label for="background">Background</label>
+          <textarea rows="4" cols="50" class="form-control" id="bg" name="bg">{{info.bg.text}}
+          </textarea>
+        </div>
+        <div class="form-group">
+          <label for="history">History</label>
+          <textarea rows="4" cols="50" class="form-control" id="history" name="history">{{info.history.text}}
+          </textarea>
+        </div>
+        <div>
+          Add About us Sketches (1013x460)
+          <span class="btn btn-default btn-file">
+            <input multiple class="file fileInput sketchfile" name="sketchupload" type="file"/>
+          </span>
+        </div>
+        <div>
+            <div id="aboutSketches">
+            </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input type="text" class="form-control" id="addr" name="addr" value="{{info.address}}">
+        </div>
+        <div class="form-group">
+          <label for="fb">Facebook</label>
+          <input type="text" class="form-control" id="fb" name="fb" value="{{info.fb}}">
+        </div>
+        <div class="form-group">
+          <label for="tw">Twitter</label>
+          <input type="text" class="form-control" id="tw" name="tw" value="{{info.tw}}">
+        </div>
+        <div class="form-group">
+          <label for="history">LinkedIn</label>
+          <input type="text" class="form-control" id="lin" name="lin" value="{{info.lin}}">
+        </div>
+        <div class="form-group">
+          <label for="history">Instagram</label>
+          <input type="text" class="form-control" id="inst" name="inst" value="{{info.inst}}">
+        </div>
+        <div class="form-group">
+          <label for="history">Google+</label>
+          <input type="text" class="form-control" id="google" name="google" value="{{info.google}}">
+        </div>
+        {{#each indexedArray info.contacts}}
+          <div class="form-group">
+            <label for="country">Country Name</label>
+            <input type="text" class="form-control choose-country" name="country-name" value="{{country}}">
+          </div>
+          <div class="form-group">
+            <label for="country">Address</label>
+            <input type="text" class="form-control choose-address" name="address" value="{{address}}">
+          </div>
+          <div class="form-group" con-index="{{_index}}">
+              {{#each indexedArray phones}}
+                <div class="for-group">
+                  <div class="input-group">
+                    <div class="input-group-btn">
+                      <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{type}} <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li class="choose-type"><a href="#">Phone</a></li>
+                        <li class="choose-type"><a href="#">Mobile</a></li>
+                        <li class="choose-type"><a href="#">E-mail</a></li>
+                        <li class="choose-type"><a href="#">Fax</a></li>
+                      </ul>
+                    </div><!-- /btn-group -->
+                    <input type="text" class="form-control choose-number" aria-label="..." value="{{number}}">
+                    <!-- <div class="delete-row">
+                      X
+                    </div> -->
+                  </div>
+                </div>
+              {{/each}}
+            <a href="#" id="add-button"><i class="fa fa-plus-square fa-3x"></i></a>
+          </div>
+        {{/each}}
+        <a href="#" id="add-country"><i class="fa fa-plus-square fa-3x"></i></a>
+        <div>
+          Update Personal Photo (square)
+          <span class="btn btn-default btn-file">
+            <input id="add-photo" class="file fileInput" name="photoupload" type="file"/>
+          </span>
+        </div>
+        <div>
+          Add Contact us Photo
+          <span class="btn btn-default btn-file">
+            <input class="file fileInput" name="contactphotoupload" type="file"/>
+          </span>
+        </div>
+      </div>
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
