@@ -19,7 +19,12 @@ if (Meteor.isClient) {
 
   Template.portfolio.events({
     "click .parentCat": function(event){
-      Session.set("currCat",event.target.innerHTML);
+      var cat = event.target.innerHTML;
+      if(cat == "VIEW ALL"){
+        Session.set('currCat',null);
+      }else{
+        Session.set("currCat",event.target.innerHTML);
+      }
       Session.set("currSubCat",null);
     },
     "click .childCat": function(event){

@@ -7,14 +7,14 @@
   		<div>
         <div id="map-wrapper">
           <div id="country-div">
-            {{#each info.contacts}}
+            {{#each indexedArray info.contacts}}
               {{#if isCurrCountry country}}
-                <a class="country-tab contact-country">{{country}}</a> 
+                <a class="country-tab contact-country">{{country}}</a>
               {{else}}
                 <a class="country-tab">{{country}}</a>
               {{/if}}
               {{#if currentUser}}
-                <a class="delete-country icon-edit"><i class="fa fa-times fa-lg"></i></a>
+                <a class="delete-country icon-edit"><i class="fa fa-times fa-lg" country-index="{{_index}}"></i></a>
               {{/if}}
             {{/each}}
           </div>
@@ -31,13 +31,13 @@
                     {{/each}}
                 </div> -->
                 <!-- <div> -->
-                {{#each currCountry.phones}}
+                {{#each indexedArray currCountry.phones}}
                   <div class="phones">
-                    <h5 class="phone-type">{{type}}:</h5><h5 class="phone-number" >{{number}} 
+                    <h5 class="phone-type">{{type}}:</h5><h5 class="phone-number" >{{number}}
                       {{#if currentUser}}
-                        <a class="delete-phone icon-edit"><i class="fa fa-times fa-lg"></i></a>
+                        <a class="delete-phone icon-edit"><i class="fa fa-times fa-lg" phone-index="{{_index}}"></i></a>
                       {{/if}}
-                    </h5> 
+                    </h5>
                   </div>
                 {{/each}}
                 <!-- </div> -->
@@ -89,7 +89,7 @@
                       <i class="fa fa-linkedin fa-lg" id="lin-icon"></i>
                     </a>
                   {{/if}}
-                  
+
                 </div>
               </div>
             </div>

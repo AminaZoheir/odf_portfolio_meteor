@@ -46,6 +46,47 @@ if(Meteor.isClient){
       $('#left-div-wrapper').hide();
       // $('#map-wrapper').show("slide", { direction: "left" }, 1000);
       $('#left-div-wrapper').slideDown("slow");
+    },
+    'click .delete-country': function(event){
+      var r = confirm("Are you sure you want to delete ?");
+      if(r == true){
+        var info = Session.get('info');
+        var countryObj = info.contacts[event.target.getAttribute('country-index')];
+        info.contacts.splice(info.contacts.indexOf(countryObj),1);
+        Session.set('info',info);
+        if(Session.get('country').country == countryObj.country){
+          Session.set('country',info.contacts[0]);
+        }
+        Info.update(info._id,{
+          $set:{
+            contacts: info.contacts
+          }
+        });
+      }
+    },
+    'click .delete-phone': function(event){
+      var r = confirm("Are you sure you want to delete ?");
+      if(r == true){
+        var info = Session.get('info');
+        var currCountry = Session.get('country');
+        var index = 0;
+        for(var i = 0;i<info.contacts.length;i++){
+          if(info.contacts[i].country == currCountry.country){
+            index = i;
+            break;
+          }
+        }
+        var phoneObj = currCountry.phones[event.target.getAttribute('phone-index')];
+        currCountry.phones.splice(currCountry.phones.indexOf(phoneObj),1);
+        Session.set('country',currCountry);
+        info.contacts[index] = currCountry;
+        Session.set('info',info);
+        Info.update(info._id,{
+          $set:{
+            contacts: info.contacts
+          }
+        });
+      }
     }
   });
   function createMap(address){
