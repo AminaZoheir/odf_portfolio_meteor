@@ -1,7 +1,7 @@
 {
   "servers": [
     {
-      "host": "odf.com",
+      "host": "odf-eg.com",
       "username": "ubuntu",
       "sshOptions": { "port" : 24522 },
       "pem": "./odf.com_rsa"

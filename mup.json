@@ -1,7 +1,7 @@
 {
   "servers": [
     {
-      "host": "odf.com",
+      "host": "odf-eg.com",
       "username": "root",
       "pem": "./deploy/odf.com_rsa",
       "sshOptions": { "port" : 24522 },
@@ -15,7 +15,7 @@
   "appName": "odf",
   "app": "./odf-portfolio",
   "env": {
-    "ROOT_URL": "http://odf.com",
+    "ROOT_URL": "http://odf-eg.com",
     "PORT": "3000",
     "UPSTART_UID": "meteoruser"
   },
