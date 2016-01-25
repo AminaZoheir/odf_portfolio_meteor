@@ -39,7 +39,7 @@
           {{#each indexedArray photos}}
             <span>
               {{#if isImage}}
-                <img src="{{url}}" class="news-icon" data-target="#news-carousel" data-slide-to="{{_index}}"/>
+                <img src="{{url store="thumbs"}}" class="news-icon" data-target="#news-carousel" data-slide-to="{{_index}}"/>
               {{/if}}
               {{#if isVideo}}
               <i class="news-icon fa fa-play-circle-o fa-lg" data-target="#news-carousel" data-slide-to="{{_index}}"></i>

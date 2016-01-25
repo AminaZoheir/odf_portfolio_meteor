@@ -1,7 +1,7 @@
 <template name="project">
   <a href="/portfolio/{{_id}}" class="pre-animation projComp">
   	{{#if photo}}
-		<img src="{{photo.url}}" class="projImage" alt=""/>
+		<img src="{{photo.url store="thumbs"}}" class="projImage" alt=""/>
 	{{else}}
 		<img src="/images/missing-photo2.png" class="projImage" alt=""/>
 	{{/if}}

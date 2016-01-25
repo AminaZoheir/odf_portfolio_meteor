@@ -11,7 +11,7 @@
 				{{#each indexedArray photos}}
 			    	<span>
 			    		{{#if isImage}}
-			    			<img src="{{url}}" class="project-icon" data-target="#project-carousel" data-slide-to="{{_index}}"/>
+			    			<img src="{{url store="thumbs"}}" class="project-icon" data-target="#project-carousel" data-slide-to="{{_index}}"/>
 			    		{{/if}}
 			    		{{#if isVideo}}
 			    			<i class="project-icon fa fa-play-circle-o fa-lg" data-target="#project-carousel" data-slide-to="{{_index}}"></i>

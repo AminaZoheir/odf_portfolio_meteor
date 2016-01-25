@@ -1,0 +1,23 @@
+{
+  "servers": [
+    {
+      "host": "odf.com",
+      "username": "root",
+      "pem": "./deploy/odf.com_rsa",
+      "sshOptions": { "port" : 24522 },
+      "env": {}
+    }
+  ],
+  "setupMongo": true,
+  "setupNode": true,
+  "setupPhantom": true,
+  "enableUploadProgressBar": true,
+  "appName": "odf",
+  "app": "./odf-portfolio",
+  "env": {
+    "ROOT_URL": "http://odf.com",
+    "PORT": "3000",
+    "UPSTART_UID": "meteoruser"
+  },
+  "deployCheckWaitTime": 15
+}

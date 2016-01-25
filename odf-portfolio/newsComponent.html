@@ -1,7 +1,7 @@
 <template name="newsComponent">
   <div class="col-md-3 news-stream-photo">
   {{#if photo}}
-    <img src="{{photo.url}}" class="fill-parent" alt=""/>
+    <img src="{{photo.url store="thumbs"}}" class="fill-parent" alt=""/>
   {{else}}
     <img src="/images/missing-photo2.png" class="fill-parent" alt=""/>
   {{/if}}

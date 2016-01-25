@@ -1,8 +1,18 @@
 Projects = new Mongo.Collection("projects");
 
-var imageStore = new FS.Store.GridFS("images");
+// var imageStore = new FS.Store.GridFS("images");
+var imageStore = new FS.Store.GridFS("images", {
+        transformWrite: function(fileObj, readStream, writeStream) {
+          gm(readStream, fileObj.name()).stream('JPG').pipe(writeStream);
+        }
+      });
+var thumbStore = new FS.Store.GridFS("thumbs", {
+        transformWrite: function(fileObj, readStream, writeStream) {
+          gm(readStream, fileObj.name()).resize(350).stream('JPG').pipe(writeStream);
+        }
+      });
 Images = new FS.Collection("images", {
-  stores: [imageStore]
+  stores: [imageStore, thumbStore]
 });
 
 News = new Mongo.Collection("news");

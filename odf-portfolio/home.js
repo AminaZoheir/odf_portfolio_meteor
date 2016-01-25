@@ -7,7 +7,8 @@ if(Meteor.isClient){
       return index == 0;
     }
   });
-	Template.home.rendered = function () {
-		this.$('#home-carousel').carousel();
-	};
+	// Template.home.rendered = function () {
+	// 	this.$('#home-carousel').carousel();
+ //    document.title = "ODF";
+	// };
 }
