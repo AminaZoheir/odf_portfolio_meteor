@@ -2,13 +2,13 @@
   "servers": [
     {
       "host": "odf-eg.com",
-      "username": "root",
+      "username": "ubuntu",
       "pem": "./deploy/odf.com_rsa",
-      "sshOptions": { "port" : 24522 },
-      "env": {}
+      "sshOptions": { "port" : 24522 }
     }
   ],
   "setupMongo": true,
+  "nodeVersion": "0.10.40",
   "setupNode": true,
   "setupPhantom": true,
   "enableUploadProgressBar": true,
