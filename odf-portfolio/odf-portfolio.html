@@ -1,4 +1,14 @@
 <template name="main">
+<script type="text/javascript">
+<!--
+document.title += "ODF";
+var link = document.createElement('link');
+    link.type = 'image/x-icon';
+    link.rel = 'shortcut icon';
+    link.href = 'images/title-logo.png';
+    document.getElementsByTagName('head')[0].appendChild(link);
+//-->
+</script>
     {{> navBar2}}
     {{> yield}}
 </template>

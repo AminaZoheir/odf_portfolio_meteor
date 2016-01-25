@@ -61,9 +61,4 @@ if(Meteor.isClient){
       });
     }
   });
-
-  // Template.projectPage.rendered = function () {
-  //   console.log(this);
-  //   // document.title = this.title;
-  // };
 }
