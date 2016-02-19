@@ -66,6 +66,7 @@ if(Meteor.isClient){
     for (var i = 0, ln = files.length; i < ln; i++) {
 
         var fileObj = Images.insert(files[i], function (err, fileObj) {
+          if ( err ) console.log ( err );
         });
         Images.update(fileObj._id,{
           $set: {project: project}
