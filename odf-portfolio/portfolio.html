@@ -8,24 +8,23 @@
   {{/each}}
   <div class="container-fluid">
   	<div class="row">
- <!--    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#category-nav" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-      </button> -->
-  		<div class="col-md-12">
-  			<div class="col-md-2">
-        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-      <div class="collapse navbar-collapse" id="category-nav">
-  				<ul class="nav-stacked port-cat">
-            {{#each categories}}
-    					{{> category}}
-            {{/each}}
-            <hr>
-            <span class="parentCat yellow-hover">VIEW ALL</span>
-  				</ul>
-          </div>
+  		<div class="col-md-12 cat-col">
+  			<div class="col-md-2 cat-col">
+          <nav class="navbar navbar-default cat-nav">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#category-nav" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  Categories
+              </button>
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <div class="collapse navbar-collapse" id="category-nav">
+                <ul class="nav-stacked port-cat">
+                  {{#each categories}}
+                    {{> category}}
+                  {{/each}}
+                  <span class="parentCat yellow-hover">VIEW ALL</span>
+                </ul>
+              </div>
+          </nav>
   			</div>
         <div class="col-md-10 port-grid">
           {{#each projects}}

@@ -62,12 +62,12 @@ if(Meteor.isClient){
     }
   });
 
-  Template.projectPage.rendered = function () {
-    this.$("#project-carousel").swiperight(function() {  
-      this.$("#project-carousel").carousel('prev');  
-    });  
-   this.$("#project-carousel").swipeleft(function() {  
-      this.$("#project-carousel").carousel('next');  
-   }); 
-  };
+  // Template.projectPage.rendered = function () {
+  //   this.$("#project-carousel").swiperight(function() {  
+  //     this.$("#project-carousel").carousel('prev');  
+  //   });  
+  //  this.$("#project-carousel").swipeleft(function() {  
+  //     this.$("#project-carousel").carousel('next');  
+  //  }); 
+  // };
 }
