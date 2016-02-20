@@ -36,3 +36,18 @@
 		padding-left: 0px;
 	}
 }
+
+pre{
+	display: block;
+    padding: 0px; 
+    margin: 0 0 10px;
+    font-size: inherit; 
+    line-height: 1.42857143; 
+    color: inherit; 
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: transparent; 
+    border: none; 
+    font-family: inherit;
+    tab-size: 0;
+}
