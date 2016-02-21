@@ -136,8 +136,8 @@ body{
 }
 
 .project-icon{
-	/*height: 100%;*/
-    width: 23%;
+	height: 50px;
+    width: 50px;
 	vertical-align: middle;
 	padding-bottom: 0.7%;
     padding-top: 0.7%;
@@ -161,8 +161,9 @@ body{
 	width: 100%;
 }
 
-#project-carousel{
-
+.portrait-item{
+	position: absolute;
+	left: 17%;
 }
 
 .category-proj{
@@ -295,6 +296,11 @@ ul{
 
 .carousel-inner > .item > img.project-page-image{
 	height:100%;
+}
+
+.carousel-inner > .item > img.prortrait-image{
+	height:100%;
+	width:auto;
 }
 
 .home-caption{
