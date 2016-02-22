@@ -71,6 +71,14 @@ if(Meteor.isClient){
           $set: {portrait: true}
         });
       }
+    },'click .toggle-desc': function(event, template){
+      if($('.toggle-desc').hasClass('fa-chevron-down')) {
+        $('.toggle-desc').removeClass('fa-chevron-down').addClass('fa-chevron-up');
+        $('.mobile-proj-desc').slideDown('slow');
+      }else{
+        $('.toggle-desc').removeClass('fa-chevron-up').addClass('fa-chevron-down');
+        $('.mobile-proj-desc').slideUp('slow');
+      }
     }
   });
 

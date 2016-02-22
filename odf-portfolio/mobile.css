@@ -29,6 +29,18 @@
 	    height: 70%;
 	    left:0;
    }
+
+   .cat-title{
+    display: none;
+   }
+
+   .proj-side-desc{
+    display: none;
+   }
+
+   .mobileProject{
+    display: block ! important;
+  }
 }
 @media (min-width: 768px) and (max-width: 990px) {
 	.port-cat{
@@ -54,4 +66,37 @@ pre{
 
 .port-grid{
 	margin-bottom: 10%;
+}
+
+.mobileProject{
+    z-index: 2;
+    position: absolute;
+    left: 17%;
+    background-color: rgba(0,0,0,0.7);
+    padding: 2%;
+    width: 83%;
+    /*max-height: 70%;*/
+}
+
+.mobileProject > h1 > span{
+  padding: 0;
+}
+
+.mobile-proj-desc{
+  height: 225px;
+  overflow-y:auto;
+  display: none;
+}
+
+.toggle-desc{
+  width:100%;
+  text-align: center;
+}
+
+.mobile-cat-title{
+  text-align: center;
+}
+
+.mobileProject{
+  display: none;
 }
