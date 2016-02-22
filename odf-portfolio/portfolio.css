@@ -162,8 +162,8 @@ body{
 }
 
 .portrait-item{
-	position: absolute;
-	left: 17%;
+	position: absolute !important;
+	left: 17% !important;
 }
 
 .category-proj{

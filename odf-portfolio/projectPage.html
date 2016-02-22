@@ -45,9 +45,9 @@
 					<div class="carousel-inner fill-parent" role="listbox">
 						{{#each indexedArray photos}}
 					      {{#if ishome}}
-					      	<div class="item active fill-parent">
+					      	<div class="item active fill-parent {{#if portrait}}portrait-item{{/if}}">
 					      		{{#if isImage}}
-						    		<img src="{{url}}" class="project-page-image fill-parent"/>
+						    		<img src="{{url}}" class="project-page-image fill-parent {{#if portrait}} prortrait-image{{/if}}"/>
 								{{/if}}
 						    	{{#if isVideo}}
 						    		<video class="proj-video fill-parent">
@@ -58,9 +58,9 @@
 								{{/if}}
 					  	    </div>
 					      {{else}}
-					      	<div class="item fill-parent">
+					      	<div class="item fill-parent {{#if portrait}}portrait-item{{/if}}">
 					      		{{#if isImage}}
-						    		<img src="{{url}}" class="project-page-image fill-parent"/>
+						    		<img src="{{url}}" class="project-page-image fill-parent {{#if portrait}} prortrait-image{{/if}}"/>
 								{{/if}}
 						    	{{#if isVideo}}
 						    		<video class="proj-video fill-parent">

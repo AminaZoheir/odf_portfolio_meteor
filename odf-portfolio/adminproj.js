@@ -49,10 +49,14 @@ if(Meteor.isClient){
       });
 
       var mainphoto = null;
+      var portraitImgs = [];
       var imgs = document.getElementsByClassName('main-photo');
       for (var i = imgs.length - 1; i >= 0; i--) {
         if(imgs[i].getAttribute('selected')=="true"){
           mainphoto = imgs[i].src;
+        }
+        if(imgs[i].getAttribute('portrait')=="true"){
+          portraitImgs.push(imgs[i].src);
         }
       };
       if(mainphoto == null){
@@ -80,6 +84,15 @@ if(Meteor.isClient){
                   $set: {mainphoto: theFile.obj}
                 });
               }
+              if(portraitImgs.indexOf(e.target.result) >= 0){
+                Images.update(theFile.obj,{
+                  $set: {portrait: true}
+                });
+              }else{
+                Images.update(theFile.obj,{
+                  $set: {portrait: false}
+                });
+              }
         };
       })(files[i]);
            reader.readAsDataURL(files[i]);
@@ -104,7 +117,7 @@ if(Meteor.isClient){
             return function(e) {
               var span = document.createElement('a');
           span.innerHTML = ['<img class="main-photo" src="', e.target.result,
-                            '" name="', i, '"/>'].join('');
+                            '" name="', i, '"portrait=false /> <input type="checkbox" name="isport" class="port-check">portrait'].join('');
           span.className = span.className + " col-md-3 mainphoto-wrapper";
           document.getElementById('choosephoto').insertBefore(span, null);
         };
@@ -124,6 +137,11 @@ if(Meteor.isClient){
           imgs[i].setAttribute('selected', false);
         }
       };
+    },
+    'change .port-check': function(event){
+      var check = event.target;
+      var img = check.previousElementSibling;
+      img.setAttribute('portrait', check.checked);
     }
   });
 

@@ -4,6 +4,7 @@ if(Meteor.isClient){
       return Images.find({project: this._id});
     },
     ishome: function(){
+      console.log(this);
       var project = Projects.findOne({_id: this.project});
       return(project.mainphoto == this._id);
     },
