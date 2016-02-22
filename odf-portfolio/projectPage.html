@@ -25,6 +25,11 @@
 			    			{{else}}
 			    				<input class="change-main" type="radio" name="ismain" value="{{_id}}">
 			    			{{/if}}
+			    			{{# if portrait}}
+			    				<a class="change-orient"><i class="fa fa-rotate-right fa-lg"></i></a>
+			    			{{else}}
+			    				<a class="change-orient"><i class="fa fa-rotate-left fa-lg"></i></a>
+			    			{{/if}}
 			    			<a class="delete-img"><i class="fa fa-times fa-lg"></i></a>
 			    		{{/if}}
 			    	</span>

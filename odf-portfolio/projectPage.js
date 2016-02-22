@@ -60,6 +60,17 @@ if(Meteor.isClient){
       Projects.update(this._id,{
         $set: {desc:{text: desc, align: align}}
       });
+    },
+    'click .change-orient': function(event, template){
+      if(this.portrait){
+        Images.update(this._id,{
+          $set: {portrait: false}
+        });
+      }else{ 
+        Images.update(this._id,{
+          $set: {portrait: true}
+        });
+      }
     }
   });
 
