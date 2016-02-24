@@ -40,6 +40,7 @@
 
    .mobileProject{
     display: block ! important;
+    z-index: 2;
   }
 }
 @media (min-width: 768px) and (max-width: 990px) {
