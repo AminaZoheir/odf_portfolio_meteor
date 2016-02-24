@@ -72,11 +72,11 @@ if(Meteor.isClient){
         });
       }
     },'click .toggle-desc': function(event, template){
-      if($('.toggle-desc').hasClass('fa-chevron-down')) {
-        $('.toggle-desc').removeClass('fa-chevron-down').addClass('fa-chevron-up');
+      if($('.toggle-desc > i').hasClass('fa-chevron-down')) {
+        $('.toggle-desc > i').removeClass('fa-chevron-down').addClass('fa-chevron-up');
         $('.mobile-proj-desc').slideDown('slow');
       }else{
-        $('.toggle-desc').removeClass('fa-chevron-up').addClass('fa-chevron-down');
+        $('.toggle-desc > i').removeClass('fa-chevron-up').addClass('fa-chevron-down');
         $('.mobile-proj-desc').slideUp('slow');
       }
     }

@@ -88,10 +88,9 @@ pre{
   display: none;
 }
 
-.toggle-desc{
+.toggle-desc > i{
   width:100%;
   text-align: center;
-  z-index:2;
 }
 
 .mobile-cat-title{
