@@ -1,28 +1,7 @@
 <template name="projectPage">
 	<div id="projectpage">
 		<div class="fill-parent">
-			<div class="mobileProject">
-				<div class="mobile-cat-title">
-					<h1>
-						<span class="category-proj">{{category}}</span>
-						<span class="sub-proj">{{subcategory}}</span>
-					</h1>
-					<h3 class="name-proj">{{title}}</h3>
-				</div>
-				
-				<div class="mobile-proj-desc">				
-					{{#if currentUser}}
-						<input class="proj-align" type="radio" name="proj-align" checked="{{isAlign 'justify'}}" value="justify"> jusitfy
-						<input class="proj-align" type="radio" name="proj-align" checked="{{isAlign 'align-left'}}" value="align-left"> left
-						<input class="proj-align" type="radio" name="proj-align" checked="{{isAlign 'align-right'}}" value="align-right"> right
-						<input class="proj-align" type="radio" name="proj-align" checked="{{isAlign 'align-center'}}" value="align-center"> center
-					{{/if}}
-<pre class="{{desc.align}}">
-	{{desc.text}}
-</pre>
-				</div>
-				<a class="toggle-desc"><i class="fa fa-chevron-down fa-2x"></i></a>
-			</div>
+{{> mobileproject}}
 			<div class="proj-desc">
 				<div class="cat-title">
 					<h1>
