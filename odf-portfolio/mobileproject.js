@@ -1,9 +1,9 @@
 if(Meteor.isClient){
-	Template.projectPage.helpers({
-	    isAlign: function(align){
-	      return(this.desc.align == align);
-	    }
-	  });
+	// Template.projectPage.helpers({
+	//     isAlign: function(align){
+	//       return(this.desc.align == align);
+	//     }
+	//   });
 	Template.mobileproject.events({
 		'click .mobileProject': function(event, template){
 	      if($('.toggle-desc > i').hasClass('fa-chevron-down')) {
