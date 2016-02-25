@@ -71,7 +71,7 @@ if(Meteor.isClient){
           $set: {portrait: true}
         });
       }
-    },'click .toggle-desc': function(event, template){
+    },'click .mobileProject': function(event, template){
       if($('.toggle-desc > i').hasClass('fa-chevron-down')) {
         $('.toggle-desc > i').removeClass('fa-chevron-down').addClass('fa-chevron-up');
         $('.mobile-proj-desc').slideDown('slow');
