@@ -3,53 +3,54 @@
 		<div class="fill-parent">
 {{> mobileproject}}
 			<div class="proj-desc">
-				<div class="cat-title">
-					<h1>
-						<span class="category-proj">{{category}}</span>
-						<span class="sub-proj">{{subcategory}}</span>
-					</h1>
-					<h3 class="name-proj">{{title}}</h3>
+					<div class="desc-inner">
+					<div class="cat-title">
+						<h1>
+							<span class="category-proj">{{category}}</span>
+							<span class="sub-proj">{{subcategory}}</span>
+						</h1>
+						<h3 class="name-proj">{{title}}</h3>
+					</div>
+					<div class="carousel-icons">
+					{{#each indexedArray photos}}
+				    	<span>
+				    		{{#if isImage}}
+				    			<img src="{{url store="thumbs"}}" class="project-icon" data-target="#project-carousel" data-slide-to="{{_index}}"/>
+				    		{{/if}}
+				    		{{#if isVideo}}
+				    			<i class="project-icon fa fa-play-circle-o fa-lg" data-target="#project-carousel" data-slide-to="{{_index}}"></i>
+				    			<!-- <video class="project-icon" data-target="#project-carousel" data-slide-to="{{_index}}">
+						    			<source src="{{url}}" type="video/mp4">
+						    	</video> -->
+				    		{{/if}}
+				    		{{#if currentUser}}
+				    			{{# if ishome}}
+				    				<input class="change-main" type="radio" name="ismain" checked="true" value="{{_id}}">
+				    			{{else}}
+				    				<input class="change-main" type="radio" name="ismain" value="{{_id}}">
+				    			{{/if}}
+				    			{{# if portrait}}
+				    				<a class="change-orient"><i class="fa fa-rotate-right fa-lg"></i></a>
+				    			{{else}}
+				    				<a class="change-orient"><i class="fa fa-rotate-left fa-lg"></i></a>
+				    			{{/if}}
+				    			<a class="delete-img"><i class="fa fa-times fa-lg"></i></a>
+				    		{{/if}}
+				    	</span>
+				    {{/each}}
+					</div>
+					<div class="proj-side-desc">				
+						{{#if currentUser}}
+							<input class="proj-align" type="radio" name="proj-align" checked="{{isAlign 'justify'}}" value="justify"> jusitfy
+							<input class="proj-align" type="radio" name="proj-align" checked="{{isAlign 'align-left'}}" value="align-left"> left
+							<input class="proj-align" type="radio" name="proj-align" checked="{{isAlign 'align-right'}}" value="align-right"> right
+							<input class="proj-align" type="radio" name="proj-align" checked="{{isAlign 'align-center'}}" value="align-center"> center
+						{{/if}}
+	<pre class="{{desc.align}}">
+		{{desc.text}}
+	</pre>
+					</div>
 				</div>
-				<div class="carousel-icons">
-				{{#each indexedArray photos}}
-			    	<span>
-			    		{{#if isImage}}
-			    			<img src="{{url store="thumbs"}}" class="project-icon" data-target="#project-carousel" data-slide-to="{{_index}}"/>
-			    		{{/if}}
-			    		{{#if isVideo}}
-			    			<i class="project-icon fa fa-play-circle-o fa-lg" data-target="#project-carousel" data-slide-to="{{_index}}"></i>
-			    			<!-- <video class="project-icon" data-target="#project-carousel" data-slide-to="{{_index}}">
-					    			<source src="{{url}}" type="video/mp4">
-					    	</video> -->
-			    		{{/if}}
-			    		{{#if currentUser}}
-			    			{{# if ishome}}
-			    				<input class="change-main" type="radio" name="ismain" checked="true" value="{{_id}}">
-			    			{{else}}
-			    				<input class="change-main" type="radio" name="ismain" value="{{_id}}">
-			    			{{/if}}
-			    			{{# if portrait}}
-			    				<a class="change-orient"><i class="fa fa-rotate-right fa-lg"></i></a>
-			    			{{else}}
-			    				<a class="change-orient"><i class="fa fa-rotate-left fa-lg"></i></a>
-			    			{{/if}}
-			    			<a class="delete-img"><i class="fa fa-times fa-lg"></i></a>
-			    		{{/if}}
-			    	</span>
-			    {{/each}}
-				</div>
-				<div class="proj-side-desc">				
-					{{#if currentUser}}
-						<input class="proj-align" type="radio" name="proj-align" checked="{{isAlign 'justify'}}" value="justify"> jusitfy
-						<input class="proj-align" type="radio" name="proj-align" checked="{{isAlign 'align-left'}}" value="align-left"> left
-						<input class="proj-align" type="radio" name="proj-align" checked="{{isAlign 'align-right'}}" value="align-right"> right
-						<input class="proj-align" type="radio" name="proj-align" checked="{{isAlign 'align-center'}}" value="align-center"> center
-					{{/if}}
-<pre class="{{desc.align}}">
-	{{desc.text}}
-</pre>
-				</div>
-
 			</div>
 			<div class="proj-photos">
 				<div id="project-carousel" class="carousel slide fill-parent">
