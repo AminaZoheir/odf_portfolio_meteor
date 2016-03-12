@@ -626,6 +626,9 @@ i.project-icon{
 	width:100%;
 	overflow: auto;
 }
+.navbar-brand{
+	cursor: pointer;
+}
 /*
 [visible = "false"]{
 	display: none;
