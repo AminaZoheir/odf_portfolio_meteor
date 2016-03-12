@@ -257,7 +257,7 @@ body{
 }
 
 .port-cat{
-	margin-top:35%;
+	padding-top:10%;
 	font-weight: bold;
 	font-size: 15px;
 	color: rgb(250,250,250);
@@ -265,7 +265,6 @@ body{
 
 .port-grid{
 	border-left: 1px solid #FAFAFA;
-	margin-top: 3%;
 }
 
 ul{
@@ -406,7 +405,11 @@ ul{
 }
 
 .news-stream{
-	padding-top: 5%;
+	position: absolute;
+    top: 15%;
+    height: 85%;
+    width: 100%;
+    overflow: auto;
 }
 
 .news-comp{
@@ -614,6 +617,14 @@ i.project-icon{
 
 .carousel-inner > .item{
 	background-color: rgba(0,0,0,0.7);
+}
+
+.portfolio-page{
+	position: absolute;
+	top: 15%;
+	height: 85%;
+	width:100%;
+	overflow: auto;
 }
 /*
 [visible = "false"]{
