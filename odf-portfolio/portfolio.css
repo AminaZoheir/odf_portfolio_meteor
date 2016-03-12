@@ -169,6 +169,12 @@ body{
 .portrait-item{
 	position: absolute !important;
 	left: 17% !important;
+	width: 83% !important;
+	text-align: center;
+}
+
+.portrait-item > img{
+	display: inline !important;
 }
 
 .category-proj{
@@ -203,7 +209,7 @@ body{
 
 .projImage{
   width: 238px;
-  max-height: 120px;
+  height: 120px;
   opacity: 1;
   color:white;
 }
