@@ -1,46 +1,48 @@
 <template name="about">
 <div id="aboutpage" class="fill-parent">
   <div class="about-strip">
-    <div id="about-bio" class="about-title">
-      <h2>Biography</h2>
-      {{#if currentUser}}
-        <input class="bio-align" type="radio" name="bio-align" checked="{{isAlign 'justify' info.bio.align}}" value="justify"> jusitfy
-        <input class="bio-align" type="radio" name="bio-align" checked="{{isAlign 'align-left' info.bio.align}}" value="align-left"> left
-        <input class="bio-align" type="radio" name="bio-align" checked="{{isAlign 'align-right' info.bio.align}}" value="align-right"> right
-        <input class="bio-align" type="radio" name="bio-align" checked="{{isAlign 'align-center' info.bio.align}}" value="align-center"> center
-      {{/if}}
-        <img src="{{photo}}" alt="" align="left" class="about-photo"/>
-<p class="{{info.bio.align}}">{{info.bio.text}}</p>
-    </div>
-    <div id="about-mission" class="about-title">
-      <h2>Mission</h2>
-      {{#if currentUser}}
-        <input class="mission-align" type="radio" name="mission-align" checked="{{isAlign 'justify' info.mission.align}}" value="justify"> jusitfy
-        <input class="mission-align" type="radio" name="mission-align" checked="{{isAlign 'align-left' info.mission.align}}" value="align-left"> left
-        <input class="mission-align" type="radio" name="mission-align" checked="{{isAlign 'align-right' info.mission.align}}" value="align-right"> right
-        <input class="mission-align" type="radio" name="mission-align" checked="{{isAlign 'align-center' info.mission.align}}" value="align-center"> center
-      {{/if}}
-<pre class="{{info.mission.align}}">{{info.mission.text}}</pre>
-    </div>
-    <div id="about-bg" class="about-title">
-      <h2>Background</h2>
-      {{#if currentUser}}
-        <input class="bg-align" type="radio" name="bg-align" checked="{{isAlign 'justify' info.bg.align}}" value="justify"> jusitfy
-        <input class="bg-align" type="radio" name="bg-align" checked="{{isAlign 'align-left' info.bg.align}}" value="align-left"> left
-        <input class="bg-align" type="radio" name="bg-align" checked="{{isAlign 'align-right' info.bg.align}}" value="align-right"> right
-        <input class="bg-align" type="radio" name="bg-align" checked="{{isAlign 'align-center' info.bg.align}}" value="align-center"> center
-      {{/if}}
-<pre class="{{info.bg.align}}">{{info.bg.text}}</pre>
-    </div>
-    <div id="about-history" class="about-title">
-      <h2>History</h2>
-      {{#if currentUser}}
-        <input class="history-align" type="radio" name="history-align" checked="{{isAlign 'justify' info.history.align}}" value="justify"> jusitfy
-        <input class="history-align" type="radio" name="history-align" checked="{{isAlign 'align-left' info.history.align}}" value="align-left"> left
-        <input class="history-align" type="radio" name="history-align" checked="{{isAlign 'align-right' info.history.align}}" value="align-right"> right
-        <input class="history-align" type="radio" name="history-align" checked="{{isAlign 'align-center' info.history.align}}" value="align-center"> center
-      {{/if}}
-<pre class="{{info.history.align}}">{{info.history.text}}</pre>
+    <div class="about-wrapper">
+      <div id="about-bio" class="about-title">
+        <h2>Biography</h2>
+        {{#if currentUser}}
+          <input class="bio-align" type="radio" name="bio-align" checked="{{isAlign 'justify' info.bio.align}}" value="justify"> jusitfy
+          <input class="bio-align" type="radio" name="bio-align" checked="{{isAlign 'align-left' info.bio.align}}" value="align-left"> left
+          <input class="bio-align" type="radio" name="bio-align" checked="{{isAlign 'align-right' info.bio.align}}" value="align-right"> right
+          <input class="bio-align" type="radio" name="bio-align" checked="{{isAlign 'align-center' info.bio.align}}" value="align-center"> center
+        {{/if}}
+          <img src="{{photo}}" alt="" align="left" class="about-photo"/>
+  <p class="{{info.bio.align}}">{{info.bio.text}}</p>
+      </div>
+      <div id="about-mission" class="about-title">
+        <h2>Mission</h2>
+        {{#if currentUser}}
+          <input class="mission-align" type="radio" name="mission-align" checked="{{isAlign 'justify' info.mission.align}}" value="justify"> jusitfy
+          <input class="mission-align" type="radio" name="mission-align" checked="{{isAlign 'align-left' info.mission.align}}" value="align-left"> left
+          <input class="mission-align" type="radio" name="mission-align" checked="{{isAlign 'align-right' info.mission.align}}" value="align-right"> right
+          <input class="mission-align" type="radio" name="mission-align" checked="{{isAlign 'align-center' info.mission.align}}" value="align-center"> center
+        {{/if}}
+  <pre class="{{info.mission.align}}">{{info.mission.text}}</pre>
+      </div>
+      <div id="about-bg" class="about-title">
+        <h2>Background</h2>
+        {{#if currentUser}}
+          <input class="bg-align" type="radio" name="bg-align" checked="{{isAlign 'justify' info.bg.align}}" value="justify"> jusitfy
+          <input class="bg-align" type="radio" name="bg-align" checked="{{isAlign 'align-left' info.bg.align}}" value="align-left"> left
+          <input class="bg-align" type="radio" name="bg-align" checked="{{isAlign 'align-right' info.bg.align}}" value="align-right"> right
+          <input class="bg-align" type="radio" name="bg-align" checked="{{isAlign 'align-center' info.bg.align}}" value="align-center"> center
+        {{/if}}
+  <pre class="{{info.bg.align}}">{{info.bg.text}}</pre>
+      </div>
+      <div id="about-history" class="about-title">
+        <h2>History</h2>
+        {{#if currentUser}}
+          <input class="history-align" type="radio" name="history-align" checked="{{isAlign 'justify' info.history.align}}" value="justify"> jusitfy
+          <input class="history-align" type="radio" name="history-align" checked="{{isAlign 'align-left' info.history.align}}" value="align-left"> left
+          <input class="history-align" type="radio" name="history-align" checked="{{isAlign 'align-right' info.history.align}}" value="align-right"> right
+          <input class="history-align" type="radio" name="history-align" checked="{{isAlign 'align-center' info.history.align}}" value="align-center"> center
+        {{/if}}
+  <pre class="{{info.history.align}}">{{info.history.text}}</pre>
+      </div>
     </div>
   </div>
   <div class="sketches">
@@ -72,11 +74,11 @@
                 {{/if}}
               {{/each}}
           </div>
-          <a class="left carousel-control" href="#about-carousel" role="button" data-slide="prev">
+          <a class="left carousel-control about-control" href="#about-carousel" role="button" data-slide="prev">
               <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
           </a>
-          <a class="right carousel-control" href="#about-carousel" role="button" data-slide="next">
+          <a class="right carousel-control about-control" href="#about-carousel" role="button" data-slide="next">
               <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
           </a>
