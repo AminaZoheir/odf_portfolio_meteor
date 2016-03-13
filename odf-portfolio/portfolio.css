@@ -635,6 +635,14 @@ i.project-icon{
 .navbar-brand{
 	cursor: pointer;
 }
+
+.country-proj{
+	margin: 0;
+	padding-bottom: 8%;
+	font-size: 18px;
+    color: rgb(250, 250, 250);
+    text-shadow: 0 0 3px black;
+}
 /*
 [visible = "false"]{
 	display: none;
