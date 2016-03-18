@@ -119,7 +119,7 @@ body{
     padding: 1%;
 	padding-top: 10%;
 	height: 100%;
-	width: 17%;
+	width: 20%;
 	/*overflow: auto;*/
 	color: rgb(250, 250, 250);
 	z-index: 1;
@@ -168,8 +168,8 @@ body{
 
 .portrait-item{
 	position: absolute !important;
-	left: 17% !important;
-	width: 83% !important;
+	left: 20% !important;
+	width: 80% !important;
 	text-align: center;
 }
 
@@ -316,19 +316,17 @@ ul{
 
 .home-caption{
 	color: #FAFAFA;
-	position: absolute;
-	left: 0;
-	top: 20%;
-	background-color: rgba(0, 0, 0, 0.7);
-	width: 18%;
-	height: 7%;
-	padding: 1%;
-	/*padding-bottom: 10px;
-	padding-top: 15px;*/
-	font-weight: bold;
-	font-size: 130%;
-	border-radius: 1px;
-	z-index: 4;
+    position: absolute;
+    left: 0;
+    top: 20%;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 13%;
+    height: 5%;
+    padding: 0.70%;
+    font-weight: bold;
+    font-size: 115%;
+    border-radius: 1px;
+    z-index: 4;
 }
 
 /*.home-caption:hover{
