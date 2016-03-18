@@ -59,7 +59,7 @@ if (Meteor.isServer) {
    return userId;
    },
    download: function(userId){
-   return userId;
+   return true;
    }
   });
 
