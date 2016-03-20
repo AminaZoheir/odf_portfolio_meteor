@@ -641,6 +641,29 @@ i.project-icon{
     color: rgb(250, 250, 250);
     text-shadow: 0 0 3px black;
 }
+
+.home-index{
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    z-index: 5;
+}
+
+.selected-badge{
+	background-color: whitesmoke !important;
+	color: black !important;
+}
+
+.custom-badge{
+	padding: 13px 16px;
+	border-radius: 20px;
+	background-color: transparent;
+    border-color: whitesmoke;
+    border-style: solid;
+    color: whitesmoke;
+    border-width: 2px;
+    cursor: pointer;
+}
 /*
 [visible = "false"]{
 	display: none;

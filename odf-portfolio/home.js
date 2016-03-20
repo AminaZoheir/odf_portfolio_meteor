@@ -1,7 +1,7 @@
 if(Meteor.isClient){
   Template.home.helpers({
     projects: function(){
-      return Projects.find({ishome: true}, {sort: {index: 1}});
+      return Projects.find({ishome: true}, {sort: {indexHome: 1}});
     },
     First: function(index){
       return index == 0;

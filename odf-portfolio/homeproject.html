@@ -1,4 +1,15 @@
 <template name="homeproject">
+  {{#if currentUser}}
+    <div class="home-index">
+      {{#each indexedArray indecies}}
+        {{#if index this ../indexHome}}
+          <span class="badge selected-badge custom-badge" id="{{../_id}}">{{this}}</span>
+        {{else}}
+          <span class="badge index custom-badge" id="{{../_id}}">{{this}}</span>
+        {{/if}}
+      {{/each}}
+    </div>
+  {{/if}}
   <img src="{{photo}}" class="fill-parent" alt="...">
   <a href="/portfolio/{{_id}}" class="carousel-caption home-caption">
     {{title}}
