@@ -645,19 +645,21 @@ i.project-icon{
 .home-index{
     position: absolute;
     top: 10%;
-    right: 5%;
+    right: 1%;
     z-index: 5;
 }
 
 .selected-badge{
 	background-color: whitesmoke !important;
 	color: black !important;
+    border-color: rgba(0, 0, 0, 0.3) ! important;
+    padding: 5px 9px !important;
 }
 
 .custom-badge{
-	padding: 13px 16px;
+	/*padding: 13px 16px;*/
 	border-radius: 20px;
-	background-color: transparent;
+	background-color: rgba(0, 0, 0, 0.3);
     border-color: whitesmoke;
     border-style: solid;
     color: whitesmoke;
