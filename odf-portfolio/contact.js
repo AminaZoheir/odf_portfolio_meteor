@@ -96,14 +96,14 @@ if(Meteor.isClient){
       key: "AIzaSyBhLWFmDj0B-mTrW5FqBOTZM3awnpFO5lU"
     });
     var geocoder = new google.maps.Geocoder();
-    geocoder.geocode({'address': address}, function(results, status) {
+    geocoder.geocode({'address': address, key: "AIzaSyBhLWFmDj0B-mTrW5FqBOTZM3awnpFO5lU"}, function(results, status) {
       if (status === google.maps.GeocoderStatus.OK) {
         map.setCenter(results[0].geometry.location);
         var marker = new google.maps.Marker({
           map: map,
           position: results[0].geometry.location,
-          width: 350, // zy fl .css file
-          key: "AIzaSyBhLWFmDj0B-mTrW5FqBOTZM3awnpFO5lU" 
+          width: 350 // zy fl .css file
+          // key: "AIzaSyBhLWFmDj0B-mTrW5FqBOTZM3awnpFO5lU"
         });
       } else {
         console.log('Geocode was not successful for the following reason: ' + status);

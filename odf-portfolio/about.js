@@ -5,7 +5,7 @@ if(Meteor.isClient){
       //   Session.set('info',res);
       // });
       // return Session.get('info');
-      var res = Info.findOne(); 
+      var res = Info.findOne();
       Session.set('info',res);
       return res;
     },
@@ -58,6 +58,10 @@ if(Meteor.isClient){
       Info.update(info._id,{
         $set: {history:{text: history, align: align}}
       });
+    },
+    'click .delete-about-img':function(event, template){
+      var id = event.target.getAttribute('imgId');
+      Images.remove(id);
     }
   });
 }
