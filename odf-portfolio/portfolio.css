@@ -666,6 +666,17 @@ i.project-icon{
     border-width: 2px;
     cursor: pointer;
 }
+.index-form{
+	width: 30px;
+    padding: 1px 10px;
+    display: inline;
+}
+.currenttrue{
+	display: block;
+}
+.currentfalse{
+	display: inline;
+}
 /*
 [visible = "false"]{
 	display: none;

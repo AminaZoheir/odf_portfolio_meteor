@@ -1,7 +1,7 @@
 if(Meteor.isClient){
   Template.projectPage.helpers({
     photos: function(){
-      return Images.find({project: this._id});
+      return Images.find({project: this._id}, {sort: {indexInProj: 1}});
     },
     ishome: function(){
       console.log(this);
@@ -10,6 +10,13 @@ if(Meteor.isClient){
     },
     isAlign: function(align){
       return(this.desc.align == align);
+    },
+    user: function(){
+      if(Meteor.userId){
+        return true;
+      }else{
+        return false;
+      }
     }
   });
 
@@ -71,6 +78,13 @@ if(Meteor.isClient){
           $set: {portrait: true}
         });
       }
+    },
+    'keyup .index-form': function(event, template){
+      console.log("Amina");
+      console.log(this);
+      Images.update(this._id,{
+        $set: {indexInProj: event.target.value}
+      });
     }
   });
 }
