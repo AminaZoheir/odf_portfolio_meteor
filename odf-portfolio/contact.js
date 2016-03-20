@@ -92,7 +92,8 @@ if(Meteor.isClient){
   function createMap(address){
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 13,
-      center: {lat: -34.397, lng: 150.644}
+      center: {lat: -34.397, lng: 150.644},
+      key: "AIzaSyBhLWFmDj0B-mTrW5FqBOTZM3awnpFO5lU"
     });
     var geocoder = new google.maps.Geocoder();
     geocoder.geocode({'address': address}, function(results, status) {
@@ -101,7 +102,8 @@ if(Meteor.isClient){
         var marker = new google.maps.Marker({
           map: map,
           position: results[0].geometry.location,
-          width: 350 // zy fl .css file
+          width: 350, // zy fl .css file
+          key: "AIzaSyBhLWFmDj0B-mTrW5FqBOTZM3awnpFO5lU" 
         });
       } else {
         console.log('Geocode was not successful for the following reason: ' + status);

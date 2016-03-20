@@ -50,9 +50,9 @@
 							<input class="proj-align" type="radio" name="proj-align" checked="{{isAlign 'align-right'}}" value="align-right"> right
 							<input class="proj-align" type="radio" name="proj-align" checked="{{isAlign 'align-center'}}" value="align-center"> center
 						{{/if}}
-	<pre class="{{desc.align}}">
-		{{desc.text}}
-	</pre>
+						<p class="{{desc.align}}">
+							{{desc.text}}
+						</p>
 					</div>
 				</div>
 			</div>
@@ -60,8 +60,8 @@
 				<div id="project-carousel" class="carousel slide fill-parent">
 					<div class="carousel-inner fill-parent" role="listbox">
 						{{#each indexedArray photos}}
-					      {{#if ishome}}
-					      <!-- {{#if First _index}} -->
+					      <!-- {{#if ishome}} -->
+					      {{#if First _index}}
 					      	<div class="item active fill-parent {{#if portrait}}portrait-item{{/if}}">
 					      		{{#if isImage}}
 						    		<img src="{{url}}" class="project-page-image fill-parent {{#if portrait}} prortrait-image{{/if}}"/>
