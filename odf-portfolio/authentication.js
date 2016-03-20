@@ -17,6 +17,7 @@ if (Meteor.isClient) {
 	Template.login.events({
 	    'submit form': function(event) {
 	        event.preventDefault();
+	        document.getElementById('error').innerHTML = "";
 	        var emailVar = event.target.loginEmail.value;
 	        var passwordVar = event.target.loginPassword.value;
 	        console.log("Form submitted.");
