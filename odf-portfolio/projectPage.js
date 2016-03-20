@@ -12,11 +12,14 @@ if(Meteor.isClient){
       return(this.desc.align == align);
     },
     user: function(){
-      if(Meteor.userId){
+      if(Meteor.userId()){
         return true;
       }else{
         return false;
       }
+    },
+    First: function(index){
+      return index == 0;
     }
   });
 

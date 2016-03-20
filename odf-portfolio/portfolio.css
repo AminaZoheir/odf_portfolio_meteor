@@ -674,8 +674,11 @@ i.project-icon{
 .currenttrue{
 	display: block;
 }
-.currentfalse{
+.current{
 	display: inline;
+}
+#error{
+	color: red;
 }
 /*
 [visible = "false"]{
