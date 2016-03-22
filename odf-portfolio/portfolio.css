@@ -680,6 +680,13 @@ i.project-icon{
 #error{
 	color: red;
 }
+.delete-sketches{
+	position:absolute;
+	left:25%;
+}
+.modal-img{
+	width:100%;
+}
 /*
 [visible = "false"]{
 	display: none;
