@@ -8,6 +8,11 @@ if(Meteor.isClient){
         createMap(res.contacts[0].address);
       }
     });
+    $('document').ready(function(){
+      $('img').contextmenu(function(e){
+        e.preventDefault();
+      })
+    });
   };
   Template.contact.helpers({
     info: function(){

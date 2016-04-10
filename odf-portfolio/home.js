@@ -9,5 +9,10 @@ if(Meteor.isClient){
   });
 	Template.home.rendered = function () {
 		this.$('#home-carousel').carousel();
+    $('document').ready(function(){
+      $('img').contextmenu(function(e){
+        e.preventDefault();
+      })
+    });
 	};
 }

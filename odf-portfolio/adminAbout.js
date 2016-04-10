@@ -32,7 +32,6 @@ if(Meteor.isClient){
 };
   Template.adminAbout.helpers({
     info: function(){
-      console.log(Session.get('info'));
       return Session.get('info');
     },
     photo: function(){

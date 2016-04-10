@@ -6,20 +6,6 @@ if(Meteor.isClient){
 		  })
 		});
 	};
-	Template.contact.rendered = function () {
-		$('document').ready(function(){
-		  $('img').contextmenu(function(e){
-		    e.preventDefault();
-		  })
-		});
-	};
-	Template.home.rendered = function () {
-		$('document').ready(function(){
-		  $('img').contextmenu(function(e){
-		    e.preventDefault();
-		  })
-		});
-	};
 	Template.mobileproject.rendered = function () {
 		$('document').ready(function(){
 		  $('img').contextmenu(function(e){
