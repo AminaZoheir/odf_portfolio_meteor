@@ -687,6 +687,15 @@ i.project-icon{
 .modal-img{
 	width:100%;
 }
+.project-carousel-control-left{
+	left:35%;
+	top: 75%;
+}
+.project-carousel-control-right{
+	right:35%;
+	left: inherit;
+	top: 75%;
+}
 /*
 [visible = "false"]{
 	display: none;
